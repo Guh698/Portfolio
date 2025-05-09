@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/eed7473860.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- CSS -->
     <link
       rel="stylesheet"
@@ -11,265 +19,245 @@
     />
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <link rel="shortcut icon" href="imgs/BlackLogo.png" type="image/x-icon" />
-    <!--Fontawesome-->
-    <script
-      src="https://kit.fontawesome.com/eed7473860.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Portifólio</title>
+    <link rel="shortcut icon" href="img/parisicon.png" type="image/x-icon" />
+    <title>CloudParis</title>
   </head>
   <body>
-    <script src="script.js"></script>
-    <div class="cursor-spotlight" id="cursor-spotlight"></div>
-    <header>
-      <div class="nav-container" id="nav-container">
+    <div class="container" data-scroll-container>
+      <!--nav-->
+      <a href="#" id="Home-top"></a>
+      <div class="navbar-container">
         <nav>
-          <div class="nav-items-container">
-            <div class="nav-logo-container">
-              <div class="logo" id="logo">
-                <a href="index.html"><img src="imgs/BlackLogo.png" /></a>
-                <div class="text-logo">
-                  <p class="my-name">Luiz Gustavo</p>
-                  <p class="my-job">Front-end developer</p>
-                </div>
-              </div>
-            </div>
-            <div class="nav-mid-tab-container">
-              <div class="mid-tab">
-                <ul class="navbar-items">
-                  <li class="option1">
-                    <a href="#about">ABOUT</a>
-                    <div class="linha1"></div>
-                  </li>
-                  <li class="option2">
-                    <a href="#workTab">WORK</a>
-                    <div class="linha2"></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="nav-contact-container">
-              <div class="nav-contact">
-                <ul>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
-                      target="_blank"
-                      >Linkedin</a
-                    ><i class="fa-solid fa-arrow-right-long"></i>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/guhs_32/" target="_blank"
-                      >Instagram</a
-                    ><i class="fa-solid fa-arrow-right-long"></i>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <a href="#"><img class="logo" src="img/parisicon.png" alt="" /></a>
+          <ul class="navbar-items">
+            <li>
+              <a href="#home"
+                >Home
+                <div class="linha"></div
+              ></a>
+            </li>
+            <li>
+              <a href="#plans"
+                >Planos
+                <div class="linha"></div
+              ></a>
+            </li>
+            <li>
+              <a href="#contact-container"
+                >Contato
+                <div class="linha"></div
+              ></a>
+            </li>
+            <li>
+              <a href="#" class="default-btn"
+                >Login
+                <div class="linha"></div
+              ></a>
+            </li>
+          </ul>
         </nav>
       </div>
-    </header>
-    <div class="main-container" data-scroll-container>
-      <main>
-        <div class="main-page page" id="main-page">
-          <div class="apresentation-container" id="about">
-            <div class="FirstMiddlePart-container">
-              <div class="FirstMiddlePart">
-                <div class="title">
-                  <h2 class="Luiz">
-                    <span>L</span><span>u</span><span>i</span><span>z</span>
-                  </h2>
-                  <h2 class="Gustavo">
-                    <span>G</span><span>u</span><span>s</span><span>t</span
-                    ><span>a</span><span>v</span><span>o</span>
-                  </h2>
-                </div>
-                <div class="text">
-                  <p>
-                    Hi! I'm Brazilian, and I've been building things with
-                    code—yes, even on a trusty old CCE Win 545B.
-                  </p>
-                </div>
+
+      <!--main-->
+      <div class="main-container">
+        <main>
+          <!--intro-->
+          <div class="intro-container">
+            <div class="name-container">
+              <div class="name_part1">
+                <h1>
+                  <span>C</span><span>L</span><span>O</span><span>U</span
+                  ><span>D</span>
+                </h1>
+              </div>
+              <div class="name_part2">
+                <h1>
+                  <span>P</span><span>A</span><span>R</span><span>I</span
+                  ><span>S</span>
+                </h1>
               </div>
             </div>
-            <div class="SecondMiddlePart">
-              <div class="banner"></div>
-            </div>
-          </div>
-          <a href="#" id="workTab"></a>
-          <div class="work-container" id="work" data-scroll>
-            <div class="workPart">
-              <div class="title">work. .work. work.</div>
-              <div class="projects-show">
-                <section class="project1" id="project1-btn" data-scroll>
-                  <div class="project-desc">
-                    <div class="sub">
-                      <h2>Woode</h2>
-                      <p>Digital Showroom website</p>
-                    </div>
-                    <div class="arrowicon">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                  </div>
-                  <div class="browser-container">
-                    <div class="apple-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <img src="imgs/HomeWoode.png" alt="my-website" />
-                  </div>
-                </section>
-                <section class="project2" id="project2-btn" data-scroll>
-                  <div class="project-desc">
-                    <div class="sub">
-                      <h2>CloudParis</h2>
-                      <p>Institutional website</p>
-                    </div>
-                    <div class="arrowicon">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                  </div>
-                  <div class="browser-container">
-                    <div class="apple-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <img src="imgs/HomeCloudParis.png" alt="my-website" />
-                  </div>
-                </section>
-                <section class="project3" id="project3-btn" data-scroll>
-                  <div class="project-desc">
-                    <div class="sub">
-                      <h2>Café</h2>
-                      <p>Simple Coffee shop website</p>
-                    </div>
-                    <div class="arrowicon">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                  </div>
-                  <div class="browser-container">
-                    <div class="apple-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <img src="imgs/HomeCafe.png" alt="my-website" />
-                  </div>
-                </section>
-                <section class="project4" id="project4-btn" data-scroll>
-                  <div class="project-desc">
-                    <div class="sub">
-                      <h2>Finance Calculator</h2>
-                      <p>Simple Finance Calculator</p>
-                    </div>
-                    <div class="arrowicon">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                  </div>
-                  <div class="browser-container">
-                    <div class="apple-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <img src="imgs/HomeCalc.png" alt="my-website" />
-                  </div>
-                </section>
+            <div class="intro-text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
+                architecto, voluptatum, voluptatibus expedita reprehenderit
+                dignissimos ea, atque tempore molestias cumque id! Quisquam,
+                reprehenderit.
+              </p>
+              <div class="text-sub">
+                <div class="finality">Institutional website by Guh</div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="project-page-container" id="project-page">
-          <div class="project-page">
-            <i class="fa-solid fa-arrow-left" id="arrowLeft"></i>
-            <section class="projectScreen">
-              <div class="project">
-                <div class="browser-container">
-                  <div class="apple-bar">
-                    <span></span><span></span><span></span>
-                  </div>
-                  <img src="" alt="my-website" id="projectImage1" />
-                </div>
-              </div>
-            </section>
-            <section class="overview">
-              <div class="ovw-FirstPart">
-                <div class="time">
-                  <h3>time</h3>
-                  <div class="timeText">
-                    <p id="text1"></p>
-                    <p class="text2" id="text2"></p>
-                  </div>
-                </div>
-                <div class="technologies">
-                  <h3>technologies</h3>
-                  <p>HTML</p>
-                  <p>CSS</p>
-                  <p>JavaScript</p>
-                </div>
-              </div>
-              <div class="ovw-SecondPart">
-                <h3>overview</h3>
+
+          <!--banner-->
+          <a href="#" id="home"></a>
+          <div class="main-banner">
+            <h1>CloudParis</h1>
+            <p>Os melhores planos para qualquer tipo de projeto</p>
+          </div>
+          <section class="specialties-container" data-scroll>
+            <ul>
+              <li>
+                <i class="fas fa-shield-alt"></i>
+                <h3>Segurança</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Autem, commodi quis repudiandae repellendus odit vel impedit
-                  aspernatur distinctio, maiores, officia dolorum nam!
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                  error vero totam reprehenderit consequatur quasi dolore sunt,
+                  adipisci repudiandae, provident possimus non itaque, rerum
+                  esse maxime incidunt maiores unde. Atque.
                 </p>
+              </li>
+              <li>
+                <i class="fas fa-rocket"></i>
+                <h3>Velocidade</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Nihil, amet rem voluptas et consequuntur repellendus saepe
-                  unde quia nam iusto aspernatur
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                  error vero totam reprehenderit consequatur quasi dolore sunt,
+                  adipisci repudiandae, provident possimus non itaque, rerum
+                  esse maxime incidunt maiores unde. Atque.
                 </p>
+              </li>
+              <li>
+                <i class="fas fa-comments"></i>
+                <h3>Suporte</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                  error vero totam reprehenderit consequatur quasi dolore sunt,
+                  adipisci repudiandae, provident possimus non itaque, rerum
+                  esse maxime incidunt maiores unde. Atque.
+                </p>
+              </li>
+            </ul>
+          </section>
+          <a href="#" id="plans"></a>
+          <section class="pricing-container" data-scroll>
+            <h1>Planos e Preços</h1>
+            <p>Selecione o plano perfeito para você</p>
+            <div class="plans-container">
+              <div class="plan">
+                <ul>
+                  <li class="price">R$15/mês</li>
+                  <li class="plan-name">Padrão</li>
+                  <li>2GB de espaço em disco</li>
+                  <li>10 Sub-domínios</li>
+                  <li>25 Contas de e-mail</li>
+                  <li>C-panel</li>
+                  <li>Suporte 24 /7</li>
+                  <li class="plan-btn">Selecionar</li>
+                </ul>
               </div>
-            </section>
-            <section class="projectScreenVideo">
-              <div class="project">
-                <div class="browser-container">
-                  <div class="apple-bar">
-                    <span></span><span></span><span></span>
-                  </div>
-                  <video
-                    class="meu-video"
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                    preload="none"
-                    id="projectVideo"
-                  >
-                    <source src="" type="video/mp4" />
-                  </video>
-                </div>
+              <div class="plan">
+                <ul>
+                  <li class="price">R$30/mês</li>
+                  <li class="plan-name">Dedicado</li>
+                  <li>5GB de espaço em disco</li>
+                  <li>30 Sub-domínios</li>
+                  <li>50 Contas de e-mail</li>
+                  <li>C-panel</li>
+                  <li>Suporte 24 /7</li>
+                  <li class="plan-btn">Selecionar</li>
+                </ul>
               </div>
-            </section>
-            <section class="projectScreenFrame">
-              <div class="project">
-                <div class="browser-container">
-                  <div class="apple-bar">
-                    <span></span><span></span><span></span>
-                  </div>
-                  <img
-                    src="imgs/catalog.png"
-                    alt="my-website"
-                    id="projectImage2"
-                  />
-                </div>
+              <div class="plan">
+                <ul>
+                  <li class="price recommended">R$50/mês</li>
+                  <li class="plan-name">Dedicado Plus</li>
+                  <li>10GB de espaço em disco</li>
+                  <li>100 Sub-domínios</li>
+                  <li>100 Contas de e-mail</li>
+                  <li>C-panel</li>
+                  <li>Suporte 24 /7</li>
+                  <li class="plan-btn recommended">Selecionar</li>
+                </ul>
               </div>
-            </section>
-            <section class="projectScreenFrame">
-              <div class="project">
-                <div class="browser-container">
-                  <div class="apple-bar">
-                    <span></span><span></span><span></span>
-                  </div>
-                  <img
-                    src="imgs/productPage.png"
-                    alt="my-website"
-                    id="projectImage3"
-                  />
-                </div>
+              <div class="plan">
+                <ul>
+                  <li class="price">R$100/mês</li>
+                  <li class="plan-name">Cloud</li>
+                  <li>20 GB de espaço em disco</li>
+                  <li>200 Sub-domínios</li>
+                  <li>200 Contas de e-mail</li>
+                  <li>C-panel</li>
+                  <li>Suporte 24 /7</li>
+                  <li class="plan-btn">Selecionar</li>
+                </ul>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
+          <section class="searchdomain-container" data-scroll>
+            <h2>Buscar um domínio</h2>
+            <p>Veja se o domínio que você deseja está disponível</p>
+            <form>
+              <input
+                type="text"
+                name="domain"
+                placeholder="Digite seu domínio desejado"
+              />
+              <input type="submit" value="Buscar Domínio" />
+            </form>
+          </section>
+          <section class="contact-container" data-scroll>
+            <h2>Entre em contato</h2>
+            <p>
+              Mande uma mensagem para nós conversármos sobre a melhor hospedagem
+              para o seu negócio.
+            </p>
+            <form
+              onsubmit="sendScheduling(event)"
+              action="https://formsubmit.co/go459103@gmail.com"
+              method="POST"
+            >
+              <input type="text" name="name" placeholder="Seu nome" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Seu e-mail"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Digite sua mensagem"
+                required
+              ></textarea>
+              <input
+                type="hidden"
+                name="_autoresponse"
+                value="Obrigado pelo agendamento! Entraremos em contato em breve."
+              />
+              <input type="submit" value="Enviar" />
+            </form>
+          </section>
+          <a href="#" id="contact-container"></a>
+        </main>
+      </div>
+      <footer>
+        <div class="home-btn">
+          <a href="#Home-top" class="back-to-home"
+            >back to home
+            <div class="linha"></div
+          ></a>
         </div>
-      </main>
+        <div class="contactIcons">
+          <ul class="MediaIcons">
+            <a href="https://www.instagram.com/guhs_32/" target="_blank"
+              ><li><i class="fa-brands fa-instagram"></i></li
+            ></a>
+            <a
+              href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
+              target="_blank"
+              ><li><i class="fa-brands fa-whatsapp"></i></li
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
+              target="_blank"
+              ><li><i class="fa-brands fa-linkedin-in"></i></li
+            ></a>
+          </ul>
+        </div>
+      </footer>
     </div>
-    <footer></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

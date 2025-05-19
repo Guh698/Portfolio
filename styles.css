@@ -534,8 +534,12 @@ scroll efects [data-scroll] {
   }
 
   .projectLink {
-    width: 200px;
+    max-width: 200px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     padding: 10px;
     border-radius: 0.8rem;
     text-decoration: none;
@@ -544,6 +548,10 @@ scroll efects [data-scroll] {
     font-weight: bold;
     transition: 0.5s ease;
     border: 1px solid #fff;
+  }
+
+  .fa-arrow-up-right-from-square {
+    display: none;
   }
 
   .projectLink:hover {
@@ -1130,6 +1138,10 @@ scroll efects [data-scroll] {
   .ovw-SecondPart p {
     font-size: 18px;
     text-align: left;
+  }
+
+  .fa-arrow-up-right-from-square {
+    display: block;
   }
 
   .carrossel {

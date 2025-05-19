@@ -1,0 +1,1256 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "SF Pro Display", "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+scroll efects [data-scroll] {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+[data-scroll].is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*animations*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arrowAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  10% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  25% {
+    opacity: 0;
+    transform: translateX(-130px);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateX(7px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+}
+@keyframes ShowNav {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 320px) {
+  /*nav container*/
+  header {
+    position: absolute;
+  }
+
+  .nav-desk-container {
+    display: none;
+  }
+
+  .nav-items-container {
+    display: none;
+  }
+
+  .nav-mobile {
+    position: relative;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    height: 90px;
+    width: 100vw;
+    color: #000;
+    z-index: 3;
+    animation: ShowNav 1s 0.3s ease 1 forwards;
+  }
+
+  .navLogo-mobile-container {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 90px;
+    color: #fff;
+  }
+
+  .navLogo-mobile-container .logoMbl {
+    display: flex;
+    align-items: center;
+  }
+
+  .navLogo-mobile-container img {
+    width: 100px;
+    margin-top: 8px;
+    display: flex;
+    align-self: center;
+  }
+
+  .navLogo-mobile-container .my-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  /*main*/
+  .main-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  main {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .main-page {
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+
+  .main-page.showOff {
+    display: none;
+  }
+
+  /*apresentation container*/
+  .apresentation-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .FirstMiddlePart-container {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .FirstMiddlePart .title {
+    position: relative;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    gap: 45px;
+    font-family: "Poppins", serif;
+    padding-left: 25px;
+    cursor: default;
+  }
+
+  .FirstMiddlePart .title h2 {
+    font-weight: bold;
+  }
+
+  .FirstMiddlePart .title .Gustavo {
+    margin-top: -90px;
+  }
+
+  .FirstMiddlePart .title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(90px);
+    animation: fadeIn 0.5s ease forwards;
+    font-weight: 700;
+  }
+
+  .title span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .title span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .title span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .title span:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .title span:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+  .title span:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+  .title span:nth-child(7) {
+    animation-delay: 0.6s;
+  }
+  .title span:nth-child(8) {
+    animation-delay: 0.7s;
+  }
+  .title span:nth-child(9) {
+    animation-delay: 0.8s;
+  }
+  .title span:nth-child(10) {
+    animation-delay: 0.9s;
+  }
+  .title span:nth-child(11) {
+    animation-delay: 1s;
+  }
+
+  .FirstMiddlePart .text {
+    position: absolute;
+    padding-right: 30px;
+    right: 0;
+    text-align: right;
+    width: 50%;
+    cursor: default;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 0.5s 0.8s ease forwards;
+  }
+
+  .SecondMiddlePart {
+    position: absolute;
+    top: 0;
+    margin-top: -90px;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .SecondMiddlePart .banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_700,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: ShowNav 1s ease 1 forwards;
+  }
+
+  /*work tab*/
+  .work-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 180px;
+    height: 100%;
+    width: 100vw;
+    background-color: #000;
+  }
+
+  .workPart .title {
+    position: absolute;
+    top: -75px;
+    color: #fff;
+    width: 100%;
+    height: auto;
+    font-size: 120px;
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+  }
+
+  /*projects-container*/
+  .projects-show {
+    display: flex;
+    gap: 50px;
+    padding-bottom: 100px;
+    flex-direction: column;
+  }
+
+  /*project tabs*/
+  .project1,
+  .project2,
+  .project3,
+  .project4,
+  .project5 {
+    position: relative;
+    outline-offset: -0.5px;
+    background: linear-gradient(180deg, #bebbbb63, #000);
+    background-color: #ffffff17;
+    border-radius: 20px 20px 0px 0px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  /*project info*/
+  .project-desc {
+    position: absolute;
+    top: 0;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+
+  .project-desc .sub {
+    padding-left: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-weight: 300;
+    flex-direction: column;
+  }
+
+  .arrowicon {
+    position: relative;
+    justify-content: end;
+    width: 100%;
+    right: 0;
+    margin-right: 25px;
+    font-size: 18px;
+    display: none;
+    transition: 0.3s ease;
+    color: #fff;
+    gap: 15px;
+    opacity: 0;
+  }
+
+  .fa-arrow-right {
+    font-size: 25px;
+  }
+
+  /*macOS style*/
+  .browser-container {
+    width: 90%;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .apple-bar {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    background: #212121;
+  }
+
+  .apple-bar span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f56;
+  }
+
+  .apple-bar span:nth-child(2) {
+    background: #ffbd2e;
+  } /* amarelo */
+  .apple-bar span:nth-child(3) {
+    background: #27c93f;
+  } /* verde */
+
+  .browser-container img {
+    width: 100%;
+  }
+
+  /*project pages*/
+  .project-page-container {
+    height: 100%;
+    width: 100vw;
+    background-color: #000;
+    display: none;
+  }
+
+  .project-page-container.show {
+    display: block;
+  }
+
+  .project-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .fa-arrow-left {
+    position: absolute;
+    left: 0;
+    margin-top: 97px;
+    margin-left: 30px;
+    background-color: #fff;
+    padding: 15px 16px;
+    border-radius: 50%;
+    color: #000;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  .projectScreen {
+    padding-top: 180px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .project {
+    position: relative;
+    width: 90%;
+    outline: 0.5px solid #ffffff4e;
+    outline-offset: -0.5px;
+    background: linear-gradient(180deg, transparent, #000000c2);
+    background-color: #ffffff17;
+    border-radius: 20px 20px 0px 0px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+
+  .project::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px 20px 0px 0px;
+    pointer-events: none;
+    outline: 0.5px solid #ffffff49;
+    outline-offset: -10px;
+  }
+
+  .overview {
+    display: flex;
+    height: auto;
+    width: 90%;
+    padding: 50px;
+    color: #fff;
+    cursor: default;
+  }
+
+  .ovw-FirstPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+  }
+
+  .ovw-FirstPart h3 {
+    font-weight: bold;
+  }
+
+  .ovw-FirstPart p {
+    font-weight: 400;
+    color: #ddd;
+    font-size: 15px;
+  }
+
+  .projectLink {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    font-weight: bold;
+    transition: 0.5s ease;
+    border: 1px solid #fff;
+  }
+
+  .projectLink:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .timeText {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .timeText .text2 {
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .ovw-SecondPart {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .ovw-SecondPart h3 {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .ovw-SecondPart p {
+    font-weight: 400;
+    color: #ddd;
+    font-size: 15px;
+    text-align: justify;
+  }
+
+  .carrossel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 0.5px solid #ffffff4e;
+    outline-offset: -0.5px;
+    background: linear-gradient(180deg, transparent, #000000c2);
+    background-color: #ffffff17;
+    border-radius: 20px 20px 0px 0px;
+    cursor: pointer;
+    pointer-events: none;
+  }
+
+  .carrossel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px 20px 0px 0px;
+    pointer-events: none;
+    outline: 0.5px solid #ffffff49;
+    outline-offset: -10px;
+  }
+
+  .project-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projectScreenVideo {
+    margin-top: 90px;
+    display: flex;
+    height: 350px;
+    justify-content: center;
+  }
+
+  .projectScreenFrame {
+    display: flex;
+    height: 350px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /*macOS style*/
+  .browser-container video {
+    width: 100%;
+  }
+
+  footer {
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+
+  .footerName {
+    text-align: center;
+    font-size: clamp(3rem, 22vw, 12rem);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .linha {
+    width: 80%;
+    height: 1px;
+    background-color: #fff;
+  }
+
+  .contactIcons {
+    padding: 15px;
+  }
+
+  .contactIcons ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .contactIcons a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .contactIcons ul li {
+    display: flex;
+    position: relative;
+    padding: 13px 15px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .contactIcons ul a li {
+    color: #fff;
+    transition: 0.5s ease;
+  }
+
+  .contactIcons ul a:hover li {
+    color: #000;
+  }
+
+  .contactIcons ul li:hover {
+    background-color: #fff;
+  }
+
+  .backToTop {
+    text-align: center;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logoMbl .text-logo .my-name {
+    font-size: 24px;
+  }
+
+  .FirstMiddlePart .title {
+    font-size: 65px;
+  }
+
+  .FirstMiddlePart .text {
+    font-size: 20px;
+  }
+
+  .SecondMiddlePart .banner {
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_700,h_600,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
+  }
+
+  .workPart .title {
+    font-size: 160px;
+    text-align: center;
+    margin-top: -30px;
+  }
+
+  /*work tab*/
+  .workPart {
+    width: 90%;
+  }
+
+  .project1,
+  .project2,
+  .project3,
+  .project4,
+  .project5 {
+    height: 500px;
+    transition: 0.5s ease;
+  }
+
+  .project {
+    height: 500px;
+  }
+
+  .timeText {
+    flex-direction: row;
+  }
+
+  .ovw-SecondPart {
+    gap: 30px;
+  }
+
+  .ovw-SecondPart h3 {
+    text-align: left;
+  }
+
+  .ovw-SecondPart p {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .projectScreenVideo {
+    margin-bottom: 50px;
+  }
+
+  .projectScreenFrame {
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cursor-spotlight {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999999;
+    transform: translate(-50%, -50%);
+    backdrop-filter: invert(1) brightness(2);
+    -webkit-backdrop-filter: invert(1) brightness(2);
+    transition: backdrop-filter 0.3s ease;
+    mix-blend-mode: normal;
+  }
+
+  /*nav container*/
+  header {
+    position: relative;
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-desk-container {
+    display: block;
+  }
+
+  .nav-container {
+    height: 90px;
+    width: 100vw;
+  }
+
+  .nav-container.show {
+    background-color: #000;
+    color: #fff;
+
+    .nav-contact ul li a {
+      color: #fff;
+    }
+
+    .mid-tab ul li a {
+      display: none;
+    }
+  }
+
+  .nav-items-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linha1,
+  .linha2 {
+    position: absolute;
+    background-color: #000;
+    width: 0;
+    margin-top: 20px;
+    height: 1px;
+    transition: 0.2s ease-in-out;
+  }
+
+  /*nav logo*/
+  .nav-logo-container {
+    width: 300px;
+  }
+
+  .nav-logo-container .logo {
+    display: flex;
+    align-items: center;
+    cursor: default;
+  }
+
+  .nav-logo-container .logo img {
+    width: 95px;
+    height: 90px;
+  }
+
+  .my-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .my-job {
+    font-size: 14px;
+  }
+
+  /*nav middle tab*/
+  .mid-tab ul {
+    display: flex;
+    gap: 10px;
+  }
+
+  .mid-tab ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .option1 {
+    position: relative;
+    width: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .option1:hover {
+    .linha1 {
+      width: 100%;
+    }
+  }
+
+  .option2 {
+    position: relative;
+    width: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .option2:hover {
+    .linha2 {
+      width: 100%;
+    }
+  }
+
+  /*nav contact container*/
+  .nav-contact-container {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-contact ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+
+  .nav-contact ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    padding: 5px 0px;
+  }
+
+  .fa-arrow-right-long {
+    margin-top: 2px;
+  }
+
+  .nav-contact ul li:hover {
+    .fa-arrow-right-long {
+      animation: arrowAnimation 0.5s 0.1s ease-in-out 1;
+    }
+  }
+
+  .nav-contact ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  /*main*/
+  /*apresentation container*/
+  .apresentation-container {
+    flex-direction: row;
+  }
+
+  .FirstMiddlePart-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+  }
+
+  .FirstMiddlePart {
+    height: 100%;
+  }
+
+  .FirstMiddlePart .title {
+    font-size: 90px;
+  }
+
+  .FirstMiddlePart .title .Gustavo {
+    margin-top: -90px;
+  }
+
+  .FirstMiddlePart .title span {
+    transform: translateY(10px);
+  }
+
+  .FirstMiddlePart .text {
+    font-size: 16px;
+  }
+
+  .SecondMiddlePart {
+    right: 0;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .SecondMiddlePart .banner {
+    width: 90%;
+    height: 70%;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_700,h_600,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
+    border-radius: 30px;
+    animation: fade-left 0.5s 1.1s ease-in-out forwards;
+  }
+
+  /*work tab*/
+  .workPart {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*project tabs*/
+  .project1,
+  .project2,
+  .project3,
+  .project4,
+  .project5 {
+    height: 500px;
+    transition: 0.5s ease;
+  }
+
+  .arrowicon {
+    display: flex;
+  }
+
+  .project1::before,
+  .project2::before,
+  .project3::before,
+  .project4::before,
+  .project5::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px 20px 0px 0px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 1) 99%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .project1:hover {
+    background-color: #71503a;
+    .browser-container {
+      transform: translateY(-15px);
+    }
+    .arrowicon {
+      opacity: 1;
+    }
+  }
+
+  .project2:hover {
+    background-color: #383b28;
+    .browser-container {
+      transform: translateY(-15px);
+    }
+    .arrowicon {
+      opacity: 1;
+    }
+  }
+
+  .project3:hover {
+    background-color: rgb(132, 132, 210);
+    .browser-container {
+      transform: translateY(-15px);
+    }
+    .arrowicon {
+      opacity: 1;
+    }
+  }
+
+  .project4:hover {
+    background-color: #ac9794;
+    .browser-container {
+      transform: translateY(-15px);
+    }
+    .arrowicon {
+      opacity: 1;
+    }
+  }
+
+  .project5:hover {
+    background-color: #7549e6;
+    .browser-container {
+      transform: translateY(-15px);
+    }
+    .arrowicon {
+      opacity: 1;
+    }
+  }
+
+  /*macOS style*/
+  .browser-container {
+    width: 80%;
+  }
+
+  .apple-bar {
+    background: #333;
+  }
+
+  /*project page*/
+  .fa-arrow-left {
+    margin-top: 30px;
+  }
+
+  .fa-arrow-left:hover {
+    transform: translateX(-7px);
+  }
+
+  .projectScreen {
+    padding-top: 90px;
+  }
+
+  .project {
+    width: 60%;
+    height: 500px;
+  }
+
+  .overview {
+    width: 60%;
+  }
+
+  .ovw-FirstPart p {
+    font-size: 18px;
+  }
+
+  .timeText {
+    flex-direction: row;
+  }
+
+  .ovw-SecondPart {
+    gap: 30px;
+  }
+
+  .ovw-SecondPart h3 {
+    text-align: left;
+  }
+
+  .ovw-SecondPart p {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .carrossel {
+    width: 60%;
+  }
+
+  /*macOS style*/
+  .browser-container video {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .nav-container {
+    height: 120px;
+  }
+
+  /*nav logo*/
+  .nav-logo-container {
+    width: auto;
+  }
+
+  .nav-logo-container .logo img {
+    width: 130px;
+    height: 120px;
+  }
+
+  .my-name {
+    font-size: 34px;
+  }
+
+  .my-job {
+    font-size: 20px;
+  }
+
+  .option1 {
+    font-size: 22px;
+  }
+
+  .option2 {
+    font-size: 22px;
+  }
+
+  .linha1,
+  .linha2 {
+    margin-top: 30px;
+  }
+
+  /*nav contact container*/
+  /*nav contact container*/
+  .nav-contact-container {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-contact ul li {
+    font-size: 22px;
+  }
+
+  /*main*/
+  .FirstMiddlePart .title {
+    font-size: 120px;
+  }
+
+  .SecondMiddlePart .banner {
+    border-radius: 45px;
+  }
+
+  .FirstMiddlePart .text {
+    font-size: 20px;
+  }
+
+  /*project info*/
+  .project-desc {
+    font-size: 24px;
+  }
+
+  /*project tabs*/
+  .project1,
+  .project2,
+  .project3,
+  .project4 {
+    height: 700px;
+    margin-bottom: 60px;
+  }
+
+  .fa-arrow-left {
+    padding: 25px 26px;
+    font-size: 24px;
+  }
+
+  .project {
+    width: 85%;
+    height: 700px;
+  }
+
+  .ovw-SecondPart h3,
+  .ovw-FirstPart h3 {
+    font-size: 26px;
+  }
+
+  .ovw-FirstPart p,
+  .ovw-SecondPart p {
+    font-size: 22px;
+  }
+
+  .projectScreenVideo {
+    height: 550px;
+  }
+
+  .projectScreenFrame {
+    height: 550px;
+  }
+
+  .footerName {
+    font-size: clamp(3rem, 25vw, 18rem);
+  }
+
+  .backToTop {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- ScrollSmoother requires ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <link rel="shortcut icon" href="imgs/BlackLogo.png" type="image/x-icon" />
+    <!--Fontawesome-->
+    <script
+      src="https://kit.fontawesome.com/eed7473860.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Portfolio | Luiz Gustavo - Front-End Developer"</title>
+  </head>
+  <body>
+    <div class="content" id="smooth-wrapper">
+      <div id="smooth-content">
+        <script src="script.js"></script>
+        <header>
+          <div class="nav-container" id="nav-container">
+            <nav id="sectionNav">
+              <div class="nav-desk-container">
+                <div class="nav-items-container">
+                  <div class="nav-logo-container">
+                    <div class="logo" id="logo">
+                      <a href="index.html"><img src="imgs/BlackLogo.png" /></a>
+                      <div class="text-logo">
+                        <p class="my-name">Luiz Gustavo</p>
+                        <p class="my-job">Front-end developer</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nav-mid-tab-container">
+                    <div class="mid-tab">
+                      <ul class="navbar-items">
+                        <li class="option1 scroll-link" data-scroll="section1">
+                          <a href="#about">ABOUT</a>
+                          <div class="linha1"></div>
+                        </li>
+                        <li class="option2 scroll-link" data-scroll="section2">
+                          <a href="#workTab">WORK</a>
+                          <div class="linha2"></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="nav-contact-container">
+                    <div class="nav-contact">
+                      <ul>
+                        <li>
+                          <a
+                            href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
+                            target="_blank"
+                            >Linkedin</a
+                          ><i class="fa-solid fa-arrow-right-long"></i>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.instagram.com/guhs_32/"
+                            target="_blank"
+                            >Instagram</a
+                          ><i class="fa-solid fa-arrow-right-long"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-mbl-container">
+                <div class="nav-mobile">
+                  <div class="navLogo-mobile-container">
+                    <div class="logoMbl" id="logo">
+                      <a href="index.html"><img src="imgs/WhiteLogo.png" /></a>
+                      <div class="text-logo">
+                        <p class="my-name">Luiz Gustavo</p>
+                        <p class="my-job">Front-end developer</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <div class="main-container">
+          <main>
+            <div class="main-page page" id="main-page">
+              <section class="apresentation-container" id="section1">
+                <div class="FirstMiddlePart-container">
+                  <div class="FirstMiddlePart">
+                    <div class="title">
+                      <h1 class="Luiz">
+                        <span>L</span><span>u</span><span>i</span><span>z</span>
+                      </h1>
+                      <h2 class="Gustavo">
+                        <span>G</span><span>u</span><span>s</span><span>t</span
+                        ><span>a</span><span>v</span><span>o</span>
+                      </h2>
+                    </div>
+                    <div class="text">
+                      <p>
+                        Hi! I'm Brazilian, and I've been building things with
+                        code—yes, even on a trusty old CCE Win 545B.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="SecondMiddlePart">
+                  <div class="banner"></div>
+                </div>
+              </section>
+              <div class="work-container" id="section2">
+                <section class="workPart">
+                  <h2 class="title">work.</h2>
+                  <div class="projects-show">
+                    <article class="project1" id="project1-btn">
+                      <div class="project-desc">
+                        <div class="sub">
+                          <h2>Woode</h2>
+                          <p>Digital Showroom/E-commerce website</p>
+                        </div>
+                        <div class="arrowicon">
+                          <p>see the case study</p>
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeWoode_ugxpyf.png"
+                          alt="my furniture website"
+                        />
+                      </div>
+                    </article>
+                    <article class="project2" id="project2-btn">
+                      <div class="project-desc">
+                        <div class="sub">
+                          <h2>Coddee & Coffing</h2>
+                          <p>Digital showroom website</p>
+                        </div>
+                        <div class="arrowicon">
+                          <p>see the case study</p>
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-09_Coddee_Coffing_p5azpu.png"
+                          alt="my cafe showroom plans Website"
+                        />
+                      </div>
+                    </article>
+                    <article class="project3" id="project3-btn">
+                      <div class="project-desc">
+                        <div class="sub">
+                          <h2>CloudParis</h2>
+                          <p>Institutional website</p>
+                        </div>
+                        <div class="arrowicon">
+                          <p>see the case study</p>
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCloudParis_kozmcz.png"
+                          alt="my hosting plans Website"
+                        />
+                      </div>
+                    </article>
+                    <article class="project4" id="project4-btn">
+                      <div class="project-desc">
+                        <div class="sub">
+                          <h2>Café</h2>
+                          <p>Simple Coffee shop website</p>
+                        </div>
+                        <div class="arrowicon">
+                          <p>see the case study</p>
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCafe_tjm1gx.png"
+                          alt="my cafe website"
+                        />
+                      </div>
+                    </article>
+                    <article class="project5" id="project5-btn">
+                      <div class="project-desc">
+                        <div class="sub">
+                          <h2>Finance Calculator</h2>
+                          <p>Simple Finance Calculator</p>
+                        </div>
+                        <div class="arrowicon">
+                          <p>see the case study</p>
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCalc_ctzbnp.png"
+                          alt="my finance calcularor website"
+                        />
+                      </div>
+                    </article>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="project-page-container" id="project-page">
+              <div class="project-page">
+                <i class="fa-solid fa-arrow-left" id="arrowLeft"></i>
+                <section class="projectScreen">
+                  <div class="project">
+                    <div class="browser-container">
+                      <div class="apple-bar">
+                        <span></span><span></span><span></span>
+                      </div>
+                      <img src="" alt="my-website" id="projectImage1" />
+                    </div>
+                  </div>
+                </section>
+                <section class="overview">
+                  <div class="ovw-FirstPart">
+                    <div class="time">
+                      <h3>time</h3>
+                      <div class="timeText">
+                        <p id="text1"></p>
+                        <p class="text2" id="text2"></p>
+                      </div>
+                    </div>
+                    <div class="technologies">
+                      <h3>technologies</h3>
+                      <p>HTML</p>
+                      <p>CSS</p>
+                      <p>JavaScript</p>
+                    </div>
+                  </div>
+                  <div class="ovw-SecondPart">
+                    <h3>overview</h3>
+                    <p id="paragraph1"></p>
+                    <p id="paragraph2"></p>
+                    <a href="" class="projectLink" id="projectLink"
+                      >Visit my website
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </div>
+                </section>
+                <div class="carrossel">
+                  <section class="projectScreenVideo">
+                    <div class="project-screen">
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <video
+                          class="meu-video"
+                          autoplay
+                          loop
+                          muted
+                          playsinline
+                          preload="none"
+                          id="projectVideo"
+                        >
+                          <source src="" type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="projectScreenFrame">
+                    <div class="project-screen">
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="imgs/catalog.png"
+                          alt="my-website"
+                          id="projectImage2"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                  <section class="projectScreenFrame">
+                    <div class="project-screen">
+                      <div class="browser-container">
+                        <div class="apple-bar">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <img
+                          src="imgs/productPage.png"
+                          alt="my-website"
+                          id="projectImage3"
+                        />
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <footer>
+          <div class="footerName">Gustavo</div>
+          <div class="linha"></div>
+          <div class="contactIcons">
+            <ul class="MediaIcons">
+              <a href="https://www.instagram.com/guhs_32/" target="_blank"
+                ><li><i class="fa-brands fa-instagram"></i></li
+              ></a>
+              <a
+                href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
+                target="_blank"
+                ><li><i class="fa-brands fa-whatsapp"></i></li
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
+                target="_blank"
+                ><li><i class="fa-brands fa-linkedin-in"></i></li
+              ></a>
+            </ul>
+          </div>
+          <div class="backToTop">
+            <p id="backToTop" class="scroll-link" data-scroll="sectionNav">
+              back to top
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <div class="cursor-spotlight" id="cursor-spotlight"></div>
+  </body>
+</html>

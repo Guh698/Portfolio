@@ -1,11 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Renti";
+  src: url("fonts/Rinter.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "SF Pro Display", "Poppins", sans-serif;
+  font-family: "Poppins", "Renti", sans-serif;
   font-weight: 500;
   font-style: normal;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -79,24 +89,26 @@ scroll efects [data-scroll] {
   }
 }
 
-@keyframes fade-left {
-  0% {
-    transform: translateX(100px);
+@keyframes imgAnim {
+  from {
     opacity: 0;
   }
 
-  50% {
-    transform: translateX(0);
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes imgAnim2 {
+  from {
+    width: 90px;
+    height: 130px;
     opacity: 1;
   }
 
-  75% {
-    transform: translateX(7px);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0px);
+  to {
+    width: 290px;
+    height: 340px;
     opacity: 1;
   }
 }
@@ -111,6 +123,7 @@ scroll efects [data-scroll] {
     opacity: 1;
   }
 }
+
 @keyframes ShowNav {
   from {
     opacity: 0;
@@ -120,56 +133,136 @@ scroll efects [data-scroll] {
   }
 }
 
-@media (min-width: 320px) {
-  /*nav container*/
-  header {
-    position: absolute;
+@keyframes ShowNav2 {
+  from {
+    transform: translateY(300px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes scrollSpacerAnim {
+  from {
+    height: 200vh;
   }
 
-  .nav-desk-container {
-    display: none;
+  to {
+    height: 0;
+  }
+}
+
+@media (min-width: 320px) {
+  /*nav container*/
+  .nav-items-container {
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: ShowNav 1s 0.3s ease 1 forwards;
+  }
+
+  .nav-logo-container .logo {
+    display: flex;
+    align-items: center;
+    cursor: default;
+  }
+
+  .nav-logo-container .logo img {
+    display: flex;
+    margin-top: 5px;
+    width: 95px;
+    height: 90px;
+  }
+
+  /*nav logo*/
+  .nav-logo-container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 90px;
+    width: 300px;
+    color: #fff;
+    opacity: 0;
+    animation: ShowNav 1s 0.3s ease 1 forwards;
+  }
+
+  .my-name {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .my-job {
+    font-size: 1rem;
   }
 
   .nav-items-container {
     display: none;
   }
 
-  .nav-mobile {
-    position: relative;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    height: 90px;
-    width: 100vw;
-    color: #000;
-    z-index: 3;
-    animation: ShowNav 1s 0.3s ease 1 forwards;
-  }
-
-  .navLogo-mobile-container {
-    display: flex;
-    align-items: center;
-    width: 300px;
-    height: 90px;
+  .nav-contact ul li a {
     color: #fff;
   }
 
-  .navLogo-mobile-container .logoMbl {
+  /*Hero*/
+  .InitialHero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
     display: flex;
-    align-items: center;
+    background-color: #000;
+    color: #fff;
   }
 
-  .navLogo-mobile-container img {
-    width: 100px;
-    margin-top: 8px;
-    display: flex;
-    align-self: center;
+  .InitialHero.removeShow {
+    display: none;
   }
 
-  .navLogo-mobile-container .my-name {
-    font-size: 20px;
-    font-weight: bold;
+  .InitialHero span {
+    position: absolute;
+    display: inline-block;
+    padding-left: 100%;
+    will-change: transform;
+    bottom: 0;
+    font-family: "Renti";
+    font-size: 22rem;
+    opacity: 0;
+    animation: ShowNav 1s 0.3s ease 1 forwards;
+  }
+
+  .InitialTextCase {
+    position: absolute;
+    height: 90px;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    animation: ShowNav 1s 0.3s ease 1 forwards;
+    overflow: hidden;
+  }
+
+  .InitialText {
+    font-family: "Renti";
+    transform: translateY(200px);
+    text-align: center;
+    font-size: 1.6rem;
+    overflow: hidden;
+    transition: 1s ease-in-out;
+    height: auto;
+    animation: ShowNav2 1s 0.3s ease 1 forwards;
+  }
+
+  .FinalHero {
+    display: none;
+    opacity: 0;
+    animation: ShowNav 1s 0.3s ease 1 forwards;
+  }
+
+  .scrollSpacer {
+    display: none;
   }
 
   /*main*/
@@ -178,13 +271,8 @@ scroll efects [data-scroll] {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     width: 100%;
-  }
-
-  main {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    background-color: #000;
   }
 
   .main-page {
@@ -196,153 +284,50 @@ scroll efects [data-scroll] {
     display: none;
   }
 
-  /*apresentation container*/
-  .apresentation-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    background-color: #fff;
-  }
-
-  .FirstMiddlePart-container {
-    position: absolute;
-    top: 45%;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-  }
-
-  .FirstMiddlePart .title {
-    position: relative;
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    font-size: 50px;
-    gap: 45px;
-    font-family: "Poppins", serif;
-    padding-left: 25px;
-    cursor: default;
-  }
-
-  .FirstMiddlePart .title h2 {
-    font-weight: bold;
-  }
-
-  .FirstMiddlePart .title .Gustavo {
-    margin-top: -90px;
-  }
-
-  .FirstMiddlePart .title span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(90px);
-    animation: fadeIn 0.5s ease forwards;
-    font-weight: 700;
-  }
-
-  .title span:nth-child(1) {
-    animation-delay: 0s;
-  }
-  .title span:nth-child(2) {
-    animation-delay: 0.1s;
-  }
-  .title span:nth-child(3) {
-    animation-delay: 0.2s;
-  }
-  .title span:nth-child(4) {
-    animation-delay: 0.3s;
-  }
-  .title span:nth-child(5) {
-    animation-delay: 0.4s;
-  }
-  .title span:nth-child(6) {
-    animation-delay: 0.5s;
-  }
-  .title span:nth-child(7) {
-    animation-delay: 0.6s;
-  }
-  .title span:nth-child(8) {
-    animation-delay: 0.7s;
-  }
-  .title span:nth-child(9) {
-    animation-delay: 0.8s;
-  }
-  .title span:nth-child(10) {
-    animation-delay: 0.9s;
-  }
-  .title span:nth-child(11) {
-    animation-delay: 1s;
-  }
-
-  .FirstMiddlePart .text {
-    position: absolute;
-    padding-right: 30px;
-    right: 0;
-    text-align: right;
-    width: 50%;
-    cursor: default;
-    transform: translateY(20px);
-    opacity: 0;
-    animation: fadeIn 0.5s 0.8s ease forwards;
-  }
-
-  .SecondMiddlePart {
-    position: absolute;
-    top: 0;
-    margin-top: -90px;
-    width: 100%;
-    height: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .SecondMiddlePart .banner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_700,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: ShowNav 1s ease 1 forwards;
-  }
-
   /*work tab*/
   .work-container {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    padding-top: 180px;
-    height: 100%;
-    width: 100vw;
+    height: auto;
+    width: 100%;
     background-color: #000;
   }
 
+  .workPart {
+    width: 90%;
+  }
+
+  .WorkTitleCase {
+    margin-top: 15vh;
+    height: 130px;
+    overflow: hidden;
+  }
+
   .workPart .title {
-    position: absolute;
-    top: -75px;
     color: #fff;
     width: 100%;
     height: auto;
     font-size: 120px;
-    font-family: "Poppins", serif;
+    font-family: "Renti";
     font-weight: bold;
     text-align: center;
     cursor: default;
+    overflow: hidden;
+    transition: 1s ease-in-out;
   }
 
   /*projects-container*/
   .projects-show {
+    position: relative;
+    margin-top: 150px;
+    margin-bottom: 150px;
     display: flex;
-    gap: 50px;
-    padding-bottom: 100px;
+    gap: 90px;
+    align-items: center;
     flex-direction: column;
+    width: 100%;
   }
 
   /*project tabs*/
@@ -352,55 +337,139 @@ scroll efects [data-scroll] {
   .project4,
   .project5 {
     position: relative;
-    outline-offset: -0.5px;
-    background: linear-gradient(180deg, #bebbbb63, #000);
-    background-color: #ffffff17;
-    border-radius: 20px 20px 0px 0px;
-    height: 350px;
+    height: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: center;
     cursor: pointer;
+    transition: 0.5s ease;
+    transform: translateY(100px);
   }
 
-  /*project info*/
-  .project-desc {
-    position: absolute;
-    top: 0;
-    justify-content: space-around;
+  .projectContent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
     width: 100%;
-    margin-top: 20px;
+  }
+
+  .ServiceName {
     display: flex;
     align-items: center;
-    color: #fff;
-  }
-
-  .project-desc .sub {
+    justify-content: center;
+    width: auto;
     padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    font-size: 4rem;
+    font-family: "Renti";
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.468);
+  }
+
+  .project1 .projectContent::before {
+    content: "";
+    position: absolute;
     width: 100%;
+    min-width: 100%;
     height: 100%;
-    display: flex;
-    font-weight: 300;
-    flex-direction: column;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/banner_fjphfo.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: -1;
   }
 
-  .arrowicon {
-    position: relative;
-    justify-content: end;
+  .project1 .projectContent::after {
+    content: "";
+    position: absolute;
     width: 100%;
-    right: 0;
-    margin-right: 25px;
-    font-size: 18px;
-    display: none;
-    transition: 0.3s ease;
-    color: #fff;
-    gap: 15px;
-    opacity: 0;
+    min-width: 100%;
+    height: 100%;
+    border: solid 1px #ffffff36;
+    z-index: -1;
   }
 
-  .fa-arrow-right {
-    font-size: 25px;
+  .project2 .projectContent {
+    background: linear-gradient(90deg, #ffffffd1, #ffffff82);
+    color: #fff;
+    font-size: 4rem;
+    font-family: "Renti";
+    font-weight: bold;
+  }
+
+  .project3 .projectContent::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_2000,c_fill/parisbanner_laxp3z.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  .project3 .projectContent::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    border: solid 1px #ffffff36;
+    z-index: -1;
+  }
+
+  .project4 .projectContent {
+    background: linear-gradient(90deg, #ffffffd1, #ffffff82);
+    color: #fff;
+    font-size: 4rem;
+    font-family: "Renti";
+    font-weight: bold;
+  }
+
+  .project5 .projectContent {
+    background: linear-gradient(90deg, #ffffffd1, #ffffff82);
+    color: #fff;
+    font-size: 4rem;
+    font-family: "Renti";
+    font-weight: bold;
+  }
+
+  .subContent {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    color: #fff;
+  }
+
+  .ServiceInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    padding-bottom: 15px;
+  }
+
+  .Sublinha {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    height: 1px;
+    width: 0;
+    transition: 0.8s ease-in-out;
+  }
+
+  .Sublinha.show {
+    width: 100%;
   }
 
   /*macOS style*/
@@ -440,10 +509,11 @@ scroll efects [data-scroll] {
 
   /*project pages*/
   .project-page-container {
-    height: 100%;
-    width: 100vw;
+    position: relative;
     background-color: #000;
     display: none;
+    height: 100%;
+    width: 100%;
   }
 
   .project-page-container.show {
@@ -451,11 +521,10 @@ scroll efects [data-scroll] {
   }
 
   .project-page {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: auto;
     width: 100%;
   }
 
@@ -470,6 +539,7 @@ scroll efects [data-scroll] {
     color: #000;
     transition: 0.3s ease;
     cursor: pointer;
+    font-size: 1.6rem;
   }
 
   .projectScreen {
@@ -525,6 +595,7 @@ scroll efects [data-scroll] {
 
   .ovw-FirstPart h3 {
     font-weight: bold;
+    font-size: 2rem;
   }
 
   .ovw-FirstPart p {
@@ -548,6 +619,7 @@ scroll efects [data-scroll] {
     font-weight: bold;
     transition: 0.5s ease;
     border: 1px solid #fff;
+    font-size: 1.6rem;
   }
 
   .fa-arrow-up-right-from-square {
@@ -580,6 +652,7 @@ scroll efects [data-scroll] {
   .ovw-SecondPart h3 {
     font-weight: bold;
     text-align: center;
+    font-size: 2rem;
   }
 
   .ovw-SecondPart p {
@@ -646,14 +719,22 @@ scroll efects [data-scroll] {
     align-items: center;
   }
 
+  .FooterNameCase {
+    height: 180px;
+    overflow: hidden;
+  }
+
   .footerName {
     text-align: center;
     font-size: clamp(3rem, 22vw, 12rem);
     letter-spacing: -0.02em;
+    transform: translateY(300px);
     white-space: nowrap;
     color: white;
     font-weight: bold;
     cursor: default;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
   }
 
   .linha {
@@ -664,6 +745,7 @@ scroll efects [data-scroll] {
 
   .contactIcons {
     padding: 15px;
+    font-size: 2rem;
   }
 
   .contactIcons ul {
@@ -722,11 +804,11 @@ scroll efects [data-scroll] {
     font-size: 24px;
   }
 
-  .FirstMiddlePart .title {
+  .FirstScreen .title {
     font-size: 65px;
   }
 
-  .FirstMiddlePart .text {
+  .FirstScreen .text {
     font-size: 20px;
   }
 
@@ -800,114 +882,66 @@ scroll efects [data-scroll] {
   }
 
   /*nav container*/
-  header {
-    position: relative;
-  }
-
-  .nav-mobile {
-    display: none;
-  }
-
-  .nav-desk-container {
-    display: block;
-  }
-
   .nav-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
     height: 90px;
-    width: 100vw;
-  }
-
-  .nav-container.show {
+    width: 100%;
     background-color: #000;
     color: #fff;
-
-    .nav-contact ul li a {
-      color: #fff;
-    }
-
-    .mid-tab ul li a {
-      display: none;
-    }
+    transition: 0s ease;
   }
 
   .nav-items-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
-  .linha1,
-  .linha2 {
-    position: absolute;
-    background-color: #000;
-    width: 0;
-    margin-top: 20px;
-    height: 1px;
-    transition: 0.2s ease-in-out;
-  }
+  .nav-container.show {
+    background-color: #f3e8d5;
 
-  /*nav logo*/
-  .nav-logo-container {
-    width: 300px;
-  }
+    .nav-contact ul li a {
+      color: #000;
+    }
+    .navLogo-mobile-container {
+      color: #000;
+    }
 
-  .nav-logo-container .logo {
-    display: flex;
-    align-items: center;
-    cursor: default;
-  }
+    .mid-tab ul li a {
+      color: #000;
+    }
 
-  .nav-logo-container .logo img {
-    width: 95px;
-    height: 90px;
+    .linha1,
+    .linha2 {
+      background-color: #000;
+    }
+
+    .my-name {
+      color: #000;
+    }
+
+    .my-job {
+      color: #000;
+    }
+
+    .fa-arrow-right-long {
+      color: #000;
+    }
   }
 
   .my-name {
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: bold;
   }
 
   .my-job {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
-
-  /*nav middle tab*/
-  .mid-tab ul {
-    display: flex;
-    gap: 10px;
-  }
-
-  .mid-tab ul li a {
-    color: #000;
-    text-decoration: none;
-  }
-
-  .option1 {
-    position: relative;
-    width: auto;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .option1:hover {
-    .linha1 {
-      width: 100%;
-    }
-  }
-
-  .option2 {
-    position: relative;
-    width: auto;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .option2:hover {
-    .linha2 {
-      width: 100%;
-    }
+  /*nav logo fixed container*/
+  .nav-logo-container {
+    top: 10px;
+    left: 10px;
   }
 
   /*nav contact container*/
@@ -929,6 +963,7 @@ scroll efects [data-scroll] {
     justify-content: center;
     align-items: center;
     gap: 3.5px;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: 0.3s ease;
     padding: 5px 0px;
@@ -946,64 +981,129 @@ scroll efects [data-scroll] {
 
   .nav-contact ul li a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
   }
 
   /*main*/
-  /*apresentation container*/
-  .apresentation-container {
-    flex-direction: row;
+  .InitialHero {
+    height: calc(100vh - 90px);
+    width: 100vw;
   }
 
-  .FirstMiddlePart-container {
+  .InitialText {
+    display: none;
+  }
+
+  .InitialHero span {
+    bottom: -60px;
+  }
+
+  /*space to animation div*/
+  .scrollSpacer {
+    height: 200vh;
+    background: #000;
+    transition: 0.2s ease;
+    display: block;
+  }
+
+  .scrollSpacer.removeShow {
+    background-color: #f3e8d5;
+    animation: scrollSpacerAnim 0s ease forwards;
+  }
+
+  /*animated hero*/
+  .FinalHero {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 90px;
+    top: 50vh;
+    width: 350px;
+    height: 90px;
+    background-color: #f3e8d5;
+    z-index: 1;
+  }
+
+  .FinalHero.removeShow {
+    display: none;
+  }
+
+  .FinalHero .introText {
+    font-size: 8rem;
+    margin-top: 1rem;
+    color: #000;
+    font-family: "Renti";
+    transition: 1s ease-in-out;
+  }
+
+  .FinalHero-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     height: 100%;
   }
 
-  .FirstMiddlePart {
+  .FinalHeroContent {
+    display: flex;
+    height: 100vh;
+  }
+
+  .OnepartScreen {
     height: 100%;
-  }
-
-  .FirstMiddlePart .title {
-    font-size: 90px;
-  }
-
-  .FirstMiddlePart .title .Gustavo {
-    margin-top: -90px;
-  }
-
-  .FirstMiddlePart .title span {
-    transform: translateY(10px);
-  }
-
-  .FirstMiddlePart .text {
-    font-size: 16px;
-  }
-
-  .SecondMiddlePart {
-    right: 0;
-    width: 50%;
-    height: 100%;
-    margin: 0;
-  }
-
-  .SecondMiddlePart .banner {
-    width: 90%;
-    height: 70%;
-    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_700,h_600,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
-    border-radius: 30px;
-    animation: fade-left 0.5s 1.1s ease-in-out forwards;
-  }
-
-  /*work tab*/
-  .workPart {
-    width: 60%;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .OnepartScreen.show {
+    width: 50%;
+  }
+
+  .FinalHeroText {
+    display: none;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 300px;
+  }
+
+  .FinalHeroText.show {
+    display: block;
+    animation: ShowNav 1s ease 1 forwards;
+  }
+
+  .TwoPartScreen {
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    display: none;
+  }
+
+  .TwoPartScreen.show {
+    display: flex;
+    animation: ShowNav 1s ease 1 forwards;
+  }
+
+  .FinalHeroContent .TwoPartScreen .banner {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    border-radius: 2em;
+    margin-right: 2rem;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_700,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  /*work tab*/
+  .work-container {
+    margin-top: 120vh;
   }
 
   /*project tabs*/
@@ -1012,80 +1112,14 @@ scroll efects [data-scroll] {
   .project3,
   .project4,
   .project5 {
-    height: 500px;
-    transition: 0.5s ease;
+    display: flex;
+    width: 80%;
+    height: 600px;
+    font-size: 6rem;
   }
 
   .arrowicon {
     display: flex;
-  }
-
-  .project1::before,
-  .project2::before,
-  .project3::before,
-  .project4::before,
-  .project5::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 20px 20px 0px 0px;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 20%,
-      rgba(0, 0, 0, 1) 99%
-    );
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .project1:hover {
-    background-color: #71503a;
-    .browser-container {
-      transform: translateY(-15px);
-    }
-    .arrowicon {
-      opacity: 1;
-    }
-  }
-
-  .project2:hover {
-    background-color: #383b28;
-    .browser-container {
-      transform: translateY(-15px);
-    }
-    .arrowicon {
-      opacity: 1;
-    }
-  }
-
-  .project3:hover {
-    background-color: rgb(132, 132, 210);
-    .browser-container {
-      transform: translateY(-15px);
-    }
-    .arrowicon {
-      opacity: 1;
-    }
-  }
-
-  .project4:hover {
-    background-color: #ac9794;
-    .browser-container {
-      transform: translateY(-15px);
-    }
-    .arrowicon {
-      opacity: 1;
-    }
-  }
-
-  .project5:hover {
-    background-color: #7549e6;
-    .browser-container {
-      transform: translateY(-15px);
-    }
-    .arrowicon {
-      opacity: 1;
-    }
   }
 
   /*macOS style*/
@@ -1133,6 +1167,7 @@ scroll efects [data-scroll] {
 
   .ovw-SecondPart h3 {
     text-align: left;
+    font-size: 2rem;
   }
 
   .ovw-SecondPart p {
@@ -1204,16 +1239,18 @@ scroll efects [data-scroll] {
   }
 
   /*main*/
-  .FirstMiddlePart .title {
-    font-size: 120px;
+  .InitialHero span {
+    bottom: 0;
   }
 
-  .SecondMiddlePart .banner {
-    border-radius: 45px;
+  /*animated hero*/
+  .FinalHero {
+    top: 50vh;
   }
 
-  .FirstMiddlePart .text {
-    font-size: 20px;
+  .FinalHeroNav .introLogo {
+    height: 120px;
+    padding: 2rem;
   }
 
   /*project info*/

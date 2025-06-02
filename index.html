@@ -14,6 +14,7 @@
     <!-- ScrollSmoother requires ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <link rel="shortcut icon" href="imgs/BlackLogo.png" type="image/x-icon" />
     <!--Fontawesome-->
     <script
@@ -25,35 +26,11 @@
   <body>
     <div class="content" id="smooth-wrapper">
       <div id="smooth-content">
-        <script src="script.js"></script>
         <header>
           <div class="nav-container" id="nav-container">
-            <nav id="sectionNav">
+            <nav>
               <div class="nav-desk-container">
                 <div class="nav-items-container">
-                  <div class="nav-logo-container">
-                    <div class="logo" id="logo">
-                      <a href="index.html"><img src="imgs/BlackLogo.png" /></a>
-                      <div class="text-logo">
-                        <p class="my-name">Luiz Gustavo</p>
-                        <p class="my-job">Front-end developer</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nav-mid-tab-container">
-                    <div class="mid-tab">
-                      <ul class="navbar-items">
-                        <li class="option1 scroll-link" data-scroll="section1">
-                          <a href="#about">ABOUT</a>
-                          <div class="linha1"></div>
-                        </li>
-                        <li class="option2 scroll-link" data-scroll="section2">
-                          <a href="#workTab">WORK</a>
-                          <div class="linha2"></div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                   <div class="nav-contact-container">
                     <div class="nav-contact">
                       <ul>
@@ -76,156 +53,106 @@
                   </div>
                 </div>
               </div>
-              <div class="nav-mbl-container">
-                <div class="nav-mobile">
-                  <div class="navLogo-mobile-container">
-                    <div class="logoMbl" id="logo">
-                      <a href="index.html"><img src="imgs/WhiteLogo.png" /></a>
-                      <div class="text-logo">
-                        <p class="my-name">Luiz Gustavo</p>
-                        <p class="my-job">Front-end developer</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </nav>
           </div>
         </header>
         <div class="main-container">
           <main>
             <div class="main-page page" id="main-page">
-              <section class="apresentation-container" id="section1">
-                <div class="FirstMiddlePart-container">
-                  <div class="FirstMiddlePart">
-                    <div class="title">
-                      <h1 class="Luiz">
-                        <span>L</span><span>u</span><span>i</span><span>z</span>
-                      </h1>
-                      <h2 class="Gustavo">
-                        <span>G</span><span>u</span><span>s</span><span>t</span
-                        ><span>a</span><span>v</span><span>o</span>
-                      </h2>
-                    </div>
-                    <div class="text">
-                      <p>
+              <section class="InitialHero">
+                <div class="InitialTextCase" id="InitialTextCase">
+                  <div class="InitialText">
+                    Hi! I'm Brazilian, and I've been building things with
+                    code—yes, even on a trusty old CCE Win 545B.
+                  </div>
+                </div>
+                <span id="heroText">FrontEnd.Developer.</span>
+              </section>
+              <section class="FinalHero">
+                <div class="FinalHero-container">
+                  <div class="FinalHeroContent">
+                    <div class="OnepartScreen">
+                      <span class="introText" id="typewriter">Gustavo</span>
+                      <div class="FinalHeroText">
                         Hi! I'm Brazilian, and I've been building things with
                         code—yes, even on a trusty old CCE Win 545B.
-                      </p>
+                      </div>
+                    </div>
+                    <div class="TwoPartScreen">
+                      <div class="banner"></div>
                     </div>
                   </div>
                 </div>
-                <div class="SecondMiddlePart">
-                  <div class="banner"></div>
-                </div>
               </section>
+              <section class="scrollSpacer"></section>
               <div class="work-container" id="section2">
                 <section class="workPart">
-                  <h2 class="title">work.</h2>
+                  <div class="WorkTitleCase">
+                    <h2 class="title fade-up" id="workTitle">work.</h2>
+                  </div>
                   <div class="projects-show">
-                    <article class="project1" id="project1-btn">
-                      <div class="project-desc">
-                        <div class="sub">
-                          <h2>Woode</h2>
-                          <p>Digital Showroom/E-commerce website</p>
-                        </div>
-                        <div class="arrowicon">
-                          <p>see the case study</p>
-                          <i class="fa-solid fa-arrow-right"></i>
-                        </div>
+                    <article class="project1 PROfade-up" id="project1-btn">
+                      <div class="projectContent">
+                        <div class="ServiceName">Woode</div>
                       </div>
-                      <div class="browser-container">
-                        <div class="apple-bar">
-                          <span></span><span></span><span></span>
+                      <div class="subContent">
+                        <div class="ServiceInfo">
+                          <div class="ServiceType">
+                            Website design, Development
+                          </div>
+                          <div class="ServiceData">2025</div>
                         </div>
-                        <img
-                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeWoode_ugxpyf.png"
-                          alt="my furniture website"
-                        />
+                        <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
-                    <article class="project2" id="project2-btn">
-                      <div class="project-desc">
-                        <div class="sub">
-                          <h2>Coddee & Coffing</h2>
-                          <p>Digital showroom website</p>
+                    <article class="project2 PROfade-up" id="project2-btn">
+                      <div class="projectContent">Coddee & Coffing</div>
+                      <div class="subContent">
+                        <div class="ServiceInfo">
+                          <div class="ServiceType">
+                            Website design, Development
+                          </div>
+                          <div class="ServiceData">2025</div>
                         </div>
-                        <div class="arrowicon">
-                          <p>see the case study</p>
-                          <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                      </div>
-                      <div class="browser-container">
-                        <div class="apple-bar">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <img
-                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-09_Coddee_Coffing_p5azpu.png"
-                          alt="my cafe showroom plans Website"
-                        />
+                        <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
-                    <article class="project3" id="project3-btn">
-                      <div class="project-desc">
-                        <div class="sub">
-                          <h2>CloudParis</h2>
-                          <p>Institutional website</p>
-                        </div>
-                        <div class="arrowicon">
-                          <p>see the case study</p>
-                          <i class="fa-solid fa-arrow-right"></i>
-                        </div>
+                    <article class="project3 PROfade-up" id="project3-btn">
+                      <div class="projectContent">
+                        <div class="ServiceName">CloudParis</div>
                       </div>
-                      <div class="browser-container">
-                        <div class="apple-bar">
-                          <span></span><span></span><span></span>
+                      <div class="subContent">
+                        <div class="ServiceInfo">
+                          <div class="ServiceType">
+                            Website design, Development
+                          </div>
+                          <div class="ServiceData">2025</div>
                         </div>
-                        <img
-                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCloudParis_kozmcz.png"
-                          alt="my hosting plans Website"
-                        />
+                        <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
-                    <article class="project4" id="project4-btn">
-                      <div class="project-desc">
-                        <div class="sub">
-                          <h2>Café</h2>
-                          <p>Simple Coffee shop website</p>
+                    <article class="project4 PROfade-up" id="project4-btn">
+                      <div class="projectContent">Café</div>
+                      <div class="subContent">
+                        <div class="ServiceInfo">
+                          <div class="ServiceType">
+                            Website design, Development
+                          </div>
+                          <div class="ServiceData">2025</div>
                         </div>
-                        <div class="arrowicon">
-                          <p>see the case study</p>
-                          <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                      </div>
-                      <div class="browser-container">
-                        <div class="apple-bar">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <img
-                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCafe_tjm1gx.png"
-                          alt="my cafe website"
-                        />
+                        <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
-                    <article class="project5" id="project5-btn">
-                      <div class="project-desc">
-                        <div class="sub">
-                          <h2>Finance Calculator</h2>
-                          <p>Simple Finance Calculator</p>
+                    <article class="project5 PROfade-up" id="project5-btn">
+                      <div class="projectContent">Finance Calculator</div>
+                      <div class="subContent">
+                        <div class="ServiceInfo">
+                          <div class="ServiceType">
+                            Website design, Development
+                          </div>
+                          <div class="ServiceData">2025</div>
                         </div>
-                        <div class="arrowicon">
-                          <p>see the case study</p>
-                          <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                      </div>
-                      <div class="browser-container">
-                        <div class="apple-bar">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <img
-                          src="https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCalc_ctzbnp.png"
-                          alt="my finance calcularor website"
-                        />
+                        <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
                   </div>
@@ -326,7 +253,9 @@
           </main>
         </div>
         <footer>
-          <div class="footerName">Gustavo</div>
+          <div class="FooterNameCase">
+            <div class="footerName FOfade-up">Gustavo</div>
+          </div>
           <div class="linha"></div>
           <div class="contactIcons">
             <ul class="MediaIcons">
@@ -346,7 +275,7 @@
             </ul>
           </div>
           <div class="backToTop">
-            <p id="backToTop" class="scroll-link" data-scroll="sectionNav">
+            <p id="backToTop" class="scroll-link" data-scroll="nav-container">
               back to top
             </p>
           </div>
@@ -354,5 +283,15 @@
       </div>
     </div>
     <div class="cursor-spotlight" id="cursor-spotlight"></div>
+    <div class="nav-logo-container">
+      <div class="logo" id="logo">
+        <a href="index.html"><img src="imgs/WhiteLogo.png" /></a>
+        <div class="text-logo">
+          <p class="my-name">Luiz Gustavo</p>
+          <p class="my-job">Front-end developer</p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

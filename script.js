@@ -1,22 +1,53 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, TextPlugin);
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Starting ScrollSmoother
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 1,
     smoothTouch: 0.1,
+    effects: true,
   });
 
+  // Starting position 0
   let savedScroll = 0;
+  ScrollSmoother.get().scrollTo(0, true);
 
+  // Consts
   const spotlight = document.getElementById("cursor-spotlight");
   const mainPage = document.getElementById("main-page");
   const navContainer = document.getElementById("nav-container");
   const logo = document.querySelector("#logo img");
   const arrowLeft = document.getElementById("arrowLeft");
   const backToTop = document.getElementById("backToTop");
+  // Project page consts
+  const projectPage = document.getElementById("project-page");
+  const img1 = document.getElementById("projectImage1");
+  const img2 = document.getElementById("projectImage2");
+  const img3 = document.getElementById("projectImage3");
+  const textTime = document.getElementById("text1");
+  const textData = document.getElementById("text2");
+  const video = document.getElementById("projectVideo");
+  const FirstParagraph = document.getElementById("paragraph1");
+  const SecondParagraph = document.getElementById("paragraph2");
+  const link = document.getElementById("projectLink");
+  const heroText = document.getElementById("heroText");
 
+  const el = "#typewriter";
+  const tl = gsap.timeline({ repeat: 0 });
+
+  logo.src = "imgs/WhiteLogo.png";
+
+  function pauseScroll() {
+    smoother.paused(true);
+  }
+
+  function resumeScroll() {
+    smoother.paused(false);
+  }
+
+  // Project page data assignment function
   function ToggleProject(projectData) {
     let anyProjectPageOpen = false;
 
@@ -40,11 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (anyProjectPageOpen) {
       mainPage.classList.add("showOff");
-      navContainer.classList.add("show");
+      finalHero.style.position = "absolute";
       logo.src = "imgs/WhiteLogo.png";
     } else {
       mainPage.classList.add("show");
-      navContainer.classList.remove("show");
       logo.src = "imgs/BlackLogo.png";
     }
 
@@ -52,13 +82,17 @@ document.addEventListener("DOMContentLoaded", () => {
       arrowLeft.addEventListener("click", () => {
         projectPage.classList.remove("show");
         mainPage.classList.remove("showOff");
-        navContainer.classList.remove("show");
-        logo.src = "imgs/BlackLogo.png";
-        ScrollSmoother.get().scrollTo(savedScroll, true);
+        setTimeout(() => {
+          ScrollSmoother.get().scrollTo(savedScroll, true, 3);
+        }, 200);
+        setTimeout(() => {
+          finalHero.style.position = "absolute";
+        }, 1000);
       });
     }
   }
 
+  // Project page data
   const pages = {
     project1: {
       btn: document.getElementById("project1-btn"),
@@ -71,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       FirstParagraph:
         "This project features an immersive digital showroom, with some e-commerce functionality, but with a refined design and smooth browsing experience.",
       SecondParagraph:
-        "Using Gsap ScrollTrigger and Locomotive Scroll, animations are seamlessly integrated into the page movement, creating a dynamic and engaging visual experience. The responsive design ensures that the layout adapts perfectly to different devices, maintaining the sophistication and style of the furniture store.",
+        "Using Gsap ScrollTrigger and ScroolSmoother, animations are seamlessly integrated into the page movement, creating a dynamic and engaging visual experience. The responsive design ensures that the layout adapts perfectly to different devices, maintaining the sophistication and style of the furniture store.",
       link: "https://woodewebsite.netlify.app/",
     },
 
@@ -134,28 +168,234 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  // Element references
-  const projectPage = document.getElementById("project-page");
-  const img1 = document.getElementById("projectImage1");
-  const img2 = document.getElementById("projectImage2");
-  const img3 = document.getElementById("projectImage3");
-  const textTime = document.getElementById("text1");
-  const textData = document.getElementById("text2");
-  const video = document.getElementById("projectVideo");
-  const FirstParagraph = document.getElementById("paragraph1");
-  const SecondParagraph = document.getElementById("paragraph2");
-  const link = document.getElementById("projectLink");
-
+  // Project Page open function
   Object.values(pages).forEach((project) => {
     if (project.btn) {
       project.btn.addEventListener("click", () => {
         savedScroll = ScrollSmoother.get().scrollTop();
-        ScrollSmoother.get().scrollTo(0, true);
+        setTimeout(() => {
+          ScrollSmoother.get().scrollTo(0, true, 3);
+          finalHero.style.position = "absolute";
+        }, 100);
         ToggleProject(project);
       });
     }
   });
 
+  // hero text animation
+  let heroTextAnim = gsap.to(heroText, {
+    xPercent: -100,
+    repeat: -1,
+    duration: 10,
+    ease: "linear",
+  });
+
+  const InitialHero = document.querySelector(".InitialHero");
+  const scrollSpacer = document.querySelector(".scrollSpacer");
+  const finalHero = document.querySelector(".FinalHero");
+  const FinalHeroContent = document.querySelector(".FinalHeroContent");
+  const FinalHeroOnepartScreen = document.querySelector(".OnepartScreen");
+  const FinalHeroTwoPartScreen = document.querySelector(".TwoPartScreen");
+  const FinalHeroIntroText = document.querySelector(".introText");
+  const FinalHeroText = document.querySelector(".FinalHeroText");
+
+  function AddFinalHeroShow() {
+    FinalHeroContent.classList.add("show");
+    FinalHeroOnepartScreen.classList.add("show");
+    FinalHeroTwoPartScreen.classList.add("show");
+    FinalHeroText.classList.add("show");
+    FinalHeroIntroText.classList.add("show");
+  }
+
+  let heroTimeout; // <- define fora para poder acessar em onEnterBack
+
+  function CloseFinalHeroShow() {
+    FinalHeroContent.classList.remove("show");
+    FinalHeroOnepartScreen.classList.remove("show");
+    FinalHeroTwoPartScreen.classList.remove("show");
+    FinalHeroText.classList.remove("show");
+    FinalHeroIntroText.classList.remove("show");
+  }
+
+  //Hero animation
+  if (!projectPage.classList.contains("show")) {
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+      gsap.to(".FinalHero", {
+        scrollTrigger: {
+          trigger: ".scrollSpacer",
+          start: "top bottom",
+          end: "top top",
+          scrub: true,
+          onLeave: () => {
+            ScrollTrigger.refresh();
+            scrollSpacer.classList.add("removeShow");
+            ScrollTrigger.refresh();
+            const leaveTl = gsap.timeline();
+            leaveTl
+              .to(el, {
+                duration: 0.5,
+                text: "",
+                ease: "none",
+              })
+              .to(el, {
+                duration: 1.5,
+                text: "Luiz Gustavo",
+                ease: "none",
+              });
+            // Salva o timeout para poder cancelar depois
+            heroTimeout = setTimeout(() => {
+              AddFinalHeroShow();
+              ScrollTrigger.refresh();
+            }, 2800);
+          },
+          onEnterBack: () => {
+            scrollSpacer.classList.remove("removeShow");
+            clearTimeout(heroTimeout);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 100);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 800);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 1000);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 1200);
+            const backTl = gsap.timeline();
+            backTl
+              .to(el, {
+                duration: 0.5,
+                text: "",
+                ease: "none",
+              })
+              .to(el, {
+                duration: 1,
+                text: "Gustavo",
+                ease: "none",
+              });
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 1500);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 1800);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 2000);
+            setTimeout(() => {
+              CloseFinalHeroShow();
+            }, 2800);
+          },
+        },
+        right: 0,
+        width: "100%",
+        height: "120vh",
+        top: "100vh",
+        ease: "none",
+      });
+    }
+  }
+
+  // text animation
+  gsap.utils.toArray(".fade-up").forEach((text) => {
+    gsap.fromTo(
+      text,
+      { y: 150 },
+      {
+        y: 20,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: text,
+          start: "top 80%",
+          end: "top 100%",
+          scrub: true,
+          once: true,
+        },
+      }
+    );
+  });
+
+  // text animation
+  gsap.utils.toArray(".PROfade-up").forEach((projectCase) => {
+    gsap.fromTo(
+      projectCase,
+      { y: 150 },
+      {
+        y: 20,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: projectCase,
+          start: "top 100%",
+          end: "top 100%",
+          scrub: true,
+          once: true,
+        },
+      }
+    );
+  });
+
+  gsap.utils.toArray(".FOfade-up").forEach((text) => {
+    gsap.fromTo(
+      text,
+      { y: 150 },
+      {
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".FooterNameCase",
+          start: "top 100%",
+          end: "top 100%",
+          scrub: true,
+          once: true,
+        },
+      }
+    );
+  });
+
+  gsap.utils.toArray(".Sublinha").forEach((sublinha) => {
+    gsap.to(sublinha, {
+      scrollTrigger: {
+        trigger: sublinha.closest("article"),
+        start: "top 30%",
+        toggleClass: { targets: sublinha, className: "show" },
+        once: true,
+      },
+    });
+  });
+
+  // Design section
+  gsap.set("#InitialTextCase", {
+    y: 0,
+  });
+
+  gsap.to("#InitialTextCase", {
+    y: -150,
+    scrollTrigger: {
+      trigger: ".InitialHero",
+      start: "top top",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#heroText", {
+    y: 0,
+  });
+
+  gsap.to("#heroText", {
+    y: -100,
+    scrollTrigger: {
+      trigger: ".InitialHero",
+      start: "top top",
+      scrub: true,
+    },
+  });
+
+  // Cursor effect
   document.addEventListener("mousemove", (e) => {
     spotlight.style.left = `${e.clientX}px`;
     spotlight.style.top = `${e.clientY}px`;
@@ -164,15 +404,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function scrollToId(id) {
     const element = document.querySelector(`#${id}`);
     if (element) {
-      smoother.scrollTo(element, true, "start");
+      smoother.scrollTo(element, true, "start", 3);
     }
   }
 
   document.querySelectorAll(".scroll-link").forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault(); // Evita o comportamento padrão do link
-      const id = link.getAttribute("data-scroll"); // Pega o ID do atributo data-scroll
-      scrollToId(id); // Chama a função com o ID
+      e.preventDefault();
+      const id = link.getAttribute("data-scroll");
+      scrollToId(id);
     });
   });
 });

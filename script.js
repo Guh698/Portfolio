@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const img1 = document.getElementById("projectImage1");
   const img2 = document.getElementById("projectImage2");
   const img3 = document.getElementById("projectImage3");
+  const MblImg1 = document.getElementById("MblImg1");
   const textTime = document.getElementById("text1");
   const textData = document.getElementById("text2");
   const video = document.getElementById("projectVideo");
@@ -33,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const SecondParagraph = document.getElementById("paragraph2");
   const link = document.getElementById("projectLink");
   const heroText = document.getElementById("heroText");
+  const MobileTitle = document.getElementById("MobileTitle");
+  const DesktopTitle = document.getElementById("DesktopTitle");
 
   const el = "#typewriter";
   const tl = gsap.timeline({ repeat: 0 });
@@ -54,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
     img1.src = projectData.img1;
     img2.src = projectData.img2;
     img3.src = projectData.img3;
+    MblImg1.src = projectData.MblImg1;
+    MblImg2.src = projectData.MblImg2;
+    MblImg3.src = projectData.MblImg3;
+    MblImg4.src = projectData.MblImg4;
+    MblImg5.src = projectData.MblImg5;
     video.src = projectData.video;
     projectPage.classList.add("show");
     textTime.innerHTML = projectData.textTime;
@@ -71,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (anyProjectPageOpen) {
       mainPage.classList.add("showOff");
+      arrowLeft.classList.add("show");
       finalHero.style.position = "absolute";
       logo.src = "imgs/WhiteLogo.png";
     } else {
@@ -82,11 +91,17 @@ document.addEventListener("DOMContentLoaded", () => {
       arrowLeft.addEventListener("click", () => {
         projectPage.classList.remove("show");
         mainPage.classList.remove("showOff");
+        arrowLeft.classList.remove("show");
         setTimeout(() => {
-          ScrollSmoother.get().scrollTo(savedScroll, true, 3);
+          gsap.to(window, {
+            scrollTo: savedScroll,
+            duration: 0.5,
+            ease: "power1.inOut",
+          });
         }, 200);
         setTimeout(() => {
           finalHero.style.position = "absolute";
+          ScrollTrigger.refresh();
         }, 1000);
       });
     }
@@ -96,9 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = {
     project1: {
       btn: document.getElementById("project1-btn"),
-      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeWoode_ugxpyf.png",
+      img1: "imgs/WoodeMainPoster.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhatsApp_Image_2025-05-09_at_1.46.39_PM_rqizgy.jpg",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/productPage_v4hg2v.png",
+      MblImg1: "imgs/WoodeHomeMockup.png",
+      MblImg2: "imgs/WoodeSideMockup.png",
+      MblImg3: "imgs/WoodeContactMockup.png",
+      MblImg4: "imgs/WoodeCartMockup.png",
+      MblImg5: "imgs/WoodeProductMockup.png",
       textTime: "1 Month,",
       textData: "Launched in April 2025",
       video: "imgs/woodeVideo.mp4",
@@ -114,6 +134,11 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-09_Coddee_Coffing_p5azpu.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-51_Coddee_Coffing_ujpc1a.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-49-12_Coddee_Coffing_bjpskn.png",
+      //MblImg1: "imgs/WoodeHomeMockup.png",
+      //MblImg2: "imgs/Mockup.png",
+      //MblImg3: "imgs/Mockup.png",
+      //MblImg4: "imgs/Mockup.png",
+      //MblImg5: "imgs/Mockup.png",
       textTime: "",
       textData: "Work in progress",
       video: "imgs/cafeRemakeVideo.mp4",
@@ -129,6 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCloudParis_kozmcz.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/CloudCatalog_zh5wr4.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cloudParisSearch_juf62r.png",
+      //MblImg1: "imgs/WoodeHomeMockup.png",
+      //MblImg2: "imgs/Mockup.png",
+      //MblImg3: "imgs/Mockup.png",
+      //MblImg4: "imgs/Mockup.png",
+      //MblImg5: "imgs/Mockup.png",
       textTime: "7 days,",
       textData: "Launched in March 2025",
       video: "imgs/cloudParisvideo.mp4",
@@ -143,6 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCafe_tjm1gx.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cafeCatalog_uw3tey.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/aboutCafe_sctelt.png",
+      //MblImg1: "imgs/WoodeHomeMockup.png",
+      //MblImg2: "imgs/Mockup.png",
+      //MblImg3: "imgs/Mockup.png",
+      //MblImg4: "imgs/Mockup.png",
+      //MblImg5: "imgs/Mockup.png",
       textTime: "7 days,",
       textData: "Launched in February 2025",
       video: "imgs/cafeVideo.mp4",
@@ -157,6 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCalc_ctzbnp.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/MenuCalc_rj2cxi.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhiteThemeCalc_bd4rh6.png",
+      //MblImg1: "imgs/WoodeHomeMockup.png",
+      //MblImg2: "imgs/Mockup.png",
+      //MblImg3: "imgs/Mockup.png",
+      //MblImg4: "imgs/Mockup.png",
+      //MblImg5: "imgs/Mockup.png",
       textTime: "1 Month,",
       textData: "Launched in January 2025",
       video: "imgs/CalcVideo.mp4",
@@ -190,6 +230,22 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "linear",
   });
 
+  // Desktop text animation
+  let DesktopTextAnim = gsap.to(DesktopTitle, {
+    xPercent: -100,
+    repeat: -1,
+    duration: 6,
+    ease: "linear",
+  });
+
+  // Mobile text animation
+  let MobileTextAnim = gsap.to(MobileTitle, {
+    xPercent: -100,
+    repeat: -1,
+    duration: 6,
+    ease: "linear",
+  });
+
   const InitialHero = document.querySelector(".InitialHero");
   const scrollSpacer = document.querySelector(".scrollSpacer");
   const finalHero = document.querySelector(".FinalHero");
@@ -205,6 +261,19 @@ document.addEventListener("DOMContentLoaded", () => {
     FinalHeroTwoPartScreen.classList.add("show");
     FinalHeroText.classList.add("show");
     FinalHeroIntroText.classList.add("show");
+
+    const leaveTl = gsap.timeline();
+    leaveTl
+      .to(el, {
+        duration: 0.5,
+        text: "",
+        ease: "none",
+      })
+      .to(el, {
+        duration: 1,
+        text: "Luiz Gustavo",
+        ease: "none",
+      });
   }
 
   let heroTimeout; // <- define fora para poder acessar em onEnterBack
@@ -215,6 +284,19 @@ document.addEventListener("DOMContentLoaded", () => {
     FinalHeroTwoPartScreen.classList.remove("show");
     FinalHeroText.classList.remove("show");
     FinalHeroIntroText.classList.remove("show");
+
+    const backTl = gsap.timeline();
+    backTl
+      .to(el, {
+        duration: 0.5,
+        text: "",
+        ease: "none",
+      })
+      .to(el, {
+        duration: 1,
+        text: "Gustavo",
+        ease: "none",
+      });
   }
 
   //Hero animation
@@ -227,66 +309,15 @@ document.addEventListener("DOMContentLoaded", () => {
           end: "top top",
           scrub: true,
           onLeave: () => {
-            ScrollTrigger.refresh();
             scrollSpacer.classList.add("removeShow");
             ScrollTrigger.refresh();
-            const leaveTl = gsap.timeline();
-            leaveTl
-              .to(el, {
-                duration: 0.5,
-                text: "",
-                ease: "none",
-              })
-              .to(el, {
-                duration: 1.5,
-                text: "Luiz Gustavo",
-                ease: "none",
-              });
             // Salva o timeout para poder cancelar depois
-            heroTimeout = setTimeout(() => {
-              AddFinalHeroShow();
-              ScrollTrigger.refresh();
-            }, 2800);
+            AddFinalHeroShow();
           },
           onEnterBack: () => {
             scrollSpacer.classList.remove("removeShow");
             clearTimeout(heroTimeout);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 100);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 800);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 1000);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 1200);
-            const backTl = gsap.timeline();
-            backTl
-              .to(el, {
-                duration: 0.5,
-                text: "",
-                ease: "none",
-              })
-              .to(el, {
-                duration: 1,
-                text: "Gustavo",
-                ease: "none",
-              });
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 1500);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 1800);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 2000);
-            setTimeout(() => {
-              CloseFinalHeroShow();
-            }, 2800);
+            CloseFinalHeroShow();
           },
         },
         right: 0,
@@ -305,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: 150 },
       {
         y: 20,
-        duration: 1,
+        duration: 1.2,
         ease: "power2.out",
         scrollTrigger: {
           trigger: text,
@@ -368,7 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Design section
+  // Parllax effects
   gsap.set("#InitialTextCase", {
     y: 0,
   });
@@ -395,18 +426,24 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  gsap.set("#WorkTitleCase", {
+    y: 130,
+  });
+
+  gsap.to("#WorkTitleCase", {
+    y: -390,
+    scrollTrigger: {
+      trigger: ".work-container",
+      start: "top 100%",
+      scrub: true,
+    },
+  });
+
   // Cursor effect
   document.addEventListener("mousemove", (e) => {
     spotlight.style.left = `${e.clientX}px`;
     spotlight.style.top = `${e.clientY}px`;
   });
-
-  function scrollToId(id) {
-    const element = document.querySelector(`#${id}`);
-    if (element) {
-      smoother.scrollTo(element, true, "start", 3);
-    }
-  }
 
   document.querySelectorAll(".scroll-link").forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -415,4 +452,15 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollToId(id);
     });
   });
+
+  function scrollToId(id) {
+    const element = document.querySelector(`#${id}`);
+    if (element) {
+      gsap.to(window, {
+        scrollTo: element,
+        duration: 0.5,
+        ease: "power1.inOut",
+      });
+    }
+  }
 });

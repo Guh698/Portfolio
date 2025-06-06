@@ -131,14 +131,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     project2: {
       btn: document.getElementById("project2-btn"),
-      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-09_Coddee_Coffing_p5azpu.png",
+      img1: "imgs/coffeeMainPoster.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-51_Coddee_Coffing_ujpc1a.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-49-12_Coddee_Coffing_bjpskn.png",
-      //MblImg1: "imgs/WoodeHomeMockup.png",
-      //MblImg2: "imgs/Mockup.png",
-      //MblImg3: "imgs/Mockup.png",
-      //MblImg4: "imgs/Mockup.png",
-      //MblImg5: "imgs/Mockup.png",
+      MblImg1: "imgs/coffeeHomeMockup.png",
+      MblImg2: "imgs/coffeeFindUsMockup.png",
+      MblImg3: "imgs/coffeeProductsMockup.png",
+      MblImg4: "imgs/coffeeTableMockup.png",
+      MblImg5: "imgs/coffeeMenuMockup.png",
       textTime: "",
       textData: "Work in progress",
       video: "imgs/cafeRemakeVideo.mp4",
@@ -214,7 +214,11 @@ document.addEventListener("DOMContentLoaded", () => {
       project.btn.addEventListener("click", () => {
         savedScroll = ScrollSmoother.get().scrollTop();
         setTimeout(() => {
-          ScrollSmoother.get().scrollTo(0, true, 3);
+          gsap.to(window, {
+            scrollTo: 0,
+            duration: 0.5,
+            ease: "power1.inOut",
+          });
           finalHero.style.position = "absolute";
         }, 100);
         ToggleProject(project);

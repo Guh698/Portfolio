@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = {
     project1: {
       btn: document.getElementById("project1-btn"),
-      img1: "imgs/WoodeMainPoster.png",
+      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750195760/WoodeMainPoster_kdizxv.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhatsApp_Image_2025-05-09_at_1.46.39_PM_rqizgy.jpg",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/productPage_v4hg2v.png",
       MblImg1: "imgs/WoodeHomeMockup.png",
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     project2: {
       btn: document.getElementById("project2-btn"),
-      img1: "imgs/coffeeMainPoster.png",
+      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750195633/coffeeMainPoster_upw9it.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-48-51_Coddee_Coffing_ujpc1a.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/Screenshot_2025-05-09_at_13-49-12_Coddee_Coffing_bjpskn.png",
       MblImg1: "imgs/coffeeHomeMockup.png",
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     project3: {
       btn: document.getElementById("project3-btn"),
-      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCloudParis_kozmcz.png",
+      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750196212/cloudParisPoster_2_e4hfma.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/CloudCatalog_zh5wr4.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cloudParisSearch_juf62r.png",
       //MblImg1: "imgs/WoodeHomeMockup.png",
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     project4: {
       btn: document.getElementById("project4-btn"),
-      img1: "imgs/cafePoster.png",
+      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750195817/cafePoster_nkog9s.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cafeCatalog_uw3tey.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/aboutCafe_sctelt.png",
       //MblImg1: "imgs/WoodeHomeMockup.png",
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     project5: {
       btn: document.getElementById("project5-btn"),
-      img1: "imgs/CalculatorPoster.png",
+      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750196021/CalculatorPoster_ivdn92.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/MenuCalc_rj2cxi.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhiteThemeCalc_bd4rh6.png",
       //MblImg1: "imgs/WoodeHomeMockup.png",

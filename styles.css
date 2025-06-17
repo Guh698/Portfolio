@@ -413,7 +413,7 @@ scroll efects [data-scroll] {
     width: 100%;
     min-width: 100%;
     height: 100%;
-    background-image: url(imgs/coffeeMainPoster.png);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1750195633/coffeeMainPoster_upw9it.png);
     background-size: contain;
     background-position: center;
     opacity: 0.8;
@@ -461,7 +461,7 @@ scroll efects [data-scroll] {
     width: 100%;
     min-width: 100%;
     height: 100%;
-    background-image: url(imgs/cafePoster.png);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1750195817/cafePoster_nkog9s.png);
     background-size: cover;
     background-position: center;
     opacity: 1;
@@ -490,7 +490,7 @@ scroll efects [data-scroll] {
     width: 100%;
     min-width: 100%;
     height: 100%;
-    background-image: url(imgs/CalculatorPoster.png);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1750196021/CalculatorPoster_ivdn92.png);
     background-size: cover;
     background-position: center;
     opacity: 0.8;
@@ -1256,7 +1256,7 @@ scroll efects [data-scroll] {
     height: 70%;
     border-radius: 2em;
     margin-right: 2rem;
-    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_700,c_fill/WhatsApp_Image_2025-04-18_at_12.58.52_puwe0r.jpg);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_400,c_fill/IMG_20250604_134131310_vbqueg.jpg);
     background-size: cover;
     background-position: center;
   }

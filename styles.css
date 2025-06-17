@@ -21,6 +21,7 @@ html {
 body {
   height: 100%;
   width: 100%;
+  background-color: #000;
 }
 
 scroll efects [data-scroll] {
@@ -353,6 +354,8 @@ scroll efects [data-scroll] {
     align-items: center;
     height: 500px;
     width: 100%;
+    overflow: hidden;
+    transition: transform 0.5s ease;
   }
 
   .ServiceName {
@@ -371,6 +374,10 @@ scroll efects [data-scroll] {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.468);
   }
 
+  .interactBallon {
+    display: none;
+  }
+
   .project1 .projectContent::before {
     content: "";
     position: absolute;
@@ -382,6 +389,7 @@ scroll efects [data-scroll] {
     background-position: center;
     opacity: 0.4;
     z-index: -1;
+    transition: 0.5s ease-in-out;
   }
 
   .project1 .projectContent::after {
@@ -394,12 +402,28 @@ scroll efects [data-scroll] {
     z-index: -1;
   }
 
-  .project2 .projectContent {
-    background: linear-gradient(90deg, #ffffff70, #ffffffae);
-    color: #fff;
-    font-size: 4rem;
-    font-family: "Renti";
-    font-weight: bold;
+  .project1:hover .projectContent::before {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+
+  .project2 .projectContent::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    background-image: url(imgs/coffeeMainPoster.png);
+    background-size: contain;
+    background-position: center;
+    opacity: 0.8;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+  }
+
+  .project2:hover .projectContent::before {
+    transform: scale(1.3);
+    opacity: 0.6;
   }
 
   .project3 .projectContent::before {
@@ -413,6 +437,12 @@ scroll efects [data-scroll] {
     background-position: center;
     opacity: 0.4;
     z-index: -1;
+    transition: 0.5s ease-in-out;
+  }
+
+  .project3:hover .projectContent::before {
+    transform: scale(1.3);
+    opacity: 0.3;
   }
 
   .project3 .projectContent::after {
@@ -425,20 +455,52 @@ scroll efects [data-scroll] {
     z-index: -1;
   }
 
-  .project4 .projectContent {
-    background: linear-gradient(90deg, #ffffff70, #ffffffae);
-    color: #fff;
-    font-size: 3.4rem;
-    font-family: "Renti";
-    font-weight: bold;
+  .project4 .projectContent::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    background-image: url(imgs/cafePoster.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
   }
 
-  .project5 .projectContent {
-    background: linear-gradient(90deg, #ffffffd1, #ffffff82);
-    color: #fff;
-    font-size: 3.4rem;
-    font-family: "Renti";
-    font-weight: bold;
+  .project4:hover .projectContent::before {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+
+  .project4 .projectContent::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    border: solid 1px #ffffff36;
+    z-index: -1;
+  }
+
+  .project5 .projectContent::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    background-image: url(imgs/CalculatorPoster.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+  }
+
+  .project5:hover .projectContent::before {
+    transform: scale(1.3);
+    opacity: 0.4;
   }
 
   .subContent {
@@ -759,6 +821,7 @@ scroll efects [data-scroll] {
   footer {
     background-color: #000;
     display: flex;
+    gap: 15px;
     flex-direction: column;
     height: auto;
     align-items: center;
@@ -786,6 +849,58 @@ scroll efects [data-scroll] {
     width: 80%;
     height: 1px;
     background-color: #fff;
+  }
+
+  .ContactFooterContainer {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ContactFooterContainer h2 {
+    font-size: 2.5rem;
+    font-family: "Renti";
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .mailBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mailBox form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .mailBox input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 0.8em;
+  }
+
+  .mailBox button {
+    padding: 7px;
+    border: 1px solid #fff;
+    border-radius: 0.8em;
+    color: #fff;
+    background-color: #000;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+
+  .mailBox button:hover {
+    background-color: #fff;
+    color: #000;
   }
 
   .contactIcons {
@@ -1152,6 +1267,91 @@ scroll efects [data-scroll] {
     margin-top: 120vh;
   }
 
+  /*projects-container*/
+  .projects-show {
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    justify-items: center;
+    gap: 45px;
+  }
+
+  .interactBallon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    border: 2px solid #fff;
+    cursor: pointer;
+  }
+
+  .interactBallon .fa-arrow-right-long {
+    position: absolute;
+    font-size: 9rem;
+    color: #fff;
+    z-index: 1;
+  }
+
+  #interactBallon1 .fa-arrow-right-long {
+    transform: rotate(190deg);
+  }
+
+  #interactBallon2 .fa-arrow-right-long {
+    transform: rotate(25deg);
+  }
+
+  .HoverBallonActived {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0%;
+    height: 0%;
+    border-radius: 50%;
+    transition: 0.4s ease;
+    z-index: 3;
+  }
+
+  .ballonPhrase {
+    font-size: 1.6rem;
+    font-weight: bold;
+    opacity: 0;
+    text-align: center;
+    min-width: 280px;
+    transition: 0.4s 0s ease;
+  }
+
+  .interactBallon:hover {
+    .HoverBallonActived {
+      width: 100%;
+      height: 100%;
+    }
+    .ballonPhrase {
+      opacity: 1;
+      transition: opacity 0.8s 0.4s ease;
+    }
+  }
+
+  #interactBallon1 {
+    margin-top: 35em;
+  }
+
+  #interactBallon2 {
+    margin-top: -50em;
+  }
+
+  #interactBallon3 {
+    margin-top: 25em;
+    border: none;
+    background-color: rgba(255, 255, 0, 0.905);
+  }
+
   /*project tabs*/
   .project1,
   .project2,
@@ -1159,9 +1359,40 @@ scroll efects [data-scroll] {
   .project4,
   .project5 {
     display: flex;
-    width: 80%;
-    height: 600px;
     font-size: 6rem;
+  }
+
+  .project1 {
+    width: 90%;
+    height: 500px;
+  }
+
+  .project2 {
+    width: 120%;
+    height: 650px;
+    margin-top: 150px;
+  }
+
+  .project2 .projectContent {
+    height: 90%;
+  }
+
+  .project3 {
+    width: 100%;
+    margin-top: 4em;
+    height: 600px;
+  }
+
+  .project4 {
+    width: 100%;
+    height: 600px;
+  }
+
+  .project5 {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+    height: 600px;
   }
 
   .arrowicon {
@@ -1255,6 +1486,32 @@ scroll efects [data-scroll] {
   .browser-container video {
     width: 100%;
   }
+
+  .ContactFooterContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mailBox {
+    width: 100%;
+  }
+
+  .mailBox form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    gap: 30px;
+  }
+
+  .mailBox input {
+    padding: 16px;
+    width: 60%;
+    background-color: #ffffff29;
+    color: #fff;
+    border-radius: 0.8em;
+  }
 }
 
 @media (min-width: 1920px) {
@@ -1321,23 +1578,69 @@ scroll efects [data-scroll] {
     padding: 2rem;
   }
 
+  .FinalHero-container {
+    width: 100%;
+    height: 100%;
+  }
+
   /*project info*/
   .project-desc {
     font-size: 24px;
   }
 
-  /*project tabs*/
-  .project1,
-  .project2,
-  .project3,
-  .project4 {
-    height: 700px;
-    margin-bottom: 60px;
+  .interactBallon {
+    width: 380px;
+    height: 380px;
   }
 
+  .interactBallon .fa-arrow-right-long {
+    font-size: 12rem;
+  }
+
+  .ballonPhrase {
+    font-size: 2rem;
+  }
+
+  /*project tabs*/
   .fa-arrow-left {
     padding: 25px 26px;
     font-size: 24px;
+  }
+
+  .ServiceType,
+  .ServiceData {
+    font-size: 2.2rem;
+  }
+
+  .Sublinha {
+    height: 2px;
+  }
+
+  .project1 {
+    width: 90%;
+    height: 700px;
+  }
+
+  .projectContent {
+    height: 100%;
+  }
+
+  .project2 {
+    width: 110%;
+    height: 850px;
+    margin-top: 150px;
+  }
+
+  .project3 {
+    height: 800px;
+  }
+
+  .project4 {
+    height: 800px;
+  }
+
+  .project5 {
+    height: 800px;
   }
 
   .project {
@@ -1365,6 +1668,10 @@ scroll efects [data-scroll] {
 
   .footerName {
     font-size: clamp(3rem, 25vw, 18rem);
+  }
+
+  .MediaIcons a {
+    font-size: 3rem;
   }
 
   .backToTop {

@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     project4: {
       btn: document.getElementById("project4-btn"),
-      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCafe_tjm1gx.png",
+      img1: "imgs/cafePoster.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cafeCatalog_uw3tey.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/aboutCafe_sctelt.png",
       //MblImg1: "imgs/WoodeHomeMockup.png",
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     project5: {
       btn: document.getElementById("project5-btn"),
-      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/HomeCalc_ctzbnp.png",
+      img1: "imgs/CalculatorPoster.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/MenuCalc_rj2cxi.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhiteThemeCalc_bd4rh6.png",
       //MblImg1: "imgs/WoodeHomeMockup.png",
@@ -314,8 +314,9 @@ document.addEventListener("DOMContentLoaded", () => {
           scrub: true,
           onLeave: () => {
             scrollSpacer.classList.add("removeShow");
-            ScrollTrigger.refresh();
-            // Salva o timeout para poder cancelar depois
+            setTimeout(() => {
+              ScrollTrigger.refresh();
+            }, 100);
             AddFinalHeroShow();
           },
           onEnterBack: () => {
@@ -439,6 +440,110 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: ".work-container",
       start: "top 100%",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#interactBallon1", {
+    y: 0,
+  });
+
+  gsap.to("#interactBallon1", {
+    y: -150,
+    scrollTrigger: {
+      trigger: ".projects-show",
+      start: "top top",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#interactBallon2", {
+    y: 0,
+  });
+
+  gsap.to("#interactBallon2", {
+    y: -150,
+    scrollTrigger: {
+      trigger: ".projects-show",
+      start: "top top",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#interactBallon3", {
+    y: 0,
+  });
+
+  gsap.to("#interactBallon3", {
+    y: -150,
+    scrollTrigger: {
+      trigger: ".projects-show",
+      start: "top top",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#projectContent1", {
+    y: 0,
+  });
+
+  gsap.to("#projectContent1", {
+    y: -50,
+    scrollTrigger: {
+      trigger: ".project1",
+      start: "top 20%",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#projectContent2", {
+    y: 0,
+  });
+
+  gsap.to("#projectContent2", {
+    y: -50,
+    scrollTrigger: {
+      trigger: ".project2",
+      start: "top 20%",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#projectContent3", {
+    y: 0,
+  });
+
+  gsap.to("#projectContent3", {
+    y: -50,
+    scrollTrigger: {
+      trigger: ".project3",
+      start: "top 20%",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#projectContent4", {
+    y: 0,
+  });
+
+  gsap.to("#projectContent4", {
+    y: -50,
+    scrollTrigger: {
+      trigger: ".project4",
+      start: "top 20%",
+      scrub: true,
+    },
+  });
+
+  gsap.set("#projectContent5", {
+    y: 0,
+  });
+
+  gsap.to("#projectContent5", {
+    y: -50,
+    scrollTrigger: {
+      trigger: ".project5",
+      start: "top 20%",
       scrub: true,
     },
   });

@@ -92,7 +92,7 @@
                   </div>
                   <div class="projects-show">
                     <article class="project1 PROfade-up" id="project1-btn">
-                      <div class="projectContent">
+                      <div class="projectContent" id="projectContent1">
                         <div class="ServiceName">Woode</div>
                       </div>
                       <div class="subContent">
@@ -106,7 +106,7 @@
                       </div>
                     </article>
                     <article class="project2 PROfade-up" id="project2-btn">
-                      <div class="projectContent">Coddee & Coffing</div>
+                      <div class="projectContent" id="projectContent2"></div>
                       <div class="subContent">
                         <div class="ServiceInfo">
                           <div class="ServiceType">
@@ -117,8 +117,22 @@
                         <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
+                    <div class="interactBallon" id="interactBallon1">
+                      <i class="fa-solid fa-arrow-right-long"></i>
+                      <div class="HoverBallonActived">
+                        <div class="ballonPhrase">
+                          These are the most recent
+                        </div>
+                      </div>
+                    </div>
+                    <div class="interactBallon" id="interactBallon2">
+                      <i class="fa-solid fa-arrow-right-long"></i>
+                      <div class="HoverBallonActived">
+                        <div class="ballonPhrase">These are the oldest</div>
+                      </div>
+                    </div>
                     <article class="project3 PROfade-up" id="project3-btn">
-                      <div class="projectContent">
+                      <div class="projectContent" id="projectContent3">
                         <div class="ServiceName">CloudParis</div>
                       </div>
                       <div class="subContent">
@@ -132,7 +146,7 @@
                       </div>
                     </article>
                     <article class="project4 PROfade-up" id="project4-btn">
-                      <div class="projectContent">Café</div>
+                      <div class="projectContent" id="projectContent4"></div>
                       <div class="subContent">
                         <div class="ServiceInfo">
                           <div class="ServiceType">
@@ -144,7 +158,7 @@
                       </div>
                     </article>
                     <article class="project5 PROfade-up" id="project5-btn">
-                      <div class="projectContent">Finance Calculator</div>
+                      <div class="projectContent" id="projectContent5"></div>
                       <div class="subContent">
                         <div class="ServiceInfo">
                           <div class="ServiceType">
@@ -155,6 +169,13 @@
                         <div class="Sublinha" id="Sublinha"></div>
                       </div>
                     </article>
+                    <div class="interactBallon" id="interactBallon3">
+                      <div class="HoverBallonActived">
+                        <div class="ballonPhrase">
+                          There's more coming soon!
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </section>
               </div>
@@ -281,6 +302,34 @@
             <div class="footerName FOfade-up">Gustavo</div>
           </div>
           <div class="linha"></div>
+          <div class="ContactFooterContainer">
+            <h2 style="color: #fff; text-align: center">Let's work together</h2>
+            <div class="mailBox">
+              <form
+                id="ContactForm"
+                class="ContactForm-box"
+                onsubmit="sendContactMessage(event)"
+                action="https://formsubmit.co/go459103@gmail.com"
+                method="POST"
+              >
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  name="email"
+                  required
+                />
+                <input
+                  type="text"
+                  id="message"
+                  placeholder="write your message"
+                  name="message"
+                  required
+                />
+                <button type="submit" class="btn">Send message</button>
+              </form>
+            </div>
+          </div>
           <div class="contactIcons">
             <ul class="MediaIcons">
               <a href="https://www.instagram.com/guhs_32/" target="_blank"
@@ -298,6 +347,7 @@
               ></a>
             </ul>
           </div>
+          <div class="linha"></div>
           <div class="backToTop">
             <p id="backToTop" class="scroll-link" data-scroll="nav-container">
               back to top

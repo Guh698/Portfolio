@@ -241,7 +241,7 @@ scroll efects [data-scroll] {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     opacity: 0;
-    animation: ShowNav 1s 0.3s ease 1 forwards;
+    animation: ShowNav 1s 4s ease 1 forwards;
     overflow: hidden;
   }
 
@@ -960,10 +960,12 @@ scroll efects [data-scroll] {
 
   .content {
     opacity: 0;
+    pointer-events: none;
   }
 
   .content.show {
     opacity: 1;
+    pointer-events: auto;
   }
 
   .loadingScreen {

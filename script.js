@@ -12,9 +12,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Starting position 0
   let savedScroll = 0;
-  ScrollSmoother.get().scrollTo(0, true);
+  savedScroll = ScrollSmoother.get().scrollTop();
 
   // Consts
+  const InitialHero = document.querySelector(".InitialHero");
+  const scrollSpacer = document.querySelector(".scrollSpacer");
+  const finalHero = document.querySelector(".FinalHero");
+  const FinalHeroContent = document.querySelector(".FinalHeroContent");
+  const FinalHeroOnepartScreen = document.querySelector(".OnepartScreen");
+  const FinalHeroTwoPartScreen = document.querySelector(".TwoPartScreen");
+  const FinalHeroIntroText = document.querySelector(".introText");
+  const FinalHeroText = document.querySelector(".FinalHeroText");
+  const resumeBtnContainer = document.querySelector(".resumeBtnContainer");
+  const ResumeDownloadBtn1 = document.getElementById("ResumeDownloadBtn1");
+  const ResumeDownloadBtn2 = document.getElementById("ResumeDownloadBtn2");
+  const textLoading1 = document.getElementById("textLoading1");
+  const textLoading2 = document.getElementById("textLoading2");
+  const textWait = document.getElementById("textWait");
+  const loadingScreen = document.getElementById("loadingScreen");
+  const content = document.querySelector(".content");
+  const loadingScreenProject = document.getElementById("loadingScreenProject");
+  const textLoading3 = document.getElementById("textLoading3");
+  const textLoading4 = document.getElementById("textLoading4");
+  const textWait2 = document.getElementById("textWait2");
   const spotlight = document.getElementById("cursor-spotlight");
   const mainPage = document.getElementById("main-page");
   const navContainer = document.getElementById("nav-container");
@@ -49,6 +69,44 @@ document.addEventListener("DOMContentLoaded", () => {
   function resumeScroll() {
     smoother.paused(false);
   }
+
+  function loadingScrenShowHome() {
+    loadingScreen.classList.add("show");
+    pauseScroll();
+    setTimeout(() => {
+      textLoading1.classList.add("show");
+      textLoading2.classList.add("show");
+      textWait.classList.add("show");
+    }, 200);
+    setTimeout(() => {
+      content.classList.add("show");
+      loadingScreen.classList.add("showOff");
+      resumeScroll();
+    }, 3500);
+  }
+
+  function loadingScrenShow() {
+    loadingScreenProject.classList.add("show");
+    setTimeout(() => {
+      textLoading3.classList.add("show");
+      textLoading4.classList.add("show");
+      textWait2.classList.add("show");
+    }, 200);
+    setTimeout(() => {
+      content.classList.add("show");
+      loadingScreenProject.classList.add("showOff");
+    }, 3500);
+  }
+
+  function loadingScrenShowOff() {
+    loadingScreenProject.classList.remove("show");
+    textLoading3.classList.remove("show");
+    textLoading4.classList.remove("show");
+    textWait2.classList.remove("show");
+    loadingScreenProject.classList.remove("showOff");
+  }
+
+  loadingScrenShowHome();
 
   // Project page data assignment function
   function ToggleProject(projectData) {
@@ -89,20 +147,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (arrowLeft) {
       arrowLeft.addEventListener("click", () => {
-        projectPage.classList.remove("show");
-        mainPage.classList.remove("showOff");
-        arrowLeft.classList.remove("show");
+        loadingScrenShow();
         setTimeout(() => {
-          gsap.to(window, {
-            scrollTo: savedScroll,
-            duration: 0.5,
-            ease: "power1.inOut",
-          });
-        }, 200);
+          loadingScrenShowOff();
+        }, 3700);
         setTimeout(() => {
-          finalHero.style.position = "absolute";
-          ScrollTrigger.refresh();
-        }, 1000);
+          projectPage.classList.remove("show");
+          mainPage.classList.remove("showOff");
+          arrowLeft.classList.remove("show");
+          setTimeout(() => {
+            gsap.to(window, {
+              scrollTo: savedScroll,
+              duration: 0.5,
+              ease: "power1.inOut",
+            });
+          }, 200);
+          setTimeout(() => {
+            finalHero.style.position = "absolute";
+            ScrollTrigger.refresh();
+          }, 1000);
+        }, 1500);
       });
     }
   }
@@ -212,16 +276,22 @@ document.addEventListener("DOMContentLoaded", () => {
   Object.values(pages).forEach((project) => {
     if (project.btn) {
       project.btn.addEventListener("click", () => {
-        savedScroll = ScrollSmoother.get().scrollTop();
+        loadingScrenShow();
         setTimeout(() => {
-          gsap.to(window, {
-            scrollTo: 0,
-            duration: 0.5,
-            ease: "power1.inOut",
-          });
-          finalHero.style.position = "absolute";
-        }, 100);
-        ToggleProject(project);
+          loadingScrenShowOff();
+        }, 3700);
+        setTimeout(() => {
+          savedScroll = ScrollSmoother.get().scrollTop();
+          setTimeout(() => {
+            gsap.to(window, {
+              scrollTo: 0,
+              duration: 0.5,
+              ease: "power1.inOut",
+            });
+            finalHero.style.position = "absolute";
+          }, 100);
+          ToggleProject(project);
+        }, 1000);
       });
     }
   });
@@ -250,21 +320,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "linear",
   });
 
-  const InitialHero = document.querySelector(".InitialHero");
-  const scrollSpacer = document.querySelector(".scrollSpacer");
-  const finalHero = document.querySelector(".FinalHero");
-  const FinalHeroContent = document.querySelector(".FinalHeroContent");
-  const FinalHeroOnepartScreen = document.querySelector(".OnepartScreen");
-  const FinalHeroTwoPartScreen = document.querySelector(".TwoPartScreen");
-  const FinalHeroIntroText = document.querySelector(".introText");
-  const FinalHeroText = document.querySelector(".FinalHeroText");
-
   function AddFinalHeroShow() {
     FinalHeroContent.classList.add("show");
     FinalHeroOnepartScreen.classList.add("show");
     FinalHeroTwoPartScreen.classList.add("show");
     FinalHeroText.classList.add("show");
     FinalHeroIntroText.classList.add("show");
+    resumeBtnContainer.classList.add("show");
+    ResumeDownloadBtn1.classList.add("show");
+    ResumeDownloadBtn2.classList.add("show");
 
     const leaveTl = gsap.timeline();
     leaveTl
@@ -288,6 +352,9 @@ document.addEventListener("DOMContentLoaded", () => {
     FinalHeroTwoPartScreen.classList.remove("show");
     FinalHeroText.classList.remove("show");
     FinalHeroIntroText.classList.remove("show");
+    resumeBtnContainer.classList.remove("show");
+    ResumeDownloadBtn1.classList.remove("show");
+    ResumeDownloadBtn2.classList.remove("show");
 
     const backTl = gsap.timeline();
     backTl

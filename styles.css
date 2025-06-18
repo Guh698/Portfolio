@@ -957,6 +957,109 @@ scroll efects [data-scroll] {
     touch-action: manipulation;
     padding-bottom: 30px;
   }
+
+  .content {
+    opacity: 0;
+  }
+
+  .content.show {
+    opacity: 1;
+  }
+
+  .loadingScreen {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    color: #fff;
+    transition: 0.8s ease-in-out;
+    transition: transform 0.8s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 50000;
+  }
+
+  #loadingScreenProject {
+    transform: translateY(100vh);
+  }
+
+  #loadingScreenProject.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #loadingScreenProject.showOff {
+    transform: translateY(-100vh);
+  }
+
+  .loadingScreen.show {
+    opacity: 1;
+  }
+
+  .loadingScreen.showOff {
+    transform: translateY(-100vh);
+  }
+
+  .textloadingCase {
+    margin-top: 1vh;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .textLoading1,
+  .textLoading2 {
+    height: auto;
+    overflow: hidden;
+    transform: translateY(150px);
+  }
+
+  .textLoading1 {
+    transition: 1.5s ease;
+  }
+
+  .textLoading2 {
+    transition: 1.5s 0.5s ease;
+  }
+
+  .textWait {
+    opacity: 0;
+    transition: 1s 1.5s ease;
+  }
+
+  .textWait.show {
+    opacity: 1;
+  }
+
+  .textLoading1.show {
+    transform: translateY(0);
+  }
+
+  .textLoading2.show {
+    transform: translateY(0);
+  }
+
+  .loadingScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .textLoading1,
+  .textLoading2 {
+    margin-left: 0.5em;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: "Renti";
+    font-weight: bold;
+  }
+
+  .textWait {
+    margin-left: 8em;
+    margin-top: 4em;
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1216,6 +1319,7 @@ scroll efects [data-scroll] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
     justify-content: center;
     width: 100%;
   }
@@ -1228,11 +1332,50 @@ scroll efects [data-scroll] {
     display: none;
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 1em;
     width: 300px;
   }
 
   .FinalHeroText.show {
     display: block;
+    animation: ShowNav 1s ease 1 forwards;
+  }
+
+  .resumeBtnContainer {
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    display: none;
+    width: 90%;
+  }
+
+  .resumeBtnContainer.show {
+    display: flex;
+  }
+
+  .resumeBtnContainer a {
+    text-decoration: none;
+  }
+
+  .ResumeDownloadBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    padding: 15px;
+    border-radius: 0.5em;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.6rem;
+    transition: 0.5s ease;
+    opacity: 0;
+  }
+
+  #ResumeDownloadBtn1.show {
+    animation: ShowNav 1s ease 1 forwards;
+  }
+
+  #ResumeDownloadBtn2.show {
     animation: ShowNav 1s ease 1 forwards;
   }
 
@@ -1511,6 +1654,37 @@ scroll efects [data-scroll] {
     background-color: #ffffff29;
     color: #fff;
     border-radius: 0.8em;
+  }
+
+  .loadingScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .textLoading1,
+  .textLoading2 {
+    margin-left: 0.5em;
+    font-size: 9rem;
+    text-transform: uppercase;
+    font-family: "Renti";
+    font-weight: bold;
+  }
+
+  .textLoading1.show {
+    transform: translateY(20px);
+  }
+
+  .textLoading2.show {
+    transform: translateY(30px);
+  }
+
+  .textWait {
+    margin-left: 8em;
+    margin-top: 4em;
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
   }
 }
 

@@ -189,9 +189,18 @@ scroll efects [data-scroll] {
 }
 
 @media (min-width: 320px) {
+  /*general*/
   .content {
     opacity: 0;
     pointer-events: none;
+  }
+
+  li,
+  a,
+  h1,
+  button {
+    -webkit-tap-highlight-color: transparent; /* Remove o highlight no toque */
+    touch-action: manipulation; /* Melhora a resposta ao toque */
   }
 
   .content.show {

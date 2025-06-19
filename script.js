@@ -218,11 +218,16 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750196212/cloudParisPoster_2_e4hfma.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/CloudCatalog_zh5wr4.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cloudParisSearch_juf62r.png",
-      //MblImg1: "imgs/WoodeHomeMockup.png",
-      //MblImg2: "imgs/Mockup.png",
-      //MblImg3: "imgs/Mockup.png",
-      //MblImg4: "imgs/Mockup.png",
-      //MblImg5: "imgs/Mockup.png",
+      MblImg1:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg2:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg3:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg4:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg5:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
       textTime: "7 days,",
       textData: "Launched in March 2025",
       video: "imgs/cloudParisvideo.mp4",
@@ -237,11 +242,16 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750195817/cafePoster_nkog9s.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cafeCatalog_uw3tey.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/aboutCafe_sctelt.png",
-      //MblImg1: "imgs/WoodeHomeMockup.png",
-      //MblImg2: "imgs/Mockup.png",
-      //MblImg3: "imgs/Mockup.png",
-      //MblImg4: "imgs/Mockup.png",
-      //MblImg5: "imgs/Mockup.png",
+      MblImg1:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg2:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg3:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg4:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg5:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
       textTime: "7 days,",
       textData: "Launched in February 2025",
       video: "imgs/cafeVideo.mp4",
@@ -256,11 +266,16 @@ document.addEventListener("DOMContentLoaded", () => {
       img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1750196021/CalculatorPoster_ivdn92.png",
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/MenuCalc_rj2cxi.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhiteThemeCalc_bd4rh6.png",
-      //MblImg1: "imgs/WoodeHomeMockup.png",
-      //MblImg2: "imgs/Mockup.png",
-      //MblImg3: "imgs/Mockup.png",
-      //MblImg4: "imgs/Mockup.png",
-      //MblImg5: "imgs/Mockup.png",
+      MblImg1:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg2:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg3:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg4:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg5:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
       textTime: "1 Month,",
       textData: "Launched in January 2025",
       video: "imgs/CalcVideo.mp4",

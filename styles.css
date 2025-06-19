@@ -155,7 +155,50 @@ scroll efects [data-scroll] {
   }
 }
 
+@keyframes NowTextAnim {
+  0% {
+    opacity: 1;
+    font-style: normal;
+  }
+  20% {
+    opacity: 0;
+    font-style: normal;
+  }
+  21% {
+    font-style: italic;
+  }
+  40% {
+    opacity: 1;
+    font-style: italic;
+  }
+  60% {
+    opacity: 0;
+    font-style: italic;
+  }
+  61% {
+    font-style: normal;
+  }
+  80% {
+    opacity: 1;
+    font-style: normal;
+  }
+  100% {
+    opacity: 1;
+    font-style: normal;
+  }
+}
+
 @media (min-width: 320px) {
+  .content {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .content.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   /*nav container*/
   .nav-items-container {
     opacity: 0;
@@ -958,16 +1001,7 @@ scroll efects [data-scroll] {
     padding-bottom: 30px;
   }
 
-  .content {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .content.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
+  /*loading screen*/
   .loadingScreen {
     position: fixed;
     height: 100vh;
@@ -977,7 +1011,6 @@ scroll efects [data-scroll] {
     transition: 0.8s ease-in-out;
     transition: transform 0.8s ease;
     opacity: 0;
-    pointer-events: none;
     z-index: 50000;
   }
 
@@ -1011,6 +1044,8 @@ scroll efects [data-scroll] {
   .textLoading1,
   .textLoading2 {
     height: auto;
+    display: flex;
+    align-items: end;
     overflow: hidden;
     transform: translateY(150px);
   }
@@ -1042,6 +1077,7 @@ scroll efects [data-scroll] {
 
   .loadingScreen {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: start;
@@ -1053,7 +1089,14 @@ scroll efects [data-scroll] {
     font-size: 2.5rem;
     text-transform: uppercase;
     font-family: "Renti";
+    width: 100%;
     font-weight: bold;
+  }
+
+  .textLoading2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
   }
 
   .textWait {
@@ -1061,6 +1104,13 @@ scroll efects [data-scroll] {
     margin-top: 4em;
     font-size: 1.6rem;
     font-family: "Poppins", sans-serif;
+  }
+
+  .textLoadingNow {
+    animation: NowTextAnim 1.5s 2.3s linear infinite;
+    padding-right: 5rem;
+    font-style: normal;
+    opacity: 1;
   }
 }
 
@@ -1367,10 +1417,16 @@ scroll efects [data-scroll] {
     padding: 15px;
     border-radius: 0.5em;
     background-color: #000;
-    color: #fff;
+    border: solid 1px #000;
+    color: #f3e8d5;
     font-size: 1.6rem;
     transition: 0.5s ease;
     opacity: 0;
+  }
+
+  .ResumeDownloadBtn:hover {
+    background-color: #f3e8d5;
+    color: #000;
   }
 
   #ResumeDownloadBtn1.show {
@@ -1658,6 +1714,7 @@ scroll efects [data-scroll] {
     border-radius: 0.8em;
   }
 
+  /*loading screen*/
   .loadingScreen {
     display: flex;
     flex-direction: column;
@@ -1675,11 +1732,11 @@ scroll efects [data-scroll] {
   }
 
   .textLoading1.show {
-    transform: translateY(20px);
+    transform: translateY(0px);
   }
 
   .textLoading2.show {
-    transform: translateY(30px);
+    transform: translateY(0px);
   }
 
   .textWait {

@@ -199,8 +199,8 @@ scroll efects [data-scroll] {
   a,
   h1,
   button {
-    -webkit-tap-highlight-color: transparent; /* Remove o highlight no toque */
-    touch-action: manipulation; /* Melhora a resposta ao toque */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .content.show {
@@ -397,6 +397,8 @@ scroll efects [data-scroll] {
     cursor: pointer;
     transition: 0.5s ease;
     transform: translateY(100px);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .projectContent {
@@ -660,6 +662,8 @@ scroll efects [data-scroll] {
     transform: translateX(-130px);
     transition: 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .fa-arrow-left.show {

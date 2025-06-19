@@ -56,9 +56,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroText = document.getElementById("heroText");
   const MobileTitle = document.getElementById("MobileTitle");
   const DesktopTitle = document.getElementById("DesktopTitle");
-
   const el = "#typewriter";
   const tl = gsap.timeline({ repeat: 0 });
+
+  window.addEventListener("popstate", (event) => {
+    const page = event.state?.page || "home";
+
+    if (page === "projects") {
+      loadingScrenShow();
+      setTimeout(() => {
+        loadingScrenShowOff();
+      }, 3700);
+      setTimeout(() => {
+        gsap.to(window, {
+          scrollTo: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+        finalHero.style.position = "absolute";
+        ToggleProject(pages["project1"]);
+      }, 1000);
+    } else {
+      loadingScrenShow();
+      setTimeout(() => {
+        loadingScrenShowOff();
+      }, 3700);
+      setTimeout(() => {
+        projectPage.classList.remove("show");
+        mainPage.classList.remove("showOff");
+        arrowLeft.classList.remove("show");
+        gsap.to(window, {
+          scrollTo: savedScroll,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      }, 1500);
+      setTimeout(() => {
+        finalHero.style.position = "absolute";
+        ScrollTrigger.refresh();
+      }, 2500);
+    }
+  });
 
   logo.src = "imgs/WhiteLogo.png";
 
@@ -108,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadingScrenShowHome();
 
-  // Project page data assignment function
   function ToggleProject(projectData) {
     let anyProjectPageOpen = false;
 
@@ -151,10 +188,11 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           loadingScrenShowOff();
         }, 3700);
-        setTimeout(() => {
+        setTimeout((push = true) => {
           projectPage.classList.remove("show");
           mainPage.classList.remove("showOff");
           arrowLeft.classList.remove("show");
+          if (push) history.pushState({ page: "home" }, "", "/");
           setTimeout(() => {
             gsap.to(window, {
               scrollTo: savedScroll,
@@ -290,8 +328,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Project Page open function
   Object.values(pages).forEach((project) => {
     if (project.btn) {
-      project.btn.addEventListener("click", () => {
+      project.btn.addEventListener("click", (push = true) => {
         loadingScrenShow();
+        if (push) history.pushState({ page: "projects" }, "", "/projects");
         setTimeout(() => {
           loadingScrenShowOff();
         }, 3700);

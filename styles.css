@@ -240,6 +240,16 @@ scroll efects [data-scroll] {
     color: #fff;
     opacity: 0;
     animation: ShowNav 1s 0.3s ease 1 forwards;
+    z-index: 2;
+  }
+
+  .nav-logo-container.show {
+    .my-name {
+      color: #000;
+    }
+    .my-job {
+      color: #000;
+    }
   }
 
   .my-name {
@@ -259,6 +269,225 @@ scroll efects [data-scroll] {
     color: #fff;
   }
 
+  .menuIconContainer {
+    position: fixed;
+    right: 0;
+    top: 30px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 2em;
+    z-index: 2;
+  }
+
+  .menuIconMobile {
+    position: absolute;
+    color: #fff;
+    font-family: "Renti";
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  .menuIconMobile.show {
+    color: #000;
+    .menuLine {
+      background-color: #000;
+    }
+  }
+
+  .menuIconMobile.showOff {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  .menuIconMobileClose {
+    position: relative;
+    color: #000;
+    font-family: "Renti";
+    font-size: 1.3rem;
+    transition: 0.5s ease;
+    text-transform: uppercase;
+    opacity: 1;
+    pointer-events: none;
+    transform: translateY(30px);
+    opacity: 0;
+    transform: 0.3s ease;
+  }
+
+  .menuIconMobileClose .menuLine {
+    background-color: #000;
+  }
+
+  .menuIconMobileClose.show {
+    transform: translateY(0px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menuLine {
+    height: 1px;
+    background-color: #fff;
+    width: 100%;
+    transition: 0.5s ease;
+  }
+
+  /*menu pages*/
+  /*menu*/
+  .menuMobile {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f3e8d5;
+    color: #000;
+    height: 0;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .menuMobileContent {
+    position: relative;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .menuMobile.show {
+    height: 100vh;
+    pointer-events: auto;
+    .menuMobileContent {
+      opacity: 1;
+      transition: 0s 0.3s ease;
+    }
+  }
+
+  .menuMobile ul {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 12em;
+    padding-left: 2em;
+    list-style: none;
+  }
+
+  .liCase {
+    height: 5em;
+    overflow: hidden;
+  }
+
+  .menuMobile ul li {
+    font-weight: bolder;
+    font-size: 6rem;
+    font-family: "Renti";
+    text-transform: uppercase;
+  }
+
+  .liText,
+  .liText2,
+  .liText3,
+  .liText4 {
+    transform: translateY(50px);
+    transition: 0.8s ease-in-out;
+  }
+
+  .liText.show,
+  .liText2.show,
+  .liText3.show,
+  .liText4.show {
+    transform: translateY(0px);
+  }
+
+  .menuFooter {
+    position: absolute;
+    bottom: 10%;
+    padding-left: 2em;
+    font-family: "Renti";
+    font-size: 1.4rem;
+  }
+
+  /*contact page*/
+  .contactPageContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background-color: #f3e8d5;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  .contactPageContainer.show {
+    height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .contactPage {
+    position: relative;
+    margin-top: 9em;
+    width: 90%;
+    height: 90%;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  .contactPage ul {
+    list-style: none;
+  }
+
+  .contactPage a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .contactPage h2 {
+    font-weight: bolder;
+    font-family: "Renti";
+    font-size: 6rem;
+  }
+
+  .halfScreensContactPage {
+    display: flex;
+    padding-top: 4em;
+    height: calc(75% - 4em);
+  }
+
+  .contactRightHalfScreen {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+  }
+
+  .contactImg {
+    width: 100%;
+  }
+
+  .contactRightHalfScreen img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .contactLeftHalfScreen {
+    display: flex;
+    align-items: end;
+    width: 50%;
+  }
+
+  .contactLeftHalfScreen ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
   /*Hero*/
   .InitialHero {
     position: relative;
@@ -270,7 +499,7 @@ scroll efects [data-scroll] {
   }
 
   .InitialHero.removeShow {
-    display: none;
+    height: 0;
   }
 
   .InitialHero span {
@@ -657,7 +886,7 @@ scroll efects [data-scroll] {
     transition: 0.3s ease;
     cursor: pointer;
     font-size: 1.6rem;
-    z-index: 6;
+    z-index: 1;
     opacity: 0;
     transform: translateX(-130px);
     transition: 0.3s ease-in-out;
@@ -1125,6 +1354,27 @@ scroll efects [data-scroll] {
     font-style: normal;
     opacity: 1;
   }
+
+  .loadingScreenMenu {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f3e8d5;
+    color: #fff;
+    transition: transform 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 50000;
+    transform: translateY(100vh);
+  }
+
+  .loadingScreenMenu.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .loadingScreenMenu.showOff {
+    transform: translateY(-100vh);
+  }
 }
 
 @media (min-width: 768px) {
@@ -1310,6 +1560,10 @@ scroll efects [data-scroll] {
   .nav-contact ul li a {
     text-decoration: none;
     color: #fff;
+  }
+
+  .menuIconContainer {
+    display: none;
   }
 
   /*main*/

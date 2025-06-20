@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Consts
   const InitialHero = document.querySelector(".InitialHero");
+  const menuIconMobile = document.querySelector(".menuIconMobile");
+  const menuIconMobileClose = document.querySelector(".menuIconMobileClose");
+  const textLogo = document.querySelector(".nav-logo-container");
+  const liText = document.querySelector(".liText");
+  const liText2 = document.querySelector(".liText2");
+  const liText3 = document.querySelector(".liText3");
+  const liText4 = document.querySelector(".liText4");
+  const menuMobile = document.querySelector(".menuMobile");
+  const homeBtn = document.getElementById("homeBtn");
+  const contactBtn = document.getElementById("contactBtn");
+  const contactPageContainer = document.querySelector(".contactPageContainer");
   const scrollSpacer = document.querySelector(".scrollSpacer");
   const finalHero = document.querySelector(".FinalHero");
   const FinalHeroContent = document.querySelector(".FinalHeroContent");
@@ -32,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadingScreen = document.getElementById("loadingScreen");
   const content = document.querySelector(".content");
   const loadingScreenProject = document.getElementById("loadingScreenProject");
+  const loadingScreenMenu = document.getElementById("loadingScreenMenu");
   const textLoading3 = document.getElementById("textLoading3");
   const textLoading4 = document.getElementById("textLoading4");
   const textWait2 = document.getElementById("textWait2");
@@ -108,6 +120,97 @@ document.addEventListener("DOMContentLoaded", () => {
     smoother.paused(false);
   }
 
+  function menuShow() {
+    menuMobile.classList.add("show");
+    menuIconMobile.classList.add("show");
+    textLogo.classList.add("show");
+    logo.src = "imgs/BlackLogo.png";
+    liText.classList.add("show");
+    liText2.classList.add("show");
+    liText3.classList.add("show");
+    liText4.classList.add("show");
+    pauseScroll();
+    setTimeout(() => {
+      menuIconMobile.classList.add("showOff");
+    }, 100);
+    setTimeout(() => {
+      menuIconMobileClose.classList.add("show");
+    }, 300);
+  }
+
+  function menuRemoveShow() {
+    setTimeout(() => {
+      menuIconMobileClose.classList.remove("show");
+      if (!contactPageContainer.classList.contains("show")) {
+        resumeScroll();
+      }
+    }, 100);
+    menuMobile.classList.remove("show");
+    liText.classList.remove("show");
+    liText2.classList.remove("show");
+    liText3.classList.remove("show");
+    liText4.classList.remove("show");
+    setTimeout(() => {
+      if (!contactPageContainer.classList.contains("show")) {
+        menuIconMobile.classList.remove("show");
+        textLogo.classList.remove("show");
+        logo.src = "imgs/WhiteLogo.png";
+      }
+    }, 600);
+    setTimeout(() => {
+      menuIconMobile.classList.remove("showOff");
+    }, 500);
+  }
+
+  if (menuIconMobile) {
+    menuIconMobile.addEventListener("click", () => {
+      menuShow();
+    });
+  }
+
+  if (menuIconMobileClose) {
+    menuIconMobileClose.addEventListener("click", () => {
+      menuRemoveShow();
+    });
+  }
+
+  function contactPageShow() {
+    contactPageContainer.classList.add("show");
+    menuIconMobile.classList.add("show");
+    textLogo.classList.add("show");
+    logo.src = "imgs/BlackLogo.png";
+    pauseScroll();
+  }
+
+  if (contactBtn) {
+    contactBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+      }, 1500);
+      setTimeout(() => {
+        contactPageShow();
+      }, 200);
+    });
+  }
+
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+      }, 1500);
+      contactPageRemoveShow();
+    });
+  }
+
+  function contactPageRemoveShow() {
+    contactPageContainer.classList.remove("show");
+    resumeScroll();
+  }
+
   function loadingScrenShowHome() {
     loadingScreen.classList.add("show");
     pauseScroll();
@@ -133,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       content.classList.add("show");
       loadingScreenProject.classList.add("showOff");
-    }, 3500);
+    }, 2500);
   }
 
   function loadingScrenShowOff() {
@@ -145,6 +248,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loadingScrenShowHome();
+
+  function loadingScreenMenuShow() {
+    loadingScreenMenu.classList.add("show");
+    setTimeout(() => {
+      loadingScreenMenu.classList.add("showOff");
+    }, 900);
+  }
+
+  function loadingScreenMenuOff() {
+    loadingScreenMenu.classList.remove("show");
+    loadingScreenMenu.classList.remove("showOff");
+  }
 
   function ToggleProject(projectData) {
     let anyProjectPageOpen = false;
@@ -398,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  let heroTimeout; // <- define fora para poder acessar em onEnterBack
+  let heroTimeout;
 
   function CloseFinalHeroShow() {
     FinalHeroContent.classList.remove("show");

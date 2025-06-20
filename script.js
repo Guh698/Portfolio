@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuMobile = document.querySelector(".menuMobile");
   const homeBtn = document.getElementById("homeBtn");
   const contactBtn = document.getElementById("contactBtn");
+  const worksBtn = document.getElementById("worksBtn");
   const contactPageContainer = document.querySelector(".contactPageContainer");
   const scrollSpacer = document.querySelector(".scrollSpacer");
   const finalHero = document.querySelector(".FinalHero");
@@ -182,6 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
     pauseScroll();
   }
 
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+      }, 1500);
+      contactPageRemoveShow();
+    });
+  }
+
   if (contactBtn) {
     contactBtn.addEventListener("click", () => {
       menuRemoveShow();
@@ -195,8 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (homeBtn) {
-    homeBtn.addEventListener("click", () => {
+  if (worksBtn) {
+    worksBtn.addEventListener("click", () => {
       menuRemoveShow();
       loadingScreenMenuShow();
       setTimeout(() => {

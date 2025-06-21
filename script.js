@@ -72,269 +72,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const el = "#typewriter";
   const tl = gsap.timeline({ repeat: 0 });
 
-  window.addEventListener("popstate", (event) => {
-    const page = event.state?.page || "home";
-
-    if (page === "projects") {
-      loadingScrenShow();
-      setTimeout(() => {
-        loadingScrenShowOff();
-      }, 3700);
-      setTimeout(() => {
-        gsap.to(window, {
-          scrollTo: 0,
-          duration: 0.5,
-          ease: "power1.inOut",
-        });
-        finalHero.style.position = "absolute";
-        ToggleProject(pages["project1"]);
-      }, 1000);
-    } else {
-      loadingScrenShow();
-      setTimeout(() => {
-        loadingScrenShowOff();
-      }, 3700);
-      setTimeout(() => {
-        projectPage.classList.remove("show");
-        mainPage.classList.remove("showOff");
-        arrowLeft.classList.remove("show");
-        gsap.to(window, {
-          scrollTo: savedScroll,
-          duration: 0.5,
-          ease: "power1.inOut",
-        });
-      }, 1500);
-      setTimeout(() => {
-        finalHero.style.position = "absolute";
-        ScrollTrigger.refresh();
-      }, 2500);
-    }
+  // Cursor effect
+  document.addEventListener("mousemove", (e) => {
+    spotlight.style.left = `${e.clientX}px`;
+    spotlight.style.top = `${e.clientY}px`;
   });
 
+  document.querySelectorAll(".scroll-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = link.getAttribute("data-scroll");
+      scrollToId(id);
+    });
+  });
+
+  //logo color
   logo.src = "imgs/WhiteLogo.png";
 
-  function pauseScroll() {
-    smoother.paused(true);
-  }
+  let heroTimeout;
 
-  function resumeScroll() {
-    smoother.paused(false);
-  }
+  // hero text animation
+  let heroTextAnim = gsap.to(heroText, {
+    xPercent: -100,
+    repeat: -1,
+    duration: 10,
+    ease: "linear",
+  });
 
-  function menuShow() {
-    menuMobile.classList.add("show");
-    menuIconMobile.classList.add("show");
-    textLogo.classList.add("show");
-    logo.src = "imgs/BlackLogo.png";
-    liText.classList.add("show");
-    liText2.classList.add("show");
-    liText3.classList.add("show");
-    liText4.classList.add("show");
-    pauseScroll();
-    setTimeout(() => {
-      menuIconMobile.classList.add("showOff");
-    }, 100);
-    setTimeout(() => {
-      menuIconMobileClose.classList.add("show");
-    }, 300);
-  }
+  // Desktop text animation
+  let DesktopTextAnim = gsap.to(DesktopTitle, {
+    xPercent: -100,
+    repeat: -1,
+    duration: 6,
+    ease: "linear",
+  });
 
-  function menuRemoveShow() {
-    setTimeout(() => {
-      menuIconMobileClose.classList.remove("show");
-      if (!contactPageContainer.classList.contains("show")) {
-        resumeScroll();
-      }
-    }, 100);
-    menuMobile.classList.remove("show");
-    liText.classList.remove("show");
-    liText2.classList.remove("show");
-    liText3.classList.remove("show");
-    liText4.classList.remove("show");
-    setTimeout(() => {
-      if (!contactPageContainer.classList.contains("show")) {
-        menuIconMobile.classList.remove("show");
-        textLogo.classList.remove("show");
-        logo.src = "imgs/WhiteLogo.png";
-      }
-    }, 600);
-    setTimeout(() => {
-      menuIconMobile.classList.remove("showOff");
-    }, 500);
-  }
-
-  if (menuIconMobile) {
-    menuIconMobile.addEventListener("click", () => {
-      menuShow();
-    });
-  }
-
-  if (menuIconMobileClose) {
-    menuIconMobileClose.addEventListener("click", () => {
-      menuRemoveShow();
-    });
-  }
-
-  function contactPageShow() {
-    contactPageContainer.classList.add("show");
-    menuIconMobile.classList.add("show");
-    textLogo.classList.add("show");
-    logo.src = "imgs/BlackLogo.png";
-    pauseScroll();
-  }
-
-  if (homeBtn) {
-    homeBtn.addEventListener("click", () => {
-      menuRemoveShow();
-      loadingScreenMenuShow();
-      setTimeout(() => {
-        loadingScreenMenuOff();
-      }, 1500);
-      contactPageRemoveShow();
-    });
-  }
-
-  if (contactBtn) {
-    contactBtn.addEventListener("click", () => {
-      menuRemoveShow();
-      loadingScreenMenuShow();
-      setTimeout(() => {
-        loadingScreenMenuOff();
-      }, 1500);
-      setTimeout(() => {
-        contactPageShow();
-      }, 200);
-    });
-  }
-
-  if (worksBtn) {
-    worksBtn.addEventListener("click", () => {
-      menuRemoveShow();
-      loadingScreenMenuShow();
-      setTimeout(() => {
-        loadingScreenMenuOff();
-      }, 1500);
-      contactPageRemoveShow();
-    });
-  }
-
-  function contactPageRemoveShow() {
-    contactPageContainer.classList.remove("show");
-    resumeScroll();
-  }
-
-  function loadingScrenShowHome() {
-    loadingScreen.classList.add("show");
-    pauseScroll();
-    setTimeout(() => {
-      textLoading1.classList.add("show");
-      textLoading2.classList.add("show");
-      textWait.classList.add("show");
-    }, 200);
-    setTimeout(() => {
-      content.classList.add("show");
-      loadingScreen.classList.add("showOff");
-      resumeScroll();
-    }, 3500);
-  }
-
-  function loadingScrenShow() {
-    loadingScreenProject.classList.add("show");
-    setTimeout(() => {
-      textLoading3.classList.add("show");
-      textLoading4.classList.add("show");
-      textWait2.classList.add("show");
-    }, 200);
-    setTimeout(() => {
-      content.classList.add("show");
-      loadingScreenProject.classList.add("showOff");
-    }, 2500);
-  }
-
-  function loadingScrenShowOff() {
-    loadingScreenProject.classList.remove("show");
-    textLoading3.classList.remove("show");
-    textLoading4.classList.remove("show");
-    textWait2.classList.remove("show");
-    loadingScreenProject.classList.remove("showOff");
-  }
-
-  loadingScrenShowHome();
-
-  function loadingScreenMenuShow() {
-    loadingScreenMenu.classList.add("show");
-    setTimeout(() => {
-      loadingScreenMenu.classList.add("showOff");
-    }, 900);
-  }
-
-  function loadingScreenMenuOff() {
-    loadingScreenMenu.classList.remove("show");
-    loadingScreenMenu.classList.remove("showOff");
-  }
-
-  function ToggleProject(projectData) {
-    let anyProjectPageOpen = false;
-
-    img1.src = projectData.img1;
-    img2.src = projectData.img2;
-    img3.src = projectData.img3;
-    MblImg1.src = projectData.MblImg1;
-    MblImg2.src = projectData.MblImg2;
-    MblImg3.src = projectData.MblImg3;
-    MblImg4.src = projectData.MblImg4;
-    MblImg5.src = projectData.MblImg5;
-    video.src = projectData.video;
-    projectPage.classList.add("show");
-    textTime.innerHTML = projectData.textTime;
-    textData.innerHTML = projectData.textData;
-    FirstParagraph.innerHTML = projectData.FirstParagraph;
-    SecondParagraph.innerHTML = projectData.SecondParagraph;
-    link.href = projectData.link;
-    link.target = "_blank";
-
-    if (projectPage.classList.contains("show")) {
-      anyProjectPageOpen = true;
-    } else {
-      anyProjectPageOpen = false;
-    }
-
-    if (anyProjectPageOpen) {
-      mainPage.classList.add("showOff");
-      arrowLeft.classList.add("show");
-      finalHero.style.position = "absolute";
-      logo.src = "imgs/WhiteLogo.png";
-    } else {
-      mainPage.classList.add("show");
-      logo.src = "imgs/BlackLogo.png";
-    }
-
-    if (arrowLeft) {
-      arrowLeft.addEventListener("click", () => {
-        loadingScrenShow();
-        setTimeout(() => {
-          loadingScrenShowOff();
-        }, 3700);
-        setTimeout((push = true) => {
-          projectPage.classList.remove("show");
-          mainPage.classList.remove("showOff");
-          arrowLeft.classList.remove("show");
-          if (push) history.pushState({ page: "home" }, "", "/");
-          setTimeout(() => {
-            gsap.to(window, {
-              scrollTo: savedScroll,
-              duration: 0.5,
-              ease: "power1.inOut",
-            });
-          }, 200);
-          setTimeout(() => {
-            finalHero.style.position = "absolute";
-            ScrollTrigger.refresh();
-          }, 1000);
-        }, 1500);
-      });
-    }
-  }
+  // Mobile text animation
+  let MobileTextAnim = gsap.to(MobileTitle, {
+    xPercent: -100,
+    repeat: -1,
+    duration: 6,
+    ease: "linear",
+  });
 
   // Project page data
   const pages = {
@@ -452,54 +231,202 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  // Project Page open function
-  Object.values(pages).forEach((project) => {
-    if (project.btn) {
-      project.btn.addEventListener("click", (push = true) => {
+  function ToggleProject(projectData) {
+    let anyProjectPageOpen = false;
+
+    img1.src = projectData.img1;
+    img2.src = projectData.img2;
+    img3.src = projectData.img3;
+    MblImg1.src = projectData.MblImg1;
+    MblImg2.src = projectData.MblImg2;
+    MblImg3.src = projectData.MblImg3;
+    MblImg4.src = projectData.MblImg4;
+    MblImg5.src = projectData.MblImg5;
+    video.src = projectData.video;
+    projectPage.classList.add("show");
+    textTime.innerHTML = projectData.textTime;
+    textData.innerHTML = projectData.textData;
+    FirstParagraph.innerHTML = projectData.FirstParagraph;
+    SecondParagraph.innerHTML = projectData.SecondParagraph;
+    link.href = projectData.link;
+    link.target = "_blank";
+
+    if (projectPage.classList.contains("show")) {
+      anyProjectPageOpen = true;
+    } else {
+      anyProjectPageOpen = false;
+    }
+
+    if (anyProjectPageOpen) {
+      mainPage.classList.add("showOff");
+      arrowLeft.classList.add("show");
+      finalHero.style.position = "absolute";
+      logo.src = "imgs/WhiteLogo.png";
+    } else {
+      mainPage.classList.add("show");
+      logo.src = "imgs/BlackLogo.png";
+    }
+
+    if (arrowLeft) {
+      arrowLeft.addEventListener("click", () => {
         loadingScrenShow();
-        if (push) history.pushState({ page: "projects" }, "", "/projects");
         setTimeout(() => {
           loadingScrenShowOff();
         }, 3700);
-        setTimeout(() => {
-          savedScroll = ScrollSmoother.get().scrollTop();
+        setTimeout((push = true) => {
+          projectPage.classList.remove("show");
+          mainPage.classList.remove("showOff");
+          arrowLeft.classList.remove("show");
+          if (push) history.pushState({ page: "home" }, "", "/");
           setTimeout(() => {
             gsap.to(window, {
-              scrollTo: 0,
+              scrollTo: savedScroll,
               duration: 0.5,
               ease: "power1.inOut",
             });
+          }, 200);
+          setTimeout(() => {
             finalHero.style.position = "absolute";
-          }, 100);
-          ToggleProject(project);
-        }, 1000);
+            ScrollTrigger.refresh();
+          }, 1000);
+        }, 1500);
       });
     }
-  });
+  }
 
-  // hero text animation
-  let heroTextAnim = gsap.to(heroText, {
-    xPercent: -100,
-    repeat: -1,
-    duration: 10,
-    ease: "linear",
-  });
+  function pauseScroll() {
+    smoother.paused(true);
+  }
 
-  // Desktop text animation
-  let DesktopTextAnim = gsap.to(DesktopTitle, {
-    xPercent: -100,
-    repeat: -1,
-    duration: 6,
-    ease: "linear",
-  });
+  function resumeScroll() {
+    smoother.paused(false);
+  }
 
-  // Mobile text animation
-  let MobileTextAnim = gsap.to(MobileTitle, {
-    xPercent: -100,
-    repeat: -1,
-    duration: 6,
-    ease: "linear",
-  });
+  function isMobile() {
+    return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+  }
+
+  function menuShow() {
+    menuMobile.classList.add("show");
+    menuIconMobile.classList.add("show");
+    textLogo.classList.add("show");
+    logo.src = "imgs/BlackLogo.png";
+    liText.classList.add("show");
+    liText2.classList.add("show");
+    liText3.classList.add("show");
+    liText4.classList.add("show");
+    pauseScroll();
+    setTimeout(() => {
+      menuIconMobile.classList.add("showOff");
+    }, 100);
+    setTimeout(() => {
+      menuIconMobileClose.classList.add("show");
+    }, 300);
+  }
+
+  function menuRemoveShow() {
+    setTimeout(() => {
+      menuIconMobileClose.classList.remove("show");
+      if (!contactPageContainer.classList.contains("show")) {
+        resumeScroll();
+      }
+    }, 100);
+    menuMobile.classList.remove("show");
+    liText.classList.remove("show");
+    liText2.classList.remove("show");
+    liText3.classList.remove("show");
+    liText4.classList.remove("show");
+    setTimeout(() => {
+      if (!contactPageContainer.classList.contains("show")) {
+        menuIconMobile.classList.remove("show");
+        textLogo.classList.remove("show");
+        logo.src = "imgs/WhiteLogo.png";
+      }
+    }, 600);
+    setTimeout(() => {
+      menuIconMobile.classList.remove("showOff");
+    }, 500);
+  }
+
+  function contactPageShow() {
+    contactPageContainer.classList.add("show");
+    menuIconMobile.classList.add("show");
+    textLogo.classList.add("show");
+    logo.src = "imgs/BlackLogo.png";
+    pauseScroll();
+  }
+
+  function contactPageRemoveShow() {
+    contactPageContainer.classList.remove("show");
+    resumeScroll();
+  }
+
+  function loadingScrenShowHome() {
+    loadingScreen.classList.add("show");
+    pauseScroll();
+    setTimeout(() => {
+      textLoading1.classList.add("show");
+      textLoading2.classList.add("show");
+      textWait.classList.add("show");
+    }, 200);
+    setTimeout(() => {
+      content.classList.add("show");
+      loadingScreen.classList.add("showOff");
+      resumeScroll();
+    }, 3500);
+  }
+
+  function loadingScrenShow() {
+    if (projectPage.classList.contains("show")) {
+      textLoading3.innerHTML = "The website";
+    } else {
+      textLoading3.innerHTML = "The project case";
+    }
+    loadingScreenProject.classList.add("show");
+    setTimeout(() => {
+      textLoading3.classList.add("show");
+      textLoading4.classList.add("show");
+      textWait2.classList.add("show");
+    }, 200);
+    setTimeout(() => {
+      content.classList.add("show");
+      loadingScreenProject.classList.add("showOff");
+    }, 2500);
+  }
+
+  function loadingScrenShowOff() {
+    loadingScreenProject.classList.remove("show");
+    textLoading3.classList.remove("show");
+    textLoading4.classList.remove("show");
+    textWait2.classList.remove("show");
+    loadingScreenProject.classList.remove("showOff");
+  }
+
+  //starting loading screen
+  loadingScrenShowHome();
+
+  function loadingScreenMenuShow() {
+    loadingScreenMenu.classList.add("show");
+    setTimeout(() => {
+      loadingScreenMenu.classList.add("showOff");
+    }, 900);
+  }
+
+  function loadingScreenMenuOff() {
+    loadingScreenMenu.classList.remove("show");
+    loadingScreenMenu.classList.remove("showOff");
+  }
+
+  function scrollToId(id) {
+    const element = document.querySelector(`#${id}`);
+    if (element) {
+      gsap.to(window, {
+        scrollTo: element,
+        duration: 0.5,
+        ease: "power1.inOut",
+      });
+    }
+  }
 
   function AddFinalHeroShow() {
     FinalHeroContent.classList.add("show");
@@ -525,8 +452,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  let heroTimeout;
-
   function CloseFinalHeroShow() {
     FinalHeroContent.classList.remove("show");
     FinalHeroOnepartScreen.classList.remove("show");
@@ -549,6 +474,116 @@ document.addEventListener("DOMContentLoaded", () => {
         text: "Gustavo",
         ease: "none",
       });
+  }
+
+  window.addEventListener("popstate", (event) => {
+    const page = event.state?.page || "home";
+    if (page === "projects") {
+      loadingScrenShow();
+      setTimeout(() => {
+        loadingScrenShowOff();
+      }, 3700);
+      setTimeout(() => {
+        gsap.to(window, {
+          scrollTo: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+        finalHero.style.position = "absolute";
+        ToggleProject(pages["project1"]);
+      }, 1000);
+    } else {
+      loadingScrenShow();
+      setTimeout(() => {
+        loadingScrenShowOff();
+      }, 3700);
+      setTimeout(() => {
+        projectPage.classList.remove("show");
+        mainPage.classList.remove("showOff");
+        arrowLeft.classList.remove("show");
+        gsap.to(window, {
+          scrollTo: savedScroll,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      }, 1500);
+      setTimeout(() => {
+        finalHero.style.position = "absolute";
+        ScrollTrigger.refresh();
+      }, 2500);
+    }
+  });
+
+  // Project Page open function
+  Object.values(pages).forEach((project) => {
+    if (project.btn) {
+      project.btn.addEventListener("click", (push = true) => {
+        loadingScrenShow();
+        if (push) history.pushState({ page: "projects" }, "", "/projects");
+        setTimeout(() => {
+          loadingScrenShowOff();
+        }, 3700);
+        setTimeout(() => {
+          savedScroll = ScrollSmoother.get().scrollTop();
+          setTimeout(() => {
+            gsap.to(window, {
+              scrollTo: 0,
+              duration: 0.5,
+              ease: "power1.inOut",
+            });
+            finalHero.style.position = "absolute";
+          }, 100);
+          ToggleProject(project);
+        }, 1000);
+      });
+    }
+  });
+
+  if (menuIconMobile) {
+    menuIconMobile.addEventListener("click", () => {
+      menuShow();
+    });
+  }
+
+  if (menuIconMobileClose) {
+    menuIconMobileClose.addEventListener("click", () => {
+      menuRemoveShow();
+    });
+  }
+
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+      }, 1500);
+      contactPageRemoveShow();
+    });
+  }
+
+  if (contactBtn) {
+    contactBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+      }, 1500);
+      setTimeout(() => {
+        contactPageShow();
+      }, 200);
+    });
+  }
+
+  if (worksBtn) {
+    worksBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+      }, 1500);
+      contactPageRemoveShow();
+    });
   }
 
   //Hero animation
@@ -731,93 +766,70 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  gsap.set("#projectContent1", {
-    y: 0,
-  });
-
-  gsap.to("#projectContent1", {
-    y: -50,
-    scrollTrigger: {
-      trigger: ".project1",
-      start: "top 20%",
-      scrub: true,
-    },
-  });
-
-  gsap.set("#projectContent2", {
-    y: 0,
-  });
-
-  gsap.to("#projectContent2", {
-    y: -50,
-    scrollTrigger: {
-      trigger: ".project2",
-      start: "top 20%",
-      scrub: true,
-    },
-  });
-
-  gsap.set("#projectContent3", {
-    y: 0,
-  });
-
-  gsap.to("#projectContent3", {
-    y: -50,
-    scrollTrigger: {
-      trigger: ".project3",
-      start: "top 20%",
-      scrub: true,
-    },
-  });
-
-  gsap.set("#projectContent4", {
-    y: 0,
-  });
-
-  gsap.to("#projectContent4", {
-    y: -50,
-    scrollTrigger: {
-      trigger: ".project4",
-      start: "top 20%",
-      scrub: true,
-    },
-  });
-
-  gsap.set("#projectContent5", {
-    y: 0,
-  });
-
-  gsap.to("#projectContent5", {
-    y: -50,
-    scrollTrigger: {
-      trigger: ".project5",
-      start: "top 20%",
-      scrub: true,
-    },
-  });
-
-  // Cursor effect
-  document.addEventListener("mousemove", (e) => {
-    spotlight.style.left = `${e.clientX}px`;
-    spotlight.style.top = `${e.clientY}px`;
-  });
-
-  document.querySelectorAll(".scroll-link").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const id = link.getAttribute("data-scroll");
-      scrollToId(id);
+  if (!isMobile()) {
+    gsap.set("#projectContent1", {
+      y: 0,
     });
-  });
 
-  function scrollToId(id) {
-    const element = document.querySelector(`#${id}`);
-    if (element) {
-      gsap.to(window, {
-        scrollTo: element,
-        duration: 0.5,
-        ease: "power1.inOut",
-      });
-    }
+    gsap.to("#projectContent1", {
+      y: -50,
+      scrollTrigger: {
+        trigger: ".project1",
+        start: "top 20%",
+        scrub: true,
+      },
+    });
+
+    gsap.set("#projectContent2", {
+      y: 0,
+    });
+
+    gsap.to("#projectContent2", {
+      y: -50,
+      scrollTrigger: {
+        trigger: ".project2",
+        start: "top 20%",
+        scrub: true,
+      },
+    });
+
+    gsap.set("#projectContent3", {
+      y: 0,
+    });
+
+    gsap.to("#projectContent3", {
+      y: -50,
+      scrollTrigger: {
+        trigger: ".project3",
+        start: "top 20%",
+        scrub: true,
+      },
+    });
+
+    gsap.set("#projectContent4", {
+      y: 0,
+    });
+
+    gsap.to("#projectContent4", {
+      y: -50,
+      scrollTrigger: {
+        trigger: ".project4",
+        start: "top 20%",
+        scrub: true,
+      },
+    });
+
+    gsap.set("#projectContent5", {
+      y: 0,
+    });
+
+    gsap.to("#projectContent5", {
+      y: -50,
+      scrollTrigger: {
+        trigger: ".project5",
+        start: "top 20%",
+        scrub: true,
+      },
+    });
   }
 });

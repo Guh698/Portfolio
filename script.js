@@ -644,7 +644,6 @@ document.addEventListener("DOMContentLoaded", () => {
         projectPage.classList.remove("show");
         mainPage.classList.remove("showOff");
         InitialHero.classList.remove("removeShow");
-        arrowLeft.classList.remove("show");
       }, 300);
       setTimeout(() => {
         loadingScreenMenuOff();
@@ -702,7 +701,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         projectPage.classList.remove("show");
         mainPage.classList.remove("showOff");
-        arrowLeft.classList.remove("show");
         InitialHero.classList.add("removeShow");
         smoother.scrollTo(0);
         gsap.to(".PROfade-up", {

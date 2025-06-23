@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const logo = document.querySelector("#logo img");
   const arrowLeft = document.getElementById("arrowLeft");
   const backToTop = document.getElementById("backToTop");
-  // Project page consts
   const projectPage = document.getElementById("project-page");
   const img1 = document.getElementById("projectImage1");
   const img2 = document.getElementById("projectImage2");
@@ -75,11 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const DesktopTitle = document.getElementById("DesktopTitle");
   const el = "#typewriter";
   const tl = gsap.timeline({ repeat: 0 });
-  const project1 = document.querySelector(".project1");
-  const project2 = document.querySelector(".project2");
-  const project3 = document.querySelector(".project3");
-  const project4 = document.querySelector(".project4");
-  const project5 = document.querySelector(".project5");
 
   // Cursor effect
   document.addEventListener("mousemove", (e) => {
@@ -275,88 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mainPage.classList.add("show");
       logo.src = "imgs/BlackLogo.png";
     }
-
-    if (arrowLeft) {
-      arrowLeft.addEventListener("click", () => {
-        loadingScrenShow();
-        setTimeout(() => {
-          loadingScrenShowOff();
-        }, 3700);
-        setTimeout((push = true) => {
-          projectPage.classList.remove("show");
-          mainPage.classList.remove("showOff");
-          arrowLeft.classList.remove("show");
-          if (push) history.pushState({ page: "home" }, "", "/");
-          setTimeout(() => {
-            gsap.to(window, {
-              scrollTo: savedScroll,
-              duration: 0.5,
-              ease: "power1.inOut",
-            });
-          }, 200);
-          setTimeout(() => {
-            finalHero.style.position = "absolute";
-            ScrollTrigger.refresh();
-          }, 1000);
-        }, 1500);
-      });
-    }
   }
-
-  /*if (project1) {
-    project1.addEventListener("mouseenter", () => {
-      spotlight.classList.add("show");
-    });
-    if (project1) {
-      project1.addEventListener("mouseleave", () => {
-        spotlight.classList.remove("show");
-      });
-    }
-  }
-
-  if (project2) {
-    project2.addEventListener("mouseenter", () => {
-      spotlight.classList.add("show");
-    });
-    if (project2) {
-      project2.addEventListener("mouseleave", () => {
-        spotlight.classList.remove("show");
-      });
-    }
-  }
-
-  if (project3) {
-    project3.addEventListener("mouseenter", () => {
-      spotlight.classList.add("show");
-    });
-    if (project3) {
-      project3.addEventListener("mouseleave", () => {
-        spotlight.classList.remove("show");
-      });
-    }
-  }
-
-  if (project4) {
-    project4.addEventListener("mouseenter", () => {
-      spotlight.classList.add("show");
-    });
-    if (project4) {
-      project4.addEventListener("mouseleave", () => {
-        spotlight.classList.remove("show");
-      });
-    }
-  }
-
-  if (project5) {
-    project5.addEventListener("mouseenter", () => {
-      spotlight.classList.add("show");
-    });
-    if (project5) {
-      project5.addEventListener("mouseleave", () => {
-        spotlight.classList.remove("show");
-      });
-    }
-  }*/
 
   function pauseScroll() {
     smoother.paused(true);

@@ -188,6 +188,24 @@ scroll efects [data-scroll] {
   }
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(-101%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(101%);
+  }
+}
+
 @media (min-width: 320px) {
   /*general*/
   .content {
@@ -345,7 +363,6 @@ scroll efects [data-scroll] {
     background-color: #f3e8d5;
     color: #000;
     height: 0;
-    transition: 0.5s ease-in-out;
     z-index: 1;
     pointer-events: none;
   }
@@ -357,7 +374,6 @@ scroll efects [data-scroll] {
   }
 
   .menuMobile.show {
-    height: 100vh;
     pointer-events: auto;
     .menuMobileContent {
       opacity: 1;
@@ -375,11 +391,16 @@ scroll efects [data-scroll] {
   }
 
   .liCase {
+    position: relative;
     height: 5em;
+    width: auto;
     overflow: hidden;
   }
 
   .menuMobile ul li {
+    display: flex;
+    max-width: 60%;
+    justify-content: start;
     font-weight: bolder;
     font-size: 6rem;
     font-family: "Renti";
@@ -390,15 +411,8 @@ scroll efects [data-scroll] {
   .liText2,
   .liText3,
   .liText4 {
-    transform: translateY(50px);
-    transition: 0.8s ease-in-out;
-  }
-
-  .liText.show,
-  .liText2.show,
-  .liText3.show,
-  .liText4.show {
-    transform: translateY(0px);
+    transform: translateY(100px);
+    opacity: 0;
   }
 
   .menuFooter {
@@ -407,6 +421,67 @@ scroll efects [data-scroll] {
     padding-left: 2em;
     font-family: "Renti";
     font-size: 1.4rem;
+  }
+
+  .menuTitlesCase {
+    height: auto;
+    overflow: hidden;
+  }
+
+  .menuTitlesCase .menuTabsTitle {
+    transform: translateY(100px);
+  }
+
+  /*about page*/
+  .aboutPageContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background-color: #f3e8d5;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .aboutPageContainer.show {
+    height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .aboutPage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    margin-top: 9em;
+    width: 90%;
+    height: 90%;
+  }
+
+  .aboutPage h2 {
+    font-weight: bolder;
+    font-family: "Renti";
+    font-size: 6rem;
+    margin-top: 0.5em;
+    text-transform: uppercase;
+  }
+
+  .aboutPageText {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: end;
+    height: calc(100% - 30%);
+  }
+
+  .aboutPageText p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
   }
 
   /*contact page*/
@@ -582,7 +657,7 @@ scroll efects [data-scroll] {
   }
 
   .WorkTitleCase {
-    margin-top: 15vh;
+    margin-top: 5vh;
     height: auto;
     overflow: hidden;
   }
@@ -1170,6 +1245,8 @@ scroll efects [data-scroll] {
     border: none;
     outline: none;
     border-radius: 0.8em;
+    background-color: #ffffff29;
+    color: #fff;
   }
 
   .mailBox button {
@@ -1357,6 +1434,9 @@ scroll efects [data-scroll] {
 
   .loadingScreenMenu {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
     background-color: #f3e8d5;
@@ -1365,6 +1445,11 @@ scroll efects [data-scroll] {
     opacity: 0;
     z-index: 50000;
     transform: translateY(100vh);
+  }
+
+  .loadingScreenMenu img {
+    height: 130px;
+    opacity: 0;
   }
 
   .loadingScreenMenu.show {
@@ -1677,6 +1762,7 @@ scroll efects [data-scroll] {
   }
 
   .ResumeDownloadBtn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1686,13 +1772,15 @@ scroll efects [data-scroll] {
     background-color: #000;
     border: solid 1px #000;
     color: #f3e8d5;
+    cursor: pointer;
     font-size: 1.6rem;
-    transition: 0.5s ease;
+    transition: color 0.4s ease-out 0.1s;
     opacity: 0;
+    overflow: hidden;
+    z-index: 1;
   }
 
   .ResumeDownloadBtn:hover {
-    background-color: #f3e8d5;
     color: #000;
   }
 
@@ -1702,6 +1790,30 @@ scroll efects [data-scroll] {
 
   #ResumeDownloadBtn2.show {
     animation: ShowNav 1s ease 1 forwards;
+  }
+
+  .ResumeDownloadBtn:hover {
+    color: #000;
+    transition: color 0.2s ease-in; /* Cor muda mais rápido ao entrar */
+  }
+
+  .animatedColorBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3e8d5;
+    z-index: -1;
+    transform: translateX(-101%);
+  }
+
+  .slide-in {
+    animation: slideIn 0.4s forwards ease-in-out;
+  }
+
+  .slide-out {
+    animation: slideOut 0.5s forwards ease-in-out;
   }
 
   .TwoPartScreen {
@@ -1733,6 +1845,10 @@ scroll efects [data-scroll] {
   .work-container {
     position: relative;
     margin-top: 120vh;
+  }
+
+  .workPart {
+    margin-top: 15vh;
   }
 
   /*projects-container*/
@@ -1976,9 +2092,11 @@ scroll efects [data-scroll] {
   .mailBox input {
     padding: 16px;
     width: 60%;
-    background-color: #ffffff29;
-    color: #fff;
     border-radius: 0.8em;
+  }
+
+  .mailBox button {
+    padding: 13px;
   }
 
   /*loading screen*/
@@ -2011,6 +2129,10 @@ scroll efects [data-scroll] {
     margin-top: 4em;
     font-size: 1.6rem;
     font-family: "Poppins", sans-serif;
+  }
+
+  .aboutPageContainer {
+    display: none;
   }
 }
 

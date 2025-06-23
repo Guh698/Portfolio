@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <!-- FavIcon-->
     <link rel="shortcut icon" href="imgs/BlackLogo.png" type="image/x-icon" />
     <!--Fontawesome-->
@@ -83,8 +84,11 @@
                             id="ResumeDownloadBtn1"
                           >
                             Portuguese Resume
-                          </div></a
-                        >
+                            <div
+                              class="animatedColorBtn"
+                              id="animatedColorBtn"
+                            ></div></div
+                        ></a>
                         <a
                           href="imgs/Luiz_Gustavo_DevFrontendEnglishV.pdf"
                           download
@@ -94,8 +98,11 @@
                             id="ResumeDownloadBtn2"
                           >
                             English Resume
-                          </div></a
-                        >
+                            <div
+                              class="animatedColorBtn"
+                              id="animatedColorBtn2"
+                            ></div></div
+                        ></a>
                       </div>
                     </div>
                     <div class="TwoPartScreen">
@@ -105,8 +112,6 @@
                 </div>
               </section>
               <section class="scrollSpacer"></section>
-              <!--About page-->
-              <div class="aboutPageContainer"></div>
               <!--Work section-->
               <div class="work-container" id="section2">
                 <section class="workPart">
@@ -351,6 +356,19 @@
                   name="message"
                   required
                 />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="Collaboration Request from Website Footer"
+                />
+                <input
+                  type="hidden"
+                  name="_autoresponse"
+                  value="Hello!\n\nThank
+                you for your message and interest in working together.\n\nI've
+                received your submission and I will review it as soon as
+                possible.\n\nBest regards,\nLuiz Gustavo"
+                />
                 <button type="submit" class="btn">Send message</button>
               </form>
             </div>
@@ -425,7 +443,7 @@
     <div class="loadingScreenMenu" id="loadingScreenMenu"></div>
     <div class="menuIconContainer">
       <div class="menuIconMobile">
-        Menu
+        <span id="MenuIconText" id="typewriterMenu">Menu</span>
         <div class="menuLine"></div>
       </div>
       <div class="menuIconMobileClose">
@@ -446,15 +464,9 @@
             </li>
           </div>
           <div class="liCase">
-            <li
-              class="liText2 scroll-link"
-              id="worksBtn"
-              data-scroll="section2"
-            >
-              Works
-            </li>
+            <li class="liText2" id="worksBtn">Works</li>
           </div>
-          <div class="liCase"><li class="liText3">About</li></div>
+          <div class="liCase"><li class="liText3" id="aboutBtn">About</li></div>
           <div class="liCase">
             <li class="liText4" id="contactBtn">Contact</li>
           </div>
@@ -464,13 +476,49 @@
         </div>
       </div>
     </div>
+    <!--About page-->
+    <div class="aboutPageContainer" id="aboutPageContainer">
+      <div class="aboutPage">
+        <div class="menuTitlesCase">
+          <h2 class="menuTabsTitle">About</h2>
+        </div>
+        <div class="aboutPageText">
+          <p>
+            Luiz Gustavo is an 18-year-old front-end developer from Araras, São
+            Paulo, Brazil. A violinist since the age of five, he uses his talent
+            to serve God. Early on, he dreamed of being an architect or civil
+            engineer, but his passion gradually shifted toward computers, games,
+            and programming.
+          </p>
+          <p>
+            Creating has always driven him. What began with building model
+            structures as a child evolved into crafting websites from scratch,
+            blending creativity with functionality. He values European design
+            and aims to deliver refined, immersive digital experiences, even
+            within little technical limits.
+          </p>
+          <p>
+            Luiz is currently in his second semester of an Information Systems
+            degree and is also learning French to broaden his personal and
+            professional horizons.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--contact page-->
     <div class="contactPageContainer">
       <div class="contactPage">
-        <h2>Contact</h2>
+        <div class="menuTitlesCase">
+          <h2 class="menuTabsTitle">Contact</h2>
+        </div>
         <div class="halfScreensContactPage">
           <div class="contactLeftHalfScreen">
             <ul class="contactPageLinks">
-              <li>email: <a href="">go459103@gmail.com</a></li>
+              <li>
+                <a href="mailto:go459103@gmail.com" target="_blank"
+                  >go459103@gmail.com</a
+                >
+              </li>
               <li>
                 <a href="https://www.instagram.com/guhs_32/" target="_blank"
                   >Instagram</a
@@ -480,8 +528,8 @@
                 <a
                   href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
                   target="_blank"
-                ></a
-                >linkedin
+                  >linkedin</a
+                >
               </li>
               <li>
                 <a href="https://wa.me/5519993244478?text=Olá!" target="_blank"

@@ -26,8 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuMobile = document.querySelector(".menuMobile");
   const homeBtn = document.getElementById("homeBtn");
   const contactBtn = document.getElementById("contactBtn");
+  const aboutBtn = document.getElementById("aboutBtn");
   const worksBtn = document.getElementById("worksBtn");
   const contactPageContainer = document.querySelector(".contactPageContainer");
+  const aboutPageContainer = document.querySelector(".aboutPageContainer");
   const scrollSpacer = document.querySelector(".scrollSpacer");
   const finalHero = document.querySelector(".FinalHero");
   const FinalHeroContent = document.querySelector(".FinalHeroContent");
@@ -38,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const resumeBtnContainer = document.querySelector(".resumeBtnContainer");
   const ResumeDownloadBtn1 = document.getElementById("ResumeDownloadBtn1");
   const ResumeDownloadBtn2 = document.getElementById("ResumeDownloadBtn2");
+  const animatedColorBtn = document.getElementById("animatedColorBtn");
+  const animatedColorBtn2 = document.getElementById("animatedColorBtn2");
   const textLoading1 = document.getElementById("textLoading1");
   const textLoading2 = document.getElementById("textLoading2");
   const textWait = document.getElementById("textWait");
@@ -71,6 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const DesktopTitle = document.getElementById("DesktopTitle");
   const el = "#typewriter";
   const tl = gsap.timeline({ repeat: 0 });
+  const project1 = document.querySelector(".project1");
+  const project2 = document.querySelector(".project2");
+  const project3 = document.querySelector(".project3");
+  const project4 = document.querySelector(".project4");
+  const project5 = document.querySelector(".project5");
 
   // Cursor effect
   document.addEventListener("mousemove", (e) => {
@@ -294,6 +303,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  /*if (project1) {
+    project1.addEventListener("mouseenter", () => {
+      spotlight.classList.add("show");
+    });
+    if (project1) {
+      project1.addEventListener("mouseleave", () => {
+        spotlight.classList.remove("show");
+      });
+    }
+  }
+
+  if (project2) {
+    project2.addEventListener("mouseenter", () => {
+      spotlight.classList.add("show");
+    });
+    if (project2) {
+      project2.addEventListener("mouseleave", () => {
+        spotlight.classList.remove("show");
+      });
+    }
+  }
+
+  if (project3) {
+    project3.addEventListener("mouseenter", () => {
+      spotlight.classList.add("show");
+    });
+    if (project3) {
+      project3.addEventListener("mouseleave", () => {
+        spotlight.classList.remove("show");
+      });
+    }
+  }
+
+  if (project4) {
+    project4.addEventListener("mouseenter", () => {
+      spotlight.classList.add("show");
+    });
+    if (project4) {
+      project4.addEventListener("mouseleave", () => {
+        spotlight.classList.remove("show");
+      });
+    }
+  }
+
+  if (project5) {
+    project5.addEventListener("mouseenter", () => {
+      spotlight.classList.add("show");
+    });
+    if (project5) {
+      project5.addEventListener("mouseleave", () => {
+        spotlight.classList.remove("show");
+      });
+    }
+  }*/
+
   function pauseScroll() {
     smoother.paused(true);
   }
@@ -306,15 +370,35 @@ document.addEventListener("DOMContentLoaded", () => {
     return /Mobi|Android|iPhone/i.test(navigator.userAgent);
   }
 
+  function menuLinksShow() {
+    gsap.to([liText, liText2, liText3, liText4], {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.1,
+      ease: "power4.inOut",
+    });
+  }
+
+  function menuLinksReemoveShow() {
+    gsap.to([liText, liText2, liText3, liText4], {
+      y: 100,
+      opacity: 0,
+      stagger: 0.1,
+    });
+  }
+
   function menuShow() {
+    gsap.to(menuMobile, {
+      height: "100vh",
+      duration: 0.8,
+      ease: "power3.inOut",
+    });
     menuMobile.classList.add("show");
     menuIconMobile.classList.add("show");
     textLogo.classList.add("show");
     logo.src = "imgs/BlackLogo.png";
-    liText.classList.add("show");
-    liText2.classList.add("show");
-    liText3.classList.add("show");
-    liText4.classList.add("show");
+    menuLinksShow();
     pauseScroll();
     setTimeout(() => {
       menuIconMobile.classList.add("showOff");
@@ -327,17 +411,25 @@ document.addEventListener("DOMContentLoaded", () => {
   function menuRemoveShow() {
     setTimeout(() => {
       menuIconMobileClose.classList.remove("show");
-      if (!contactPageContainer.classList.contains("show")) {
+      if (
+        !contactPageContainer.classList.contains("show") &&
+        !aboutPageContainer.classList.contains("show")
+      ) {
         resumeScroll();
       }
     }, 100);
+    gsap.to(menuMobile, {
+      height: "0",
+      duration: 0.8,
+      ease: "power3.inOut",
+    });
     menuMobile.classList.remove("show");
-    liText.classList.remove("show");
-    liText2.classList.remove("show");
-    liText3.classList.remove("show");
-    liText4.classList.remove("show");
+    menuLinksReemoveShow();
     setTimeout(() => {
-      if (!contactPageContainer.classList.contains("show")) {
+      if (
+        !contactPageContainer.classList.contains("show") &&
+        !aboutPageContainer.classList.contains("show")
+      ) {
         menuIconMobile.classList.remove("show");
         textLogo.classList.remove("show");
         logo.src = "imgs/WhiteLogo.png";
@@ -353,11 +445,32 @@ document.addEventListener("DOMContentLoaded", () => {
     menuIconMobile.classList.add("show");
     textLogo.classList.add("show");
     logo.src = "imgs/BlackLogo.png";
+    arrowLeft.classList.remove("show");
     pauseScroll();
   }
 
   function contactPageRemoveShow() {
     contactPageContainer.classList.remove("show");
+    gsap.to(".menuTabsTitle", {
+      y: 100,
+    });
+    resumeScroll();
+  }
+
+  function aboutPageShow() {
+    aboutPageContainer.classList.add("show");
+    menuIconMobile.classList.add("show");
+    textLogo.classList.add("show");
+    arrowLeft.classList.remove("show");
+    logo.src = "imgs/BlackLogo.png";
+    pauseScroll();
+  }
+
+  function aboutPageRemoveShow() {
+    aboutPageContainer.classList.remove("show");
+    gsap.to(".menuTabsTitle", {
+      y: 100,
+    });
     resumeScroll();
   }
 
@@ -476,41 +589,97 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  const timings = {
+    LOADING_SCREEN_DURATION: 3700,
+    NAV_TO_PROJECTS_DELAY: 1000,
+    NAV_TO_HOME_CONTENT_DELAY: 1500,
+    NAV_TO_HOME_REFRESH_DELAY: 2500,
+  };
+
+  const navigateToHome = () => {
+    setTimeout(() => {
+      projectPage.classList.remove("show");
+      mainPage.classList.remove("showOff");
+      arrowLeft.classList.remove("show");
+
+      gsap.to(window, {
+        scrollTo: savedScroll,
+        duration: 0.5,
+        ease: "power1.inOut",
+      });
+    }, timings.NAV_TO_HOME_CONTENT_DELAY);
+
+    setTimeout(() => {
+      finalHero.style.position = "absolute";
+      ScrollTrigger.refresh();
+    }, timings.NAV_TO_HOME_REFRESH_DELAY);
+  };
+
+  const navigateToProjects = () => {
+    setTimeout(() => {
+      gsap.to(window, {
+        scrollTo: 0,
+        duration: 0.5,
+        ease: "power1.inOut",
+      });
+
+      finalHero.style.position = "absolute";
+      ToggleProject(pages["project1"]);
+    }, timings.NAV_TO_PROJECTS_DELAY);
+  };
+
   window.addEventListener("popstate", (event) => {
+    loadingScrenShow();
+    setTimeout(() => {
+      loadingScrenShowOff();
+    }, timings.LOADING_SCREEN_DURATION);
+
     const page = event.state?.page || "home";
+
     if (page === "projects") {
-      loadingScrenShow();
-      setTimeout(() => {
-        loadingScrenShowOff();
-      }, 3700);
-      setTimeout(() => {
-        gsap.to(window, {
-          scrollTo: 0,
-          duration: 0.5,
-          ease: "power1.inOut",
-        });
-        finalHero.style.position = "absolute";
-        ToggleProject(pages["project1"]);
-      }, 1000);
+      navigateToProjects();
     } else {
-      loadingScrenShow();
-      setTimeout(() => {
-        loadingScrenShowOff();
-      }, 3700);
-      setTimeout(() => {
-        projectPage.classList.remove("show");
-        mainPage.classList.remove("showOff");
-        arrowLeft.classList.remove("show");
-        gsap.to(window, {
-          scrollTo: savedScroll,
-          duration: 0.5,
-          ease: "power1.inOut",
-        });
-      }, 1500);
-      setTimeout(() => {
-        finalHero.style.position = "absolute";
-        ScrollTrigger.refresh();
-      }, 2500);
+      navigateToHome();
+    }
+  });
+
+  let isAnimating = false;
+
+  //resume btn 1 animation
+  ResumeDownloadBtn1.addEventListener("mouseenter", () => {
+    animatedColorBtn.classList.remove("slide-out");
+    animatedColorBtn.classList.remove("slide-in");
+    void animatedColorBtn.offsetWidth;
+    animatedColorBtn.classList.add("slide-in");
+  });
+
+  ResumeDownloadBtn1.addEventListener("mouseleave", () => {
+    animatedColorBtn.classList.remove("slide-in");
+    animatedColorBtn.classList.add("slide-out");
+  });
+
+  animatedColorBtn.addEventListener("animationend", (event) => {
+    if (event.animationName === "slideOut") {
+      animatedColorBtn.classList.remove("slide-out");
+    }
+  });
+
+  //resume btn 2 animation
+  ResumeDownloadBtn2.addEventListener("mouseenter", () => {
+    animatedColorBtn2.classList.remove("slide-out");
+    animatedColorBtn2.classList.remove("slide-in");
+    void animatedColorBtn2.offsetWidth;
+    animatedColorBtn2.classList.add("slide-in");
+  });
+
+  ResumeDownloadBtn2.addEventListener("mouseleave", () => {
+    animatedColorBtn2.classList.remove("slide-in");
+    animatedColorBtn2.classList.add("slide-out");
+  });
+
+  animatedColorBtn2.addEventListener("animationend", (event) => {
+    if (event.animationName === "slideOut") {
+      animatedColorBtn2.classList.remove("slide-out");
     }
   });
 
@@ -555,10 +724,20 @@ document.addEventListener("DOMContentLoaded", () => {
     homeBtn.addEventListener("click", () => {
       menuRemoveShow();
       loadingScreenMenuShow();
+      gsap.to(".fade-up", {
+        y: 0,
+      });
+      setTimeout(() => {
+        projectPage.classList.remove("show");
+        mainPage.classList.remove("showOff");
+        InitialHero.classList.remove("removeShow");
+        arrowLeft.classList.remove("show");
+      }, 300);
       setTimeout(() => {
         loadingScreenMenuOff();
       }, 1500);
       contactPageRemoveShow();
+      aboutPageRemoveShow();
     });
   }
 
@@ -566,6 +745,14 @@ document.addEventListener("DOMContentLoaded", () => {
     contactBtn.addEventListener("click", () => {
       menuRemoveShow();
       loadingScreenMenuShow();
+      aboutPageRemoveShow();
+      setTimeout(() => {
+        gsap.to(".menuTabsTitle", {
+          y: 0,
+          duration: 2,
+          ease: "power4.inOut",
+        });
+      }, 900);
       setTimeout(() => {
         loadingScreenMenuOff();
       }, 1500);
@@ -575,14 +762,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (worksBtn) {
-    worksBtn.addEventListener("click", () => {
+  if (aboutBtn) {
+    aboutBtn.addEventListener("click", () => {
       menuRemoveShow();
       loadingScreenMenuShow();
+      contactPageRemoveShow();
+      setTimeout(() => {
+        gsap.to(".menuTabsTitle", {
+          y: 0,
+          duration: 2,
+          ease: "power4.inOut",
+        });
+      }, 900);
       setTimeout(() => {
         loadingScreenMenuOff();
       }, 1500);
+      setTimeout(() => {
+        aboutPageShow();
+      }, 200);
+    });
+  }
+
+  if (worksBtn) {
+    worksBtn.addEventListener("click", () => {
+      menuRemoveShow();
+      setTimeout(() => {
+        projectPage.classList.remove("show");
+        mainPage.classList.remove("showOff");
+        arrowLeft.classList.remove("show");
+        InitialHero.classList.add("removeShow");
+        smoother.scrollTo(0);
+        gsap.to(".PROfade-up", {
+          y: 0,
+        });
+      }, 300);
+      loadingScreenMenuShow();
+      setTimeout(() => {
+        loadingScreenMenuOff();
+        gsap.to([".title", ".footerName"], {
+          y: 0,
+        });
+      }, 1500);
       contactPageRemoveShow();
+      aboutPageRemoveShow();
     });
   }
 

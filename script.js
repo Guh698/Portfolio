@@ -513,8 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       projectPage.classList.remove("show");
       mainPage.classList.remove("showOff");
-      arrowLeft.classList.remove("show");
-
       gsap.to(window, {
         scrollTo: savedScroll,
         duration: 0.5,

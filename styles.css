@@ -1084,7 +1084,8 @@ scroll efects [data-scroll] {
     width: 90%;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(90deg, #ffffff70, #ffffffae);
+    /*background: linear-gradient(90deg, #ffffff70, #ffffffae);*/
+    background-color: #f3e8d5;
     cursor: pointer;
     pointer-events: none;
   }
@@ -1146,7 +1147,8 @@ scroll efects [data-scroll] {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(90deg, #ffffff70, #ffffffae);
+    /*background: linear-gradient(90deg, #ffffff70, #ffffffae);*/
+    background-color: #f3e8d5;
   }
 
   .imgCase img {

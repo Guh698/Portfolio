@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
       MblImg3: "imgs/coffeeProductsMockup.png",
       MblImg4: "imgs/coffeeTableMockup.png",
       MblImg5: "imgs/coffeeMenuMockup.png",
-      textTime: "",
-      textData: "Work in progress",
+      textTime: "15 days,",
+      textData: "Launched in May 2025",
       video: "imgs/cafeRemakeVideo.mp4",
       FirstParagraph:
         "Welcome to my digital coffee shop showroom — a sleek and modern remake of my original project. This version focuses on visual polish, with refined design elements, smooth hover effects, and GSAP-powered parallax animations that bring the site to life.",

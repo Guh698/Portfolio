@@ -706,6 +706,13 @@ scroll efects [data-scroll] {
     touch-action: manipulation;
   }
 
+  .project2 h3,
+  .project2 h3,
+  .project4 h3,
+  .project5 h3 {
+    opacity: 0;
+  }
+
   .projectContent {
     position: relative;
     display: flex;

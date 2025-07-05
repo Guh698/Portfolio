@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       FirstParagraph:
         "This project features an immersive digital showroom, with some e-commerce functionality, but with a refined design and smooth browsing experience.",
       SecondParagraph:
-        "Using Gsap ScrollTrigger and ScroolSmoother, animations are seamlessly integrated into the page movement, creating a dynamic and engaging visual experience. The responsive design ensures that the layout adapts perfectly to different devices, maintaining the sophistication and style of the furniture store.",
+        "Using Gsap ScrollTrigger and ScrollSmoother, animations are seamlessly integrated into the page movement, creating a dynamic and engaging visual experience. The responsive design ensures that the layout adapts perfectly to different devices, maintaining the sophistication and style of the furniture store.",
       link: "https://woodewebsite.netlify.app/",
     },
 

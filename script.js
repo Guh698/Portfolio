@@ -166,15 +166,15 @@ document.addEventListener("DOMContentLoaded", () => {
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/CloudCatalog_zh5wr4.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cloudParisSearch_juf62r.png",
       MblImg1:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758116/mockupCloud_8_wo5s7t.png",
       MblImg2:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758108/mockupCloud_4_y4fnve.png",
       MblImg3:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758145/mockupCloud_5_pz8gjf.png",
       MblImg4:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758120/mockupCloud_6_vg0hun.png",
       MblImg5:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758204/mockupCloud_7_ywgzzw.png",
       textTime: "7 days,",
       textData: "Launched in March 2025",
       video: "imgs/cloudParisvideo.mp4",
@@ -190,15 +190,15 @@ document.addEventListener("DOMContentLoaded", () => {
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/cafeCatalog_uw3tey.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/aboutCafe_sctelt.png",
       MblImg1:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758016/cafemockup_1_d8m0mt.png",
       MblImg2:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758008/cafemockup_2_ynagzg.png",
       MblImg3:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758023/cafemockup_3_czccot.png",
       MblImg4:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758020/cafemockup_4_p4nhmf.png",
       MblImg5:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751758011/cafemockup_5_wevyio.png",
       textTime: "7 days,",
       textData: "Launched in February 2025",
       video: "imgs/cafeVideo.mp4",
@@ -214,15 +214,15 @@ document.addEventListener("DOMContentLoaded", () => {
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/MenuCalc_rj2cxi.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/w_1400,h_700,c_fill/WhiteThemeCalc_bd4rh6.png",
       MblImg1:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757813/calculadoramockup_1_t6bajl.png",
       MblImg2:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757820/calculadoramockup_2_sm9ulu.png",
       MblImg3:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757831/calculadoramockup_3_eu2t2f.png",
       MblImg4:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757828/calculadoramockup_4_q5yh7l.png",
       MblImg5:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757825/calculadoramockup_5_bpwguy.png",
       textTime: "1 Month,",
       textData: "Launched in January 2025",
       video: "imgs/CalcVideo.mp4",
@@ -239,15 +239,15 @@ document.addEventListener("DOMContentLoaded", () => {
       img2: "https://res.cloudinary.com/dabshzrnj/image/upload/v1751669523/img2_tb505t.png",
       img3: "https://res.cloudinary.com/dabshzrnj/image/upload/v1751669525/img3_c8igqc.png",
       MblImg1:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757631/EminenceMockup_3_omwwsg.png",
       MblImg2:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757620/EminenceMockup_2_t0bxwj.png",
       MblImg3:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757658/EminenceMockup_4_qybena.png",
       MblImg4:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757627/EminenceMockup_5_ptnnmu.png",
       MblImg5:
-        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757614/EminenceMockup_1_gamvsl.png",
       textTime: "7 days,",
       textData: "Launched in July 2025",
       video:

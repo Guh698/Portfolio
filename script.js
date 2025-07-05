@@ -232,6 +232,32 @@ document.addEventListener("DOMContentLoaded", () => {
         "Additionally, it offers various types of amortization calculations (SAC, American, and Price). The interface also includes explanatory tables, helping users understand the financial processes involved in each calculation.",
       link: "https://guh698.github.io/projeto_calculadora_financeira/index.html",
     },
+
+    projectEminence: {
+      btn: document.getElementById("projectEminence-btn"),
+      img1: "https://res.cloudinary.com/dabshzrnj/image/upload/v1751668143/Logo_sokd2z.png",
+      img2: "https://res.cloudinary.com/dabshzrnj/image/upload/v1751669523/img2_tb505t.png",
+      img3: "https://res.cloudinary.com/dabshzrnj/image/upload/v1751669525/img3_c8igqc.png",
+      MblImg1:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg2:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg3:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg4:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      MblImg5:
+        "https://res.cloudinary.com/dabshzrnj/image/upload/v1750354370/ComingSoon_fcbofv.png",
+      textTime: "7 days,",
+      textData: "Launched in July 2025",
+      video:
+        "https://res.cloudinary.com/dabshzrnj/video/upload/v1751670041/%C3%89minence_ncxwus.mp4",
+      FirstParagraph:
+        "Éminence is an immersive website experience crafted to present a refined, fictional tailoring brand. Built with GSAP, ScrollTrigger, SplitText, and ScrollSmoother, it explores the intersection of storytelling, motion design, and minimal layout.",
+      SecondParagraph:
+        "The project is still evolving, serving as both a creative experiment and a technical study. Its main challenge lies in shaping a scroll-based narrative that feels natural, elegant, and emotionally engaging.",
+      link: "https://eminenceproductexperience.netlify.app/",
+    },
   };
 
   function ToggleProject(projectData) {

@@ -248,8 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757627/EminenceMockup_5_ptnnmu.png",
       MblImg5:
         "https://res.cloudinary.com/dabshzrnj/image/upload/v1751757614/EminenceMockup_1_gamvsl.png",
-      textTime: "7 days,",
-      textData: "Launched in July 2025",
+      textTime: "",
+      textData: "Work in progress",
       video:
         "https://res.cloudinary.com/dabshzrnj/video/upload/v1751670041/%C3%89minence_ncxwus.mp4",
       FirstParagraph:

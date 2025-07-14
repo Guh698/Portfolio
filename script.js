@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const textLoading4 = document.getElementById("textLoading4");
   const textWait2 = document.getElementById("textWait2");
   const spotlight = document.getElementById("cursor-spotlight");
+  const spotlightCustom = document.getElementById("cursor-message");
+  const spotlightTheme = document.getElementById("cursor-messageTheme");
   const mainPage = document.getElementById("main-page");
   const navContainer = document.getElementById("nav-container");
   const logo = document.querySelector("#logo img");
@@ -72,6 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroText = document.getElementById("heroText");
   const MobileTitle = document.getElementById("MobileTitle");
   const DesktopTitle = document.getElementById("DesktopTitle");
+  const themeChangeBtn = document.getElementById("themeChangeBtn");
+  const halfBg = document.querySelector(".halfBg");
+  const banner = document.querySelector(".banner");
+  const grifedtext = document.querySelector(".grifedtext");
+  const grifedtext2 = document.querySelector(".grifedtext2");
+  const root = document.documentElement;
   const el = "#typewriter";
   const tl = gsap.timeline({ repeat: 0 });
 
@@ -81,6 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
     spotlight.style.top = `${e.clientY}px`;
   });
 
+  document.addEventListener("mousemove", (e) => {
+    spotlightCustom.style.left = `${e.clientX}px`;
+    spotlightCustom.style.top = `${e.clientY}px`;
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    spotlightTheme.style.left = `${e.clientX}px`;
+    spotlightTheme.style.top = `${e.clientY}px`;
+  });
+
   document.querySelectorAll(".scroll-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -88,6 +106,64 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollToId(id);
     });
   });
+
+  root.setAttribute("data-theme", "default");
+
+  if (themeChangeBtn) {
+    let isAnimating = false;
+    themeChangeBtn.addEventListener("click", () => {
+      if (isAnimating) {
+        return;
+      }
+      isAnimating = true;
+
+      const currentTheme = root.getAttribute("data-theme");
+      const nextTheme = currentTheme === "artistic" ? "default" : "artistic";
+
+      let tl3 = gsap.timeline({
+        onComplete: () => {
+          gsap.set(".circleTheme", {
+            clipPath: "circle(0% at 0% 100%)",
+          });
+          isAnimating = false;
+        },
+      });
+
+      tl3
+        .set(".circleTheme", {
+          clipPath: "circle(0% at 0% 100%)",
+          display: "block",
+        })
+        .to(".circleTheme", {
+          clipPath: "circle(150% at 0% 100%)",
+          duration: 0.8,
+          ease: "power2.inOut",
+          onComplete: () => {
+            root.setAttribute("data-theme", nextTheme);
+            if (currentTheme === "default") {
+              halfBg.classList.add("show");
+              banner.classList.add("show");
+              grifedtext.classList.add("show");
+              grifedtext2.classList.add("show");
+            } else {
+              halfBg.classList.remove("show");
+              banner.classList.remove("show");
+              grifedtext.classList.remove("show");
+              grifedtext2.classList.remove("show");
+            }
+          },
+        })
+        .to(
+          ".circleTheme",
+          {
+            clipPath: "circle(0% at 120% -20%)",
+            duration: 0.8,
+            ease: "power2.inOut",
+          },
+          ">-0.2"
+        );
+    });
+  }
 
   //logo color
   logo.src = "imgs/WhiteLogo.png";
@@ -627,6 +703,9 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingScrenShow();
         if (push) history.pushState({ page: "projects" }, "", "/projects");
         setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 2200);
+        setTimeout(() => {
           loadingScrenShowOff();
         }, 3700);
         setTimeout(() => {
@@ -985,6 +1064,85 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: ".project5",
         start: "top 20%",
+        scrub: true,
+      },
+    });
+  }
+
+  const projectCards = document.querySelectorAll(".ProjectCard");
+
+  projectCards.forEach((projectCard) => {
+    projectCard.addEventListener("mouseenter", () => {
+      gsap.to(".cursor-message", {
+        width: "150px",
+        opacity: 1,
+      });
+      gsap.to(".cursor-spotlight", {
+        width: "0",
+        height: "0",
+        opacity: 0,
+      });
+    });
+    projectCard.addEventListener("mouseleave", () => {
+      gsap.to(".cursor-message", {
+        width: 0,
+        opacity: 0,
+      });
+      gsap.to(".cursor-spotlight", {
+        width: "50px",
+        height: "50px",
+        opacity: 1,
+      });
+    });
+  });
+
+  if (themeChangeBtn) {
+    themeChangeBtn.addEventListener("mouseenter", () => {
+      const ThemeVerify = root.getAttribute("data-theme");
+      const theme = ThemeVerify === "artistic" ? "default" : "artistic";
+      if (theme === "artistic") {
+        spotlightTheme.textContent = "this one's crazy";
+      } else {
+        spotlightTheme.textContent = "change theme";
+      }
+      gsap.to(".cursor-messageTheme", {
+        width: "200px",
+        opacity: 1,
+      });
+      gsap.to(".cursor-spotlight", {
+        width: "0",
+        height: "0",
+        opacity: 0,
+      });
+    });
+    themeChangeBtn.addEventListener("mouseleave", () => {
+      gsap.to(".cursor-messageTheme", {
+        width: 0,
+        opacity: 0,
+      });
+      gsap.to(".cursor-spotlight", {
+        width: "50px",
+        height: "50px",
+        opacity: 1,
+      });
+    });
+  }
+
+  if (!isMobile()) {
+    gsap.to(".project", {
+      y: "-30%",
+      scrollTrigger: {
+        trigger: ".heroProjectPage",
+        start: "top 40%",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".project-page h2", {
+      scale: 0.7,
+      scrollTrigger: {
+        trigger: ".heroProjectPage",
+        start: "top 40%",
         scrub: true,
       },
     });

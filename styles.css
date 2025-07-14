@@ -23,10 +23,38 @@
   src: url("fonts/BehindOrigin.ttf") format("ttf");
 }
 
+:root {
+  --brown: #281503;
+  --butter-white: #f9f7e0;
+  --champagne-pink: #f3e8d5;
+  --black: #000;
+  --modernFont: "Renti";
+  --oldTimeFont: "ExtraBehind";
+  --textFont: "Poppins", sans-serif;
+}
+
+[data-theme="default"] {
+  --bg-color: var(--black);
+  --light-bg-color: var(--champagne-pink);
+  --font-color: var(--butter-white);
+  --dark-font-color: var(--black);
+  --fontTitle: var(--modernFont);
+  --fontNormal: var(--textFont);
+}
+
+[data-theme="artistic"] {
+  --bg-color: var(--brown);
+  --light-bg-color: var(--butter-white);
+  --font-color: var(--butter-white);
+  --dark-font-color: var(--brown);
+  --fontTitle: var(--oldTimeFont);
+  --fontNormal: var(--textFont);
+}
+
 * {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", "ExtraBehind", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
@@ -38,7 +66,7 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background-color: #281503;
+  background-color: var(--bg-color);
 }
 
 scroll efects [data-scroll] {
@@ -230,6 +258,56 @@ scroll efects [data-scroll] {
     pointer-events: none;
   }
 
+  .cursor-message {
+    display: none;
+  }
+
+  .cursor-spotlight {
+    display: none;
+  }
+
+  .cursor-message {
+    display: none;
+  }
+
+  .cursor-messageTheme {
+    display: none;
+  }
+
+  .themeChangeBtn {
+    position: fixed;
+    bottom: 2em;
+    left: 2em;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    background-color: var(--light-bg-color);
+    border-radius: 50%;
+  }
+
+  .themeChangeBtn img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .themeContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    pointer-events: none;
+  }
+
+  .circleTheme {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(0% at 0% 100%);
+    background-color: var(--light-bg-color);
+  }
+
   li,
   a,
   h1,
@@ -272,7 +350,7 @@ scroll efects [data-scroll] {
     left: 0px;
     height: 90px;
     width: 300px;
-    color: #f9f7e0;
+    color: var(--font-color);
     opacity: 0;
     animation: ShowNav 1s 0.3s ease 1 forwards;
     z-index: 2;
@@ -280,10 +358,10 @@ scroll efects [data-scroll] {
 
   .nav-logo-container.show {
     .my-name {
-      color: #281503;
+      color: var(--dark-font-color);
     }
     .my-job {
-      color: #281503;
+      color: var(--dark-font-color);
     }
   }
 
@@ -301,7 +379,7 @@ scroll efects [data-scroll] {
   }
 
   .nav-contact ul li a {
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   /*Menu BTN*/
@@ -320,8 +398,8 @@ scroll efects [data-scroll] {
 
   .menuIconMobile {
     position: absolute;
-    color: #f9f7e0;
-    font-family: "ExtraBehind";
+    color: var(--font-color);
+    font-family: var(--fontTitle);
     font-size: 1.3rem;
     text-transform: uppercase;
     transition: 0.3s ease;
@@ -330,9 +408,9 @@ scroll efects [data-scroll] {
   }
 
   .menuIconMobile.show {
-    color: #281503;
+    color: var(--dark-font-color);
     .menuLine {
-      background-color: #281503;
+      background-color: var(--dark-font-color);
     }
   }
 
@@ -343,8 +421,8 @@ scroll efects [data-scroll] {
 
   .menuIconMobileClose {
     position: relative;
-    font-family: "ExtraBehind";
-    color: #281503;
+    font-family: var(--fontTitle);
+    color: var(--dark-font-color);
     font-size: 1.3rem;
     transition: 0.5s ease;
     text-transform: uppercase;
@@ -356,7 +434,7 @@ scroll efects [data-scroll] {
   }
 
   .menuIconMobileClose .menuLine {
-    background-color: #281503;
+    background-color: var(--dark-font-color);
   }
 
   .menuIconMobileClose.show {
@@ -367,7 +445,7 @@ scroll efects [data-scroll] {
 
   .menuLine {
     height: 1px;
-    background-color: #f9f7e0;
+    background-color: var(--font-color);
     width: 100%;
     transition: 0.5s ease;
   }
@@ -378,8 +456,8 @@ scroll efects [data-scroll] {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #f9f7e0;
-    color: #281503;
+    background-color: var(--light-bg-color);
+    color: var(--dark-font-color);
     height: 0;
     z-index: 1;
     pointer-events: none;
@@ -423,7 +501,7 @@ scroll efects [data-scroll] {
     font-size: 6rem;
     font-family: "Renti";
     text-transform: uppercase;
-    color: #281503;
+    color: var(--dark-font-color);
   }
 
   .liText,
@@ -438,7 +516,7 @@ scroll efects [data-scroll] {
     position: absolute;
     bottom: 10%;
     padding-left: 2em;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     font-size: 1.4rem;
   }
 
@@ -459,7 +537,7 @@ scroll efects [data-scroll] {
     top: 0;
     width: 100%;
     height: 0;
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
     opacity: 1;
     transition: 0.3s ease-in-out;
     pointer-events: none;
@@ -480,12 +558,12 @@ scroll efects [data-scroll] {
     margin-top: 9em;
     width: 90%;
     height: 90%;
-    color: #281503;
+    color: var(--dark-font-color);
   }
 
   .aboutPage h2 {
     font-weight: bolder;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     font-size: 6rem;
     margin-top: 0.5em;
     text-transform: uppercase;
@@ -500,7 +578,7 @@ scroll efects [data-scroll] {
   }
 
   .aboutPageText p {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--fontNormal);
     font-size: 1.6rem;
   }
 
@@ -512,11 +590,11 @@ scroll efects [data-scroll] {
     top: 0;
     width: 100%;
     height: 0;
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
     opacity: 0;
     transition: 0.3s ease-in-out;
     pointer-events: none;
-    color: #281503;
+    color: var(--dark-font-color);
   }
 
   .contactPageContainer.show {
@@ -540,12 +618,12 @@ scroll efects [data-scroll] {
 
   .contactPage a {
     text-decoration: none;
-    color: #281503;
+    color: var(--dark-font-color);
   }
 
   .contactPage h2 {
     font-weight: bolder;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     font-size: 6rem;
   }
 
@@ -590,21 +668,21 @@ scroll efects [data-scroll] {
     height: 100vh;
     width: 100%;
     display: flex;
-    background-color: #281503;
-    color: #f9f7e0;
+    background-color: var(--bg-color);
+    color: var(--font-color);
   }
 
   .InitialHero.removeShow {
     height: 0;
   }
 
-  .InitialHero span {
+  .InitialHero #heroText {
     position: absolute;
     display: inline-block;
     padding-left: 100%;
     will-change: transform;
     bottom: 0;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     font-weight: bolder;
     font-size: 22rem;
     opacity: 0;
@@ -619,8 +697,14 @@ scroll efects [data-scroll] {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     opacity: 0;
-    animation: ShowNav 1s 4s ease 1 forwards;
+    animation: ShowNav 1s 1s ease 1 forwards;
     overflow: hidden;
+  }
+
+  .InitialTextCase .grifedtext.show {
+    padding: 1px;
+    background-color: var(--light-bg-color);
+    color: var(--dark-font-color);
   }
 
   .InitialText {
@@ -682,11 +766,11 @@ scroll efects [data-scroll] {
   }
 
   .workPart .title {
-    color: #f9f7e0;
+    color: var(--font-color);
     width: 100%;
     height: auto;
     font-size: 120px;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     font-weight: bold;
     text-align: center;
     cursor: default;
@@ -753,7 +837,7 @@ scroll efects [data-scroll] {
     padding-right: 15px;
     padding-top: 10px;
     border-radius: 0.8rem;
-    background-color: #f9f7e0;
+    background-color: var(--font-color);
     font-size: 4rem;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.468);
@@ -925,7 +1009,7 @@ scroll efects [data-scroll] {
     flex-direction: column;
     width: 100%;
     height: 100px;
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   .ServiceInfo {
@@ -939,7 +1023,7 @@ scroll efects [data-scroll] {
     position: absolute;
     right: 0;
     bottom: 0;
-    background-color: #f9f7e0;
+    background-color: var(--font-color);
     height: 1px;
     width: 0;
     transition: 0.8s ease-in-out;
@@ -1003,11 +1087,25 @@ scroll efects [data-scroll] {
     align-items: center;
     height: auto;
     width: 100%;
+    gap: 2em;
+    margin-top: 16em;
+  }
+
+  .heroProjectPage {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .project-page h2 {
+    font-size: 5rem;
+    color: var(--font-color);
+    font-family: var(--fontTitle);
+    font-weight: bold;
+    text-align: center;
   }
 
   .projectScreen {
     position: relative;
-    margin-top: 130px;
     display: flex;
     align-items: center;
     height: 500px;
@@ -1017,17 +1115,18 @@ scroll efects [data-scroll] {
   }
 
   .project {
+    position: absolute;
     width: 90%;
     height: 400px;
-    border: 1px solid #ffffff31;
   }
 
   .project img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    overflow: hidden;
+    object-position: center center;
+    border-radius: 0.5em;
+    border: 1px solid #ffffff31;
   }
 
   .overview {
@@ -1036,9 +1135,9 @@ scroll efects [data-scroll] {
     align-items: center;
     gap: 45px;
     flex-direction: column;
-    height: auto;
+    height: 70vh;
     width: 90%;
-    color: #f9f7e0;
+    color: var(--font-color);
     cursor: default;
   }
 
@@ -1071,17 +1170,17 @@ scroll efects [data-scroll] {
     padding: 10px;
     border-radius: 0.8rem;
     text-decoration: none;
-    color: #281503;
-    background-color: #f9f7e0;
+    color: var(--dark-font-color);
+    background-color: var(--light-bg-color);
     font-weight: bold;
     transition: 0.5s ease;
-    border: 1px solid #f9f7e0;
+    border: 1px solid var(--light-bg-color);
     font-size: 1.6rem;
   }
 
   .projectLink:hover {
-    background-color: #281503;
-    color: #f9f7e0;
+    background-color: var(--bg-color);
+    color: var(--light-bg-color);
   }
 
   .timeText {
@@ -1092,7 +1191,7 @@ scroll efects [data-scroll] {
 
   .timeText .text2 {
     font-weight: bold;
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   .ovw-SecondPart {
@@ -1112,7 +1211,7 @@ scroll efects [data-scroll] {
 
   .ovw-SecondPart p {
     font-weight: 400;
-    color: #f9f7e0;
+    color: var(--font-color);
     font-size: 1.5rem;
     text-align: justify;
   }
@@ -1127,9 +1226,15 @@ scroll efects [data-scroll] {
     padding-left: 100%;
     will-change: transform;
     font-weight: bold;
-    color: #f9f7e0;
-    font-family: "ExtraBehind";
+    color: var(--font-color);
+    font-family: var(--fontTitle);
     text-align: center;
+  }
+
+  .desktopSection {
+    padding-top: 4em;
+    padding-bottom: 4em;
+    gap: 12em;
   }
 
   .carrossel {
@@ -1138,8 +1243,7 @@ scroll efects [data-scroll] {
     width: 90%;
     flex-direction: column;
     align-items: center;
-    /*background: linear-gradient(90deg, #ffffff70, #ffffffae);*/
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
     cursor: pointer;
     pointer-events: none;
   }
@@ -1151,15 +1255,14 @@ scroll efects [data-scroll] {
   }
 
   .projectScreenVideo {
-    margin-top: 90px;
     display: flex;
-    height: 350px;
+    height: 20%;
     justify-content: center;
   }
 
   .projectScreenFrame {
     display: flex;
-    height: 350px;
+    height: 20%;
     width: 100%;
     justify-content: center;
   }
@@ -1172,7 +1275,6 @@ scroll efects [data-scroll] {
   /*Mobile Part*/
   .MobileProjectPart-Container {
     position: relative;
-    margin-top: 5em;
     width: 100%;
     height: auto;
   }
@@ -1183,8 +1285,8 @@ scroll efects [data-scroll] {
     padding-left: 100%;
     will-change: transform;
     font-weight: bold;
-    color: #f9f7e0;
-    font-family: "ExtraBehind";
+    color: var(--font-color);
+    font-family: var(--fontTitle);
     text-align: center;
   }
 
@@ -1201,8 +1303,7 @@ scroll efects [data-scroll] {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*background: linear-gradient(90deg, #ffffff70, #ffffffae);*/
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
   }
 
   .imgCase img {
@@ -1212,7 +1313,8 @@ scroll efects [data-scroll] {
 
   /*footer*/
   footer {
-    background-color: #281503;
+    background-color: var(--bg-color);
+    padding-top: 6em;
     display: flex;
     gap: 15px;
     flex-direction: column;
@@ -1228,11 +1330,11 @@ scroll efects [data-scroll] {
   .footerName {
     text-align: center;
     font-size: clamp(3rem, 22vw, 12rem);
-    font-family: "Behind";
+    font-family: var(--fontTitle);
     letter-spacing: -0.02em;
     transform: translateY(300px);
     white-space: nowrap;
-    color: #f9f7e0;
+    color: var(--font-color);
     font-weight: bolder;
     cursor: default;
     overflow: hidden;
@@ -1242,7 +1344,7 @@ scroll efects [data-scroll] {
   .linha {
     width: 80%;
     height: 1px;
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
   }
 
   .ContactFooterContainer {
@@ -1254,7 +1356,7 @@ scroll efects [data-scroll] {
 
   .ContactFooterContainer h2 {
     font-size: 2.5rem;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     font-weight: bold;
     cursor: default;
   }
@@ -1280,23 +1382,23 @@ scroll efects [data-scroll] {
     outline: none;
     border-radius: 0.8em;
     background-color: #ffffff29;
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   .mailBox button {
     padding: 7px;
-    border: 1px solid #f9f7e0;
+    border: 1px solid var(--font-color);
     border-radius: 0.8em;
-    color: #f9f7e0;
-    background-color: #281503;
+    color: var(--font-color);
+    background-color: var(--bg-color);
     outline: none;
     cursor: pointer;
     transition: 0.5s ease;
   }
 
   .mailBox button:hover {
-    background-color: #f9f7e0;
-    color: #281503;
+    background-color: var(--light-bg-color);
+    color: var(--dark-font-color);
   }
 
   .contactIcons {
@@ -1313,14 +1415,14 @@ scroll efects [data-scroll] {
 
   .contactIcons a {
     text-decoration: none;
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   .contactIcons ul li {
     display: flex;
     position: relative;
     padding: 13px 15px;
-    border: 1px solid #f9f7e0;
+    border: 1px solid var(--font-color);
     border-radius: 50%;
     transition: 0.5s ease;
     cursor: pointer;
@@ -1328,16 +1430,16 @@ scroll efects [data-scroll] {
   }
 
   .contactIcons ul a li {
-    color: #f9f7e0;
+    color: var(--font-color);
     transition: 0.5s ease;
   }
 
   .contactIcons ul a:hover li {
-    color: #281503;
+    color: var(--dark-font-color);
   }
 
   .contactIcons ul li:hover {
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
   }
 
   .backToTop {
@@ -1345,7 +1447,7 @@ scroll efects [data-scroll] {
     font-size: 16px;
     box-sizing: border-box;
     text-transform: uppercase;
-    color: #f9f7e0;
+    color: var(--font-color);
     font-weight: bold;
     cursor: pointer;
     pointer-events: auto;
@@ -1359,8 +1461,8 @@ scroll efects [data-scroll] {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: #281503;
-    color: #f9f7e0;
+    background-color: var(--bg-color);
+    color: var(--font-color);
     transition: 0.8s ease-in-out;
     transition: transform 0.8s ease;
     opacity: 0;
@@ -1397,8 +1499,6 @@ scroll efects [data-scroll] {
   .textLoading1,
   .textLoading2 {
     height: auto;
-    display: flex;
-    align-items: end;
     overflow: hidden;
     transform: translateY(150px);
   }
@@ -1441,27 +1541,20 @@ scroll efects [data-scroll] {
     margin-left: 0.5em;
     font-size: 2.5rem;
     text-transform: uppercase;
-    font-family: "ExtraBehind";
+    font-family: var(--fontTitle);
     width: 100%;
     font-weight: bold;
-  }
-
-  .textLoading2 {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
   }
 
   .textWait {
     margin-left: 8em;
     margin-top: 4em;
     font-size: 1.6rem;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--textFont);
   }
 
   .textLoadingNow {
-    display: flex;
-    font-family: "BehindNormal";
+    font-family: var(--fontTitle);
     animation: NowTextAnim 1.5s 2.3s linear infinite;
     padding-right: 5rem;
     font-style: normal;
@@ -1475,8 +1568,8 @@ scroll efects [data-scroll] {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: #f3e8d5;
-    color: #281503;
+    background-color: var(--light-bg-color);
+    color: var(--dark-font-color);
     transition: transform 0.5s ease-in-out;
     opacity: 0;
     z-index: 50000;
@@ -1556,18 +1649,15 @@ scroll efects [data-scroll] {
     text-align: left;
   }
 
-  .projectScreenVideo {
-    margin-bottom: 50px;
-  }
-
-  .projectScreenFrame {
-    margin-bottom: 50px;
+  .desktopSection {
+    display: flex;
   }
 }
 
 @media (min-width: 1024px) {
   .cursor-spotlight {
     position: fixed;
+    display: block;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1580,6 +1670,52 @@ scroll efects [data-scroll] {
     mix-blend-mode: normal;
   }
 
+  .cursor-message {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    width: 0;
+    opacity: 0;
+    height: 30px;
+    padding: 0.5em;
+    background-color: var(--light-bg-color);
+    color: var(--dark-font-color);
+    border-radius: 0.5em;
+    pointer-events: none;
+    z-index: 9999999;
+    transition: 0.1s ease;
+    white-space: nowrap;
+  }
+
+  .message {
+    text-align: center;
+  }
+
+  .cursor-messageTheme {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    width: 0;
+    opacity: 0;
+    height: 30px;
+    padding: 0.5em;
+    background-color: var(--light-bg-color);
+    color: var(--dark-font-color);
+    border-radius: 0.5em;
+    pointer-events: none;
+    z-index: 9999999;
+    transition: 0.1s ease;
+    white-space: nowrap;
+  }
+
+  .messageTheme {
+    text-align: center;
+  }
+
   /*nav container*/
   .nav-container {
     position: relative;
@@ -1588,7 +1724,7 @@ scroll efects [data-scroll] {
     justify-content: end;
     height: 90px;
     width: 100%;
-    color: #f9f7e0;
+    color: var(--font-color);
     transition: 0s ease;
   }
 
@@ -1598,31 +1734,31 @@ scroll efects [data-scroll] {
 
   .nav-container.show {
     .nav-contact ul li a {
-      color: #281503;
+      color: var(--dark-font-color);
     }
     .navLogo-mobile-container {
-      color: #000;
+      color: var(--dark-font-color);
     }
 
     .mid-tab ul li a {
-      color: #281503;
+      color: var(--dark-font-color);
     }
 
     .linha1,
     .linha2 {
-      background-color: #281503;
+      background-color: var(--bg-color);
     }
 
     .my-name {
-      color: #281503;
+      color: var(--dark-font-color);
     }
 
     .my-job {
-      color: #281503;
+      color: var(--dark-font-color);
     }
 
     .fa-arrow-right-long {
-      color: #281503;
+      color: var(--dark-font-color);
     }
   }
 
@@ -1677,7 +1813,7 @@ scroll efects [data-scroll] {
 
   .nav-contact ul li a {
     text-decoration: none;
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   .menuIconContainer {
@@ -1694,20 +1830,20 @@ scroll efects [data-scroll] {
     display: none;
   }
 
-  .InitialHero span {
+  .InitialHero #heroText {
     bottom: -60px;
   }
 
   /*space to animation div*/
   .scrollSpacer {
     height: 200vh;
-    background: #281503;
+    background: var(--bg-color);
     transition: 0.2s ease;
     display: block;
   }
 
   .scrollSpacer.removeShow {
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
     animation: scrollSpacerAnim 0s ease forwards;
   }
 
@@ -1721,7 +1857,7 @@ scroll efects [data-scroll] {
     top: 50vh;
     width: 350px;
     height: 90px;
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
     z-index: 1;
   }
 
@@ -1731,10 +1867,16 @@ scroll efects [data-scroll] {
 
   .FinalHero .introText {
     font-size: 8rem;
-    color: #281503;
-    font-family: "Behind";
+    color: var(--dark-font-color);
+    font-family: var(--fontTitle);
     font-weight: bold;
     transition: 1s ease-in-out;
+  }
+
+  .FinalHeroText .grifedtext2.show {
+    padding: 1px;
+    background-color: var(--bg-color);
+    color: var(--font-color);
   }
 
   .FinalHero-container {
@@ -1802,9 +1944,9 @@ scroll efects [data-scroll] {
     width: 250px;
     padding: 15px;
     border-radius: 0.5em;
-    background-color: #281503;
-    border: solid 1px #281503;
-    color: #f9f7e0;
+    background-color: var(--bg-color);
+    border: solid 1px var(--dark-font-color);
+    color: var(--font-color);
     cursor: pointer;
     font-size: 1.6rem;
     transition: color 0.4s ease-out 0.1s;
@@ -1814,7 +1956,7 @@ scroll efects [data-scroll] {
   }
 
   .ResumeDownloadBtn:hover {
-    color: #281503;
+    color: var(--dark-font-color);
   }
 
   #ResumeDownloadBtn1.show {
@@ -1826,7 +1968,7 @@ scroll efects [data-scroll] {
   }
 
   .ResumeDownloadBtn:hover {
-    color: #281503;
+    color: var(--dark-font-color);
     transition: color 0.2s ease-in;
   }
 
@@ -1836,7 +1978,7 @@ scroll efects [data-scroll] {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #f3e8d5;
+    background-color: var(--light-bg-color);
     z-index: -1;
     transform: translateX(-101%);
   }
@@ -1863,6 +2005,25 @@ scroll efects [data-scroll] {
     animation: ShowNav 1s ease 1 forwards;
   }
 
+  .halfBg {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1752423205/parisBg_cvgljm.webp);
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    opacity: 0;
+  }
+
+  .halfBg.show {
+    opacity: 1;
+  }
+
   .FinalHeroContent .TwoPartScreen .banner {
     position: relative;
     width: 70%;
@@ -1872,6 +2033,10 @@ scroll efects [data-scroll] {
     background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_400,c_fill/IMG_20250604_134131310_vbqueg.jpg);
     background-size: cover;
     background-position: center;
+  }
+
+  .banner.show {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   }
 
   /*work tab*/
@@ -1904,14 +2069,14 @@ scroll efects [data-scroll] {
     border-radius: 50%;
     width: 280px;
     height: 280px;
-    border: 2px solid #f9f7e0;
+    border: 2px solid var(--light-bg-color);
     cursor: pointer;
   }
 
   .interactBallon .fa-arrow-right-long {
     position: absolute;
     font-size: 9rem;
-    color: #f9f7e0;
+    color: var(--light-bg-color);
     z-index: 1;
   }
 
@@ -1924,7 +2089,7 @@ scroll efects [data-scroll] {
   }
 
   .HoverBallonActived {
-    background-color: #f9f7e0;
+    background-color: var(--light-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2039,25 +2204,34 @@ scroll efects [data-scroll] {
     transform: translateX(-7px);
   }
 
-  .projectScreen {
-    padding-top: 90px;
+  .project {
+    width: 98%;
+    height: 100vh;
   }
 
-  .project {
-    width: 60%;
-    height: 500px;
+  .project-page h2 {
+    font-size: 16rem;
+  }
+
+  .projectScreen {
+    height: 100vh;
+    margin-top: 7em;
+  }
+
+  .project img {
+    border-radius: 0.5em;
+    border: none;
   }
 
   .overview {
-    margin-top: 5em;
-    margin-bottom: 5em;
-    padding-bottom: 5em;
+    position: relative;
     width: 60%;
+    height: 100vh;
     flex-direction: row;
   }
 
   .ovw-FirstPart p {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 
   .timeText {
@@ -2084,7 +2258,7 @@ scroll efects [data-scroll] {
 
   .projectLink {
     position: absolute;
-    bottom: 0;
+    bottom: 2em;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -2150,7 +2324,7 @@ scroll efects [data-scroll] {
     margin-left: 0.5em;
     font-size: 9rem;
     text-transform: uppercase;
-    font-family: "Behind";
+    font-family: var(--fontTitle);
     font-weight: bolder;
     font-weight: bold;
   }
@@ -2167,7 +2341,7 @@ scroll efects [data-scroll] {
     margin-left: 8em;
     margin-top: 4em;
     font-size: 1.6rem;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--textFont);
   }
 
   .aboutPageContainer {
@@ -2339,7 +2513,7 @@ scroll efects [data-scroll] {
 
   .overview {
     height: 100vh;
-    color: #f9f7e0;
+    color: var(--font-color);
   }
 
   .ovw-SecondPart h3,

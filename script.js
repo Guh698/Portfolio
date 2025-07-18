@@ -490,36 +490,277 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadingScrenShowHome() {
-    loadingScreen.classList.add("show");
+    if (projectPage.classList.contains("show")) {
+      textLoading3.textContent = "The project case";
+    } else {
+      textLoading3.textContent = "The website";
+    }
     pauseScroll();
-    setTimeout(() => {
-      textLoading1.classList.add("show");
-      textLoading2.classList.add("show");
-      textWait.classList.add("show");
-    }, 200);
+    let tl = gsap.timeline({
+      onComplete: () => {
+        gsap.set(".textLoading1", {
+          y: "100%",
+        });
+        gsap.set(".textLoading2", {
+          y: "100%",
+        });
+        gsap.to(".textWait", {
+          opacity: 0,
+        });
+      },
+    });
+
+    tl.to(".loadingScreen", {
+      opacity: 1,
+    });
+
+    tl.to([".textLoading1, .textLoading2"], {
+      stagger: 0.5,
+      y: 0,
+      duration: 1.5,
+    });
+
+    tl.to(".textWait", {
+      duration: 1,
+      opacity: 1,
+    });
+
+    tl.to(
+      ".loadingScreen",
+      {
+        y: "-100vh",
+        duration: 0.8,
+        ease: "power4.inOut",
+      },
+      "+=0.5"
+    );
+
     setTimeout(() => {
       content.classList.add("show");
-      loadingScreen.classList.add("showOff");
       resumeScroll();
     }, 3500);
   }
 
   function loadingScrenShow() {
-    if (projectPage.classList.contains("show")) {
-      textLoading3.innerHTML = "The website";
+    /*theme verifying*/
+    const ThemeVerify = root.getAttribute("data-theme");
+    const NextTheme = ThemeVerify === "artistic" ? "default" : "artistic";
+
+    if (NextTheme === "artistic") {
+      let tl4 = gsap.timeline({
+        onComplete: () => {
+          tl4.set("#loadingScreenProject", {
+            y: "100vh",
+            ease: "power4.inOut",
+            pointerEvents: "none",
+          });
+          gsap.set(".textLoading1", {
+            y: "150px",
+          });
+          gsap.set(".textLoading2", {
+            y: "150px",
+          });
+          gsap.to(".textWait", {
+            opacity: 0,
+          });
+        },
+      });
+
+      tl4.set("#loadingScreenProject", {
+        opacity: 1,
+        pointerEvents: "auto",
+      });
+
+      tl4.set("#loadingScreenProject", {
+        y: "100vh",
+        pointerEvents: "none",
+      });
+
+      tl4.set(".creativeProjectTransition", {
+        opacity: 0,
+      });
+
+      tl4.to("#loadingScreenProject", {
+        y: 0,
+        duration: 0.8,
+        ease: "power4.inOut",
+      });
+
+      tl4.to(
+        [".textLoading1, .textLoading2"],
+        {
+          stagger: 0.5,
+          y: 0,
+        },
+        "<"
+      );
+
+      tl4.to(".textWait", {
+        duration: 1,
+        opacity: 1,
+      });
+
+      tl4.to("#loadingScreenProject", {
+        y: "-100vh",
+        duration: 0.8,
+        ease: "power4.inOut",
+      });
+
+      setTimeout(() => {
+        textLoading3.classList.add("show");
+        textLoading4.classList.add("show");
+        textWait2.classList.add("show");
+      }, 200);
+      setTimeout(() => {
+        content.classList.add("show");
+      }, 2500);
     } else {
-      textLoading3.innerHTML = "The project case";
+      let tl4 = gsap.timeline({
+        onComplete: () => {
+          gsap.to("#loadingScreenProject", {
+            opacity: 0,
+            pointerEvents: "none",
+          });
+
+          gsap.set(".square1", {
+            y: 0,
+            delay: 1,
+            scaleX: 1,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            rotate: "180deg",
+          });
+
+          gsap.set(".square2", {
+            y: 0,
+            delay: 1,
+            scaleX: 1,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            rotate: "0",
+          });
+
+          gsap.set(".rect1", {
+            y: 0,
+            delay: 1,
+            scaleX: 1,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            rotate: "180deg",
+          });
+
+          gsap.set(".rect2", {
+            y: 0,
+            delay: 1,
+            scaleX: 1,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            rotate: "0",
+          });
+
+          gsap.set([".window1, .window2, .window3"], {
+            delay: 1,
+            opacity: 0,
+          });
+
+          if (!isMobile()) {
+            gsap.set(".fa-plane", {
+              delay: 1,
+              y: "100%",
+              x: "0%",
+            });
+          } else {
+            gsap.set(".fa-plane", {
+              delay: 1,
+              y: "50%",
+              x: "-20%",
+            });
+          }
+        },
+      });
+
+      tl4.set("#loadingScreenProject", {
+        opacity: 1,
+        y: 0,
+        x: "-150%",
+        pointerEvents: "auto",
+      });
+
+      tl4.set(".creativeProjectTransition", {
+        opacity: 1,
+      });
+
+      tl4.to("#loadingScreenProject", {
+        y: 0,
+        x: "0%",
+        duration: 2,
+        ease: "bounce.out",
+      });
+
+      tl4.to(".square1", {
+        y: "-15%",
+        scaleX: 1.5,
+        clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0 100%)",
+        rotate: "170deg",
+        ease: "power4.inOut",
+      });
+
+      tl4.to(
+        ".square2",
+        {
+          y: "30%",
+          scaleX: 1.5,
+          clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0 100%)",
+          rotate: "25deg",
+          ease: "power4.inOut",
+        },
+        "<"
+      );
+
+      tl4.to(
+        ".rect1",
+        {
+          y: "-50%",
+          scaleX: 1.1,
+          clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0 100%)",
+          rotate: "195deg",
+          ease: "power4.inOut",
+        },
+        "<"
+      );
+
+      tl4.to(
+        ".rect2",
+        {
+          y: "50%",
+          scaleX: 1.5,
+          clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0 100%)",
+          rotate: "-15deg",
+          ease: "power4.inOut",
+        },
+        "<"
+      );
+
+      tl4.to(
+        [".window1, .window2, .window3"],
+        {
+          stagger: 0.1,
+          opacity: 1,
+        },
+        "+=1"
+      );
+
+      if (!isMobile()) {
+        tl4.to(".fa-plane", {
+          y: -window.innerHeight + 80,
+          duration: 3,
+          x: window.innerWidth + 100,
+          ease: "none",
+        });
+      } else {
+        tl4.to(".fa-plane", {
+          duration: 1.5,
+          x: window.innerWidth + 100,
+          ease: "none",
+        });
+      }
     }
-    loadingScreenProject.classList.add("show");
-    setTimeout(() => {
-      textLoading3.classList.add("show");
-      textLoading4.classList.add("show");
-      textWait2.classList.add("show");
-    }, 200);
-    setTimeout(() => {
-      content.classList.add("show");
-      loadingScreenProject.classList.add("showOff");
-    }, 2500);
   }
 
   function loadingScrenShowOff() {
@@ -606,20 +847,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const timings = {
     LOADING_SCREEN_DURATION: 3700,
-    NAV_TO_PROJECTS_DELAY: 1000,
-    NAV_TO_HOME_CONTENT_DELAY: 1500,
+    NAV_TO_PROJECTS_DELAY: 2500,
+    NAV_TO_HOME_CONTENT_DELAY: 2500,
     NAV_TO_HOME_REFRESH_DELAY: 2500,
   };
 
   const navigateToHome = () => {
+    const currentTheme = root.getAttribute("data-theme");
+    const nextTheme = currentTheme === "artistic" ? "default" : "artistic";
     setTimeout(() => {
       projectPage.classList.remove("show");
       mainPage.classList.remove("showOff");
-      gsap.to(window, {
-        scrollTo: savedScroll,
-        duration: 0.5,
-        ease: "power1.inOut",
-      });
+      if (nextTheme === "default") {
+        gsap.to(window, {
+          scrollTo: savedScroll,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      } else {
+        gsap.to(window, {
+          scrollTo: savedScroll,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      }
     }, timings.NAV_TO_HOME_CONTENT_DELAY);
 
     setTimeout(() => {
@@ -630,12 +881,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const navigateToProjects = () => {
     setTimeout(() => {
-      gsap.to(window, {
-        scrollTo: 0,
-        duration: 0.5,
-        ease: "power1.inOut",
-      });
-
+      const currentTheme = root.getAttribute("data-theme");
+      const nextTheme = currentTheme === "artistic" ? "default" : "artistic";
+      if (nextTheme === "default") {
+        gsap.to(window, {
+          scrollTo: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      } else {
+        gsap.to(window, {
+          delay: 2.5,
+          scrollTo: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      }
       finalHero.style.position = "absolute";
       ToggleProject(pages["project1"]);
     }, timings.NAV_TO_PROJECTS_DELAY);
@@ -700,6 +961,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Object.values(pages).forEach((project) => {
     if (project.btn) {
       project.btn.addEventListener("click", (push = true) => {
+        /*textLoading3.textContent = "The project case";*/
         loadingScrenShow();
         if (push) history.pushState({ page: "projects" }, "", "/projects");
         setTimeout(() => {
@@ -719,7 +981,7 @@ document.addEventListener("DOMContentLoaded", () => {
             finalHero.style.position = "absolute";
           }, 100);
           ToggleProject(project);
-        }, 1000);
+        }, 2000);
       });
     }
   });
@@ -1147,4 +1409,66 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
+
+  const btnJS = document.getElementById("btnJS");
+
+  btnJS.addEventListener("mouseenter", () => {
+    gsap.to(".shape", {
+      clipPath: "circle(150% at -10% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  btnJS.addEventListener("mouseleave", () => {
+    gsap.to(".shape", {
+      clipPath: "circle(0% at -10% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  const btnShape1 = document.getElementById("socialBt1");
+  const btnShape2 = document.getElementById("socialBt2");
+  const btnShape3 = document.getElementById("socialBt3");
+
+  btnShape1.addEventListener("mouseenter", () => {
+    gsap.to(".btnShape1", {
+      clipPath: "circle(150% at 50% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  btnShape1.addEventListener("mouseleave", () => {
+    gsap.to(".btnShape1", {
+      clipPath: "circle(0% at 50% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  btnShape2.addEventListener("mouseenter", () => {
+    gsap.to(".btnShape2", {
+      clipPath: "circle(150% at 50% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  btnShape2.addEventListener("mouseleave", () => {
+    gsap.to(".btnShape2", {
+      clipPath: "circle(0% at 50% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  btnShape3.addEventListener("mouseenter", () => {
+    gsap.to(".btnShape3", {
+      clipPath: "circle(150% at 50% 50%)",
+      ease: "power2.inOut",
+    });
+  });
+
+  btnShape3.addEventListener("mouseleave", () => {
+    gsap.to(".btnShape3", {
+      clipPath: "circle(0% at 50% 50%)",
+      ease: "power2.inOut",
+    });
+  });
 });
